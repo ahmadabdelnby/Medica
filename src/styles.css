@@ -1,1 +1,110 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+}
+.reg-side-bar{
+    background-color: #024d9a;
+}
+
+.reg-side-bar h1{
+    font-weight: bold;
+    color: #f0f0f0;
+}
+
+/* .navigation-bar{
+    background-color: #024d9a;
+} */
+
+header{
+    background-color: #024d9a;
+    width: 100%;
+    /* position: fixed; */
+    /* z-index: 999; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navigation{
+    background-color: #024d9a;
+    width: 100%;
+    /* position: fixed; */
+    /* z-index: 999; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 200px;
+}
+
+.navigation a{
+    text-decoration: none;
+    color: #f0f0f0;
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.navigation a:hover{
+    color:#fa930d ;
+}
+
+.logo{
+    text-decoration: none;
+    color: #f0f0f0;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 33px;
+    border-bottom:solid 2px #fa930d;
+}
+
+.logo:hover{
+    color:#fa930d;
+    /* border-bottom:solid 2px #fa930d; */
+}
+
+.Reg-button {
+    font-size: large;
+    font-weight: bold;
+    color: black;
+    background-color: #fa930d;
+
+}
+
+.Reg-form label{
+    font-weight: bold;
+    
+}
+
+.login-card{
+    background-color: white;
+
+    width: 15em;
+    box-shadow: 0 5px 25px rgba(1 1 1 /15%);
+   /* border-radius: 10px;  */
+    padding: 15px;
+    margin: 15px;
+    transition: 0.7s ease;
+  }
+
+  .login-card h1{
+    color: #024d9a;
+  }
+
+  .login-card label{
+    font-weight: bold;
+  }
+
+  .login-card button{
+    background-color: #fa930d;
+    font-size: large;
+    font-weight: 500;
+  }
+
+  .login-page{
+    background-image: url(../src/assets/images/hosp.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
