@@ -5,6 +5,9 @@
 }
 .reg-side-bar{
     background-color: #024d9a;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-right: #f0f0f0;
 }
 
 .reg-side-bar h1{
@@ -49,6 +52,8 @@ header{
 
 .navigation a:hover{
     color:#fa930d ;
+    border-bottom:solid 2px #fa930d;
+    border-radius: 10px;
 }
 
 .logo{
@@ -58,6 +63,12 @@ header{
     font-weight: 700;
     font-size: 33px;
     border-bottom:solid 2px #fa930d;
+    border-radius: 10px;
+}
+
+.logo img{
+    height: 75px;
+    width: 125px;
 }
 
 .logo:hover{
@@ -104,7 +115,23 @@ header{
   }
 
   .login-page{
-    background-image: url(../src/assets/images/hosp.jpg);
+    background-image: url(../src/assets/images/hosp\ 2.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+  }
+
+  .home-hero {
+    background-image: url(./assets/images/hosp.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+  }
+
+  .more-btn{
+    background-color: inherit;
+  }
+
+  .more-elements{
+    background-color:#024d9a;
   }
