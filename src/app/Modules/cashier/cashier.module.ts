@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ReservationComponent } from './reservation/reservation.component';
 import { WaitingListComponent } from './waiting-list/waiting-list.component';
 import { CashierSystemComponent } from './cashier-system/cashier-system.component';
+import { ClinicWatingListComponent } from './clinic-wating-list/clinic-wating-list.component';
+import { LabWatingListComponent } from './lab-wating-list/lab-wating-list.component';
 
 
 
@@ -10,7 +12,9 @@ import { CashierSystemComponent } from './cashier-system/cashier-system.componen
   declarations: [
     ReservationComponent,
     WaitingListComponent,
-    CashierSystemComponent
+    CashierSystemComponent,
+    ClinicWatingListComponent,
+    LabWatingListComponent
   ],
   imports: [
     CommonModule
@@ -18,7 +22,9 @@ import { CashierSystemComponent } from './cashier-system/cashier-system.componen
   exports: [
     ReservationComponent,
     WaitingListComponent,
-    CashierSystemComponent
+    CashierSystemComponent,
+    ClinicWatingListComponent,
+    LabWatingListComponent
   ]
 })
 export class CashierModule { }
