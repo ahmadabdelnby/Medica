@@ -1,0 +1,25 @@
+.image{
+    width: 100%;
+    height: 350px;
+    border-radius: 20px;
+}
+
+.cashier-system{
+    background-image: url(../../../../assets/images/hosp\ 2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.cashier-cards{
+    border-radius: 20px;
+    
+}
+
+.cashier-cards a{
+    background-color: #fa930d;
+    font-size: large;
+    font-weight: 500;
+}
+
+.cashier-cards a:hover{
+    background-color: #0d6efd;
+}

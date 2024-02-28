@@ -1,23 +1,32 @@
-<header>
-  <a href="#" class="logo"><img src="../../../assets/images/logo2.png" alt="logo"></a>
-  <nav class="navigation">
-    <a href="#">Home</a>
-    <a href="#">Clinics</a>
-    <a href="#">Pharmacies</a>
-    <a href="#">Labs</a>
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle more-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        More
-      </button>
-      <ul class="dropdown-menu more-elements">
-        <li><a class="dropdown-item" href="#">First-Aid</a></li>
-        <li><a class="dropdown-item" href="#">Contact Us</a></li>
-        <li><a class="dropdown-item" href="#">About Us</a></li>
-      </ul>
+<header class="position-fixed w-100 m-0">
+  <div class="col-2">
+    <a routerLink="/Home" class="logo"><img src="../../../assets/images/logo2.png" alt="logo"></a>
+  </div>
+  <div class="col-8">
+    <nav class="navigation">
+      <a routerLink="/Home">Home</a>
+      <a routerLink="/Home">Clinics</a>
+      <a routerLink="/Home">Pharmacies</a>
+      <a routerLink="/Home">Labs</a>
+      <a routerLink="/Cashier">Cashier</a>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle more-btn" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          More
+        </button>
+        <ul class="dropdown-menu more-elements">
+          <li><a class="dropdown-item" routerLink="/Home">First-Aid</a></li>
+          <li><a class="dropdown-item" routerLink="/Home">Contact Us</a></li>
+          <li><a class="dropdown-item" routerLink="/Home">About Us</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="col-2">
+    <div class="d-flex justify-content-end">
+      <a class="btn btn-primary me-1" routerLink="/Login">Login</a>
+      <a class="btn btn-primary me-1" routerLink="/Register">Register</a>
     </div>
-  </nav>
-  <div class="d-flex justify-content-between">
-  <a class="btn btn-primary me-1" href="#">Login</a>
-  <a class="btn btn-primary me-1" href="#">Register</a>
-</div>
+  </div>
 </header>

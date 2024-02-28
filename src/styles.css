@@ -3,27 +3,9 @@
     margin: 0;
     padding: 0;
 }
-.reg-side-bar{
-    background-color: #024d9a;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-right: #f0f0f0;
-}
-
-.reg-side-bar h1{
-    font-weight: bold;
-    color: #f0f0f0;
-}
-
-/* .navigation-bar{
-    background-color: #024d9a;
-} */
-
-header{
+ /* header{
     background-color: #024d9a;
     width: 100%;
-    /* position: fixed; */
-    /* z-index: 999; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,8 +15,7 @@ header{
 .navigation{
     background-color: #024d9a;
     width: 100%;
-    /* position: fixed; */
-    /* z-index: 999; */
+   
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,8 +54,8 @@ header{
 
 .logo:hover{
     color:#fa930d;
-    /* border-bottom:solid 2px #fa930d; */
-}
+    
+}  */
 
 .Reg-button {
     font-size: large;
