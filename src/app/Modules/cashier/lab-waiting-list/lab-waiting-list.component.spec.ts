@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LabWatingListComponent } from './lab-wating-list.component';
+import { LabWaitingListComponent } from './lab-waiting-list.component';
 
-describe('LabWatingListComponent', () => {
-  let component: LabWatingListComponent;
-  let fixture: ComponentFixture<LabWatingListComponent>;
+describe('LabWaitingListComponent', () => {
+  let component: LabWaitingListComponent;
+  let fixture: ComponentFixture<LabWaitingListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [LabWatingListComponent]
+      declarations: [LabWaitingListComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(LabWatingListComponent);
+    fixture = TestBed.createComponent(LabWaitingListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

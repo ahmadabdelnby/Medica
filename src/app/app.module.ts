@@ -9,13 +9,15 @@ import { FooterComponent } from './Shared-Components/footer/footer.component';
 import { HomeComponent } from './Shared-Components/home/home.component';
 import { ProfileModule } from './Modules/profile/profile.module';
 import { CashierModule } from './Modules/cashier/cashier.module';
+import { NotFoundComponent } from './Shared-Components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
