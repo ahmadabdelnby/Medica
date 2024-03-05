@@ -8,15 +8,18 @@ import { ReservationComponent } from './Modules/cashier/reservation/reservation.
 import { WaitingListComponent } from './Modules/cashier/waiting-list/waiting-list.component';
 import { ClinicWaitingListComponent } from './Modules/cashier/clinic-waiting-list/clinic-waiting-list.component';
 import { NotFoundComponent } from './Shared-Components/not-found/not-found.component';
+import { LabWaitingListComponent } from './Modules/cashier/lab-waiting-list/lab-waiting-list.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'/Home' , pathMatch:'full'},
   {path:'Home' , component:HomeComponent},
   {path:'WaitingList' , component:WaitingListComponent},
   {path:'ClinicWaitingList' , component:ClinicWaitingListComponent},
+  {path:'LabWAitingList' , component:LabWaitingListComponent} ,
   {path:'Register', component:RegisterComponent},
   {path:'Login' , component:LoginComponent},
   {path:'Cashier' , component:CashierSystemComponent},
+  {path:'Reservation', component:ReservationComponent},
   {path:'**' , component:NotFoundComponent}
 ];
 

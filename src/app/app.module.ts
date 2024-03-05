@@ -10,6 +10,7 @@ import { HomeComponent } from './Shared-Components/home/home.component';
 import { ProfileModule } from './Modules/profile/profile.module';
 import { CashierModule } from './Modules/cashier/cashier.module';
 import { NotFoundComponent } from './Shared-Components/not-found/not-found.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NotFoundComponent } from './Shared-Components/not-found/not-found.compo
     AppRoutingModule,
     AuthenticationModule,
     ProfileModule,
-    CashierModule
+    CashierModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration()
