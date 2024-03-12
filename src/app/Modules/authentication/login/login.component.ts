@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { AuthenticationService } from '../../../Services/authentication.service';
+import { LoginToken } from '../../../Models/login-token';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { error } from 'console';
 
 @Component({
   selector: 'app-login',
@@ -7,22 +11,27 @@ import { AuthenticationService } from '../../../Services/authentication.service'
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  constructor(private authService : AuthenticationService){}
 
-  login() {
-    this.authService.login({ username: 'user', password: 'password' }).subscribe(response => {
-      console.log('Login successful', response);
-    }, error => {
-      console.error('Login failed', error);
-    });
+  constructor(private authService: AuthenticationService,
+    private _snackBar: MatSnackBar,
+    private router: Router) { }
+
+  login(username: string, password: string): void {
+    const observer = {
+      next: (token: LoginToken) => {
+        // Token generated, handle successful login
+        console.log('Login successful. Token:', token.loginToken);
+        // Save token to local storage or session storage
+        localStorage.setItem('token', token.loginToken);
+      },
+      error: (error: any) => {
+        // Handle login error
+        console.error('Login failed:', error);
+      }
+    };
+  
+    this.authService.Login(username, password).subscribe(observer);
   }
 
-  logout() {
-    this.authService.logout().subscribe(response => {
-      console.log('Logout successful', response);
-    }, error => {
-      console.error('Logout failed', error);
-    });
-  }
 
 }

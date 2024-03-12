@@ -11,6 +11,9 @@ import { ProfileModule } from './Modules/profile/profile.module';
 import { CashierModule } from './Modules/cashier/cashier.module';
 import { NotFoundComponent } from './Shared-Components/not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar'
+import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,10 +29,13 @@ import { HttpClientModule } from '@angular/common/http';
     AuthenticationModule,
     ProfileModule,
     CashierModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule,
+    FormsModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })
