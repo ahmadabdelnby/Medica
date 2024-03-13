@@ -13,7 +13,7 @@ import { NotFoundComponent } from './Shared-Components/not-found/not-found.compo
 import { HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar'
-import { FormsModule , ReactiveFormsModule } from '@angular/forms';
+import { FormGroupDirective, FormsModule , ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { FormsModule , ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +31,8 @@ import { FormsModule , ReactiveFormsModule } from '@angular/forms';
     CashierModule,
     HttpClientModule,
     MatSnackBarModule,
-    FormsModule
+    FormsModule,
+    NgModule
   ],
   providers: [
     provideClientHydration(),

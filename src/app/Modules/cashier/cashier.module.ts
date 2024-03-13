@@ -5,6 +5,7 @@ import { WaitingListComponent } from './waiting-list/waiting-list.component';
 import { CashierSystemComponent } from './cashier-system/cashier-system.component';
 import { LabWaitingListComponent } from './lab-waiting-list/lab-waiting-list.component';
 import { ClinicWaitingListComponent } from './clinic-waiting-list/clinic-waiting-list.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -17,7 +18,8 @@ import { ClinicWaitingListComponent } from './clinic-waiting-list/clinic-waiting
     ClinicWaitingListComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule    
   ],
   exports: [
     ReservationComponent,
