@@ -9,6 +9,7 @@ import { FooterComponent } from './Shared-Components/footer/footer.component';
 import { HomeComponent } from './Shared-Components/home/home.component';
 import { ProfileModule } from './Modules/profile/profile.module';
 import { CashierModule } from './Modules/cashier/cashier.module';
+import { ClinicsModule } from './Modules/clinics/clinics.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CashierModule } from './Modules/cashier/cashier.module';
     AppRoutingModule,
     AuthenticationModule,
     ProfileModule,
-    CashierModule
+    CashierModule,
+    ClinicsModule,
   ],
   providers: [
     provideClientHydration()
