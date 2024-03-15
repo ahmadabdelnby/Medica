@@ -1,10 +1,46 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import { AuthenticationService } from '../../../Services/authentication.service';
+import { LoginToken } from '../../../Models/login-token';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { error } from 'console';
+import { Subscription } from 'rxjs';
+import { NgModel } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
+export class LoginComponent implements OnDestroy {
+
+  constructor(private authService: AuthenticationService,
+    private _snackBar: MatSnackBar,
+    private router: Router ,
+    private loginSubscreption :Subscription
+    ) { }
+  ngOnDestroy(): void {
+    // throw new Error('Method not implemented.');
+    
+  }
+
+  login(username: string, password: string): void {
+    const observer = {
+      next: (token: LoginToken) => {
+        // Token generated, handle successful login
+        console.log('Login successful. Token:', token.loginToken);
+        // Save token to local storage or session storage
+        localStorage.setItem('token', token.loginToken);
+      },
+      error: (error: any) => {
+        // Handle login error
+        console.error('Login failed:', error);
+      }
+    };
+  
+    this.authService.Login(username, password).subscribe(observer);
+  }
+
 
 }

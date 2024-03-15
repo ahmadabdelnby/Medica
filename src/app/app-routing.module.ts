@@ -6,22 +6,25 @@ import { HomeComponent } from './Shared-Components/home/home.component';
 import { CashierSystemComponent } from './Modules/cashier/cashier-system/cashier-system.component';
 import { ReservationComponent } from './Modules/cashier/reservation/reservation.component';
 import { WaitingListComponent } from './Modules/cashier/waiting-list/waiting-list.component';
-import { LabWatingListComponent } from './Modules/cashier/lab-wating-list/lab-wating-list.component';
-import { ClinicWatingListComponent } from './Modules/cashier/clinic-wating-list/clinic-wating-list.component';
+import { ClinicWaitingListComponent } from './Modules/cashier/clinic-waiting-list/clinic-waiting-list.component';
+import { NotFoundComponent } from './Shared-Components/not-found/not-found.component';
+import { LabWaitingListComponent } from './Modules/cashier/lab-waiting-list/lab-waiting-list.component';
 import { ClinicloginComponent } from './Modules/clinics/cliniclogin/cliniclogin.component';
 import { ReportComponent } from './Modules/clinics/report/report.component';
 import { UrprofileComponent } from './Modules/clinics/urprofile/urprofile.component';
 import { DoctorReservationComponent } from './Modules/clinics/doctor-reservation/doctor-reservation.component';
 
 const routes: Routes = [
-  {path: 'Login' , component:LoginComponent},
-  {path: 'Register' , component:RegisterComponent},
-  {path: 'Home' , component:HomeComponent},
-  {path: 'Cashier' ,component:CashierSystemComponent},
-  {path: 'Reservation' ,component:ReservationComponent},
-  {path: 'WaitingList',component:WaitingListComponent },
-  {path: 'LabWaitingList',component:LabWatingListComponent},
-  {path:'ClinicWaitingList', component:ClinicWatingListComponent},
+  {path:'', redirectTo:'/Home' , pathMatch:'full'},
+  {path:'Home' , component:HomeComponent},
+  {path:'WaitingList' , component:WaitingListComponent},
+  {path:'ClinicWaitingList' , component:ClinicWaitingListComponent},
+  {path:'LabWAitingList' , component:LabWaitingListComponent} ,
+  {path:'Register', component:RegisterComponent},
+  {path:'Login' , component:LoginComponent},
+  {path:'Cashier' , component:CashierSystemComponent},
+  {path:'Reservation', component:ReservationComponent},
+  {path:'**' , component:NotFoundComponent},
   {path: 'cliniclogin' , component:ClinicloginComponent},
   {path: 'report' , component:ReportComponent},
   {path: 'urprofile', component:UrprofileComponent},

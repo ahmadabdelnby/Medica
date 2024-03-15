@@ -9,20 +9,20 @@ header{
 
 .navigation{
     background-color: #024d9a;
-    width: 100%;
+    /* width: 50%; */
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5px 200px;
+    /* padding: 5px 200px; */
 }
 
 .navigation a{
     text-decoration: none;
     color: #f0f0f0;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 500;
-    margin-left: 20px;
-    margin-right: 20px;
+    /* margin-left: 20px; */
+    /* margin-right: 20px; */
 }
 
 .navigation a:hover{
@@ -37,15 +37,19 @@ header{
     text-transform: uppercase;
     font-weight: 700;
     font-size: 33px;
-    
-    border-radius: 10pxborder-bottom:solid 2px #fa930d;;
+    border-radius: 10px ;
+    border-bottom:solid 2px #fa930d;
 }
 
 .logo img{
-    height: 75px;
-    width: 125px;
+    height: 60px;
+    width: 100px;
 }
 
 .logo:hover{
     color:#fa930d;
 }
+.navigation-items:hover{
+    color:#fa930d;
+}
+

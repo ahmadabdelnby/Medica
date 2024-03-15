@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { ReservationComponent } from './reservation/reservation.component';
 import { WaitingListComponent } from './waiting-list/waiting-list.component';
 import { CashierSystemComponent } from './cashier-system/cashier-system.component';
-import { ClinicWatingListComponent } from './clinic-wating-list/clinic-wating-list.component';
-import { LabWatingListComponent } from './lab-wating-list/lab-wating-list.component';
+import { LabWaitingListComponent } from './lab-waiting-list/lab-waiting-list.component';
+import { ClinicWaitingListComponent } from './clinic-waiting-list/clinic-waiting-list.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -13,18 +14,19 @@ import { LabWatingListComponent } from './lab-wating-list/lab-wating-list.compon
     ReservationComponent,
     WaitingListComponent,
     CashierSystemComponent,
-    ClinicWatingListComponent,
-    LabWatingListComponent
+    LabWaitingListComponent,
+    ClinicWaitingListComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule    
   ],
   exports: [
     ReservationComponent,
     WaitingListComponent,
     CashierSystemComponent,
-    ClinicWatingListComponent,
-    LabWatingListComponent
+    ClinicWaitingListComponent,
+    LabWaitingListComponent
   ]
 })
 export class CashierModule { }

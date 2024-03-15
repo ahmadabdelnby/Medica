@@ -1,23 +1,23 @@
-<header class="position-fixed w-100 m-0">
+<!-- <header class="position-fixed w-100 m-0">
   <div class="col-2">
     <a routerLink="/Home" class="logo"><img src="../../../assets/images/logo2.png" alt="logo"></a>
   </div>
   <div class="col-8">
     <nav class="navigation">
-      <a routerLink="/Home">Home</a>
-      <a routerLink="/Home">Clinics</a>
-      <a routerLink="/Home">Pharmacies</a>
-      <a routerLink="/Home">Labs</a>
-      <a routerLink="/Cashier">Cashier</a>
+      <a routerLink="/Home" routerLinkActive="active">Home</a>
+      <a routerLink="/Home" routerLinkActive="active">Clinics</a>
+      <a routerLink="/Home" routerLinkActive="active">Pharmacies</a>
+      <a routerLink="/Home" routerLinkActive="active">Labs</a>
+      <a routerLink="/Cashier" routerLinkActive="active">Cashier</a>
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle more-btn" type="button" data-bs-toggle="dropdown"
           aria-expanded="false">
           More
         </button>
         <ul class="dropdown-menu more-elements">
-          <li><a class="dropdown-item" routerLink="/Home">First-Aid</a></li>
-          <li><a class="dropdown-item" routerLink="/Home">Contact Us</a></li>
-          <li><a class="dropdown-item" routerLink="/Home">About Us</a></li>
+          <li><a class="dropdown-item" routerLink="/Home" routerLinkActive="active">First-Aid</a></li>
+          <li><a class="dropdown-item" routerLink="/Home" routerLinkActive="active">Contact Us</a></li>
+          <li><a class="dropdown-item" routerLink="/Home" routerLinkActive="active">About Us</a></li>
         </ul>
       </div>
     </nav>
@@ -29,4 +29,47 @@
       <a class="btn btn-primary me-1" routerLink="/Register">Register</a>
     </div>
   </div>
-</header>
+</header> -->
+
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+<div class="container-fluid m-0 p-0 position-fixed">
+  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <div class="col-md-3 mb-2 mb-md-0">
+      <!-- <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+        <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+      </a> -->
+
+      <a routerLink="/Home" class="logo"><img src="../../../assets/images/logo2.png" alt="logo"></a>
+    </div>
+
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 navigation">
+      <li><a routerLink="/Home" class="navigation-items nav-link px-2 link-light link-offset-2-hover">Home</a></li>
+      <li><a routerLink="#" class="nav-link px-2 link-light">Clinics</a></li>
+      <li><a routerLink="/Home" class="nav-link px-2 link-light">Pharmacies</a></li>
+      <li><a routerLink="/Home" class="nav-link px-2 link-light">Labs</a></li>
+      <li><a routerLink="/Cashier" class="nav-link px-2 link-light">Cashier</a></li>
+
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle more-btn" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          More
+        </button>
+        <ul class="dropdown-menu more-elements">
+          <li><a class="dropdown-item" routerLink="#" routerLinkActive="active">First-Aid</a></li>
+          <li><a class="dropdown-item" routerLink="#" routerLinkActive="active">Contact Us</a></li>
+          <li><a class="dropdown-item" routerLink="#" routerLinkActive="active">About Us</a></li>
+        </ul>
+      </div>
+    </ul>
+
+    
+
+    <div class="col-md-3 text-end">
+      <button routerLink="/Login" type="button" class="btn btn-primary me-2">Login</button>
+      <button routerLink="/Register" type="button" class="btn btn-primary">Sign-up</button>
+    </div>
+  </header>
+</div>

@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ErrorHandlingComponent } from './error-handling/error-handling.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -15,7 +16,8 @@ import { ErrorHandlingComponent } from './error-handling/error-handling.componen
     ErrorHandlingComponent
   ],
   imports: [
-    CommonModule
+    CommonModule ,
+    FormsModule
   ],
   exports:[
     LoginComponent,

@@ -10,24 +10,30 @@ import { HomeComponent } from './Shared-Components/home/home.component';
 import { ProfileModule } from './Modules/profile/profile.module';
 import { CashierModule } from './Modules/cashier/cashier.module';
 import { ClinicsModule } from './Modules/clinics/clinics.module';
+import { NotFoundComponent } from './Shared-Components/not-found/not-found.component';
+import { HttpClientModule } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar'
+import { FormGroupDirective, FormsModule , ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AuthenticationModule,
     ProfileModule,
-    CashierModule,
-    ClinicsModule,
+    CashierModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })
