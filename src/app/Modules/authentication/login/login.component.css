@@ -1,0 +1,30 @@
+ .login-card{
+    background-color: white;
+
+    width: 15em;
+    box-shadow: 0 5px 25px rgba(1 1 1 /15%);
+   border-radius: 10px; 
+    padding: 15px;
+    margin: 15px;
+    transition: 0.7s ease;
+  }
+
+  .login-card h1{
+    color: #024d9a;
+  }
+
+  .login-card label{
+    font-weight: bold;
+  }
+
+  .login-card button{
+    background-color: #fa930d;
+    font-size: large;
+    font-weight: 500;
+  }
+
+  .login-page{
+    background-image: url(../../../../assets/images/hosp\ 2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  } 

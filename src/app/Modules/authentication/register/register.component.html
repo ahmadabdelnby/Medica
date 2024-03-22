@@ -3,84 +3,96 @@
     <div class="row justify-content-center">
       <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
+
+
+
+
+        <!-- validating register form /////////////////////////////////////////////////////////////////////////////////////// -->
         <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
         <form class="mx-1 mx-md-4" (ngSubmit)="submitForm()">
-          
-          <div class="d-flex flex-row align-items-center mb-4">
 
+          <div class="d-flex flex-row align-items-center mb-4">
+            <div class="form-outline flex-fill mb-0">
+              <label class="form-label" for="form3Example3c">First name</label>
+              <input type="text" id="username" [(ngModel)]="user.firstName" name="username" class="form-control"
+                required />
+                <small>First name is required</small>
+            </div>
+          </div>
+
+          <div class="d-flex flex-row align-items-center mb-4">
+            <div class="form-outline flex-fill mb-0">
+              <label class="form-label" for="form3Example3c">Last Name</label>
+              <input type="text" id="username" [(ngModel)]="user.lastName" name="username" class="form-control"
+                required />
+                <small>Last name is required</small>
+            </div>
+          </div>
+
+          <div class="d-flex flex-row align-items-center mb-4">
             <div class="form-outline flex-fill mb-0">
               <label class="form-label" for="form3Example1c">National ID</label>
-              <input type="number" id="nid" [(ngModel)]="user.nid" name="nid" class="form-control" required/>
+              <input type="number" id="nid" [(ngModel)]="user.nid" name="nid" class="form-control" required />
+              <small>National ID is required</small>
             </div>
           </div>
 
           <div class="d-flex flex-row align-items-center mb-4">
-
             <div class="form-outline flex-fill mb-0">
               <label class="form-label" for="form3Example3c">User Name</label>
-              <input type="text" id="username" [(ngModel)]="user.username" name="username" class="form-control" required/>
+              <input type="text" id="username" [(ngModel)]="user.username" name="username" class="form-control"
+                required />
+                <small>User Name is required</small>
             </div>
           </div>
 
           <div class="d-flex flex-row align-items-center mb-4">
             <div class="form-outline flex-fill mb-0">
-              <label class="form-label" for="form3Example1c">Your Name</label>
-              <input type="text" id="form3Example1c" [(ngModel)]="user.name" name="Name" class="form-control" required/>
-            </div>
-          </div>          
-
-          <!-- <div class="d-flex flex-row align-items-center mb-4">
-
-            <div class="form-outline flex-fill mb-0">
-              <label class="form-label" for="form3Example1c">Phone Number</label>
-              <input type="number" id="form3Example1c" class="form-control" />
-            </div>
-          </div> -->
-
-          <div class="d-flex flex-row align-items-center mb-4">
-
-            <div class="form-outline flex-fill mb-0">
               <label class="form-label" for="form3Example3c">Your Email</label>
-              <input type="email" id="form3Example3c" [(ngModel)]="user.email" name="email" class="form-control" required/>
+              <input type="email" id="form3Example3c" [(ngModel)]="user.email" name="email" class="form-control"
+                required />
+                <small>Email is required</small>
             </div>
           </div>
 
           <div class="col-md-6 mb-4">
-
+            <small>Gender is required</small>
             <label class="mb-2 pb-1 d-block">Gender: </label>
-
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" [(ngModel)]="user.gender" name="gender" id="femaleGender" value="Female"
-                checked required/>
+              <input class="form-check-input" type="radio" [(ngModel)]="user.gender" name="gender" id="femaleGender"
+                value="Female" checked required />
               <label class="form-check-label" for="femaleGender">Female</label>
             </div>
 
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" [(ngModel)]="user.gender" name="gender" id="maleGender" value="Male" required/>
+              <input class="form-check-input" type="radio" [(ngModel)]="user.gender" name="gender" id="maleGender"
+                value="Male" required />
               <label class="form-check-label" for="maleGender">Male</label>
             </div>
 
           </div>
 
           <div class="d-flex flex-row align-items-center mb-4">
-
             <div class="form-outline flex-fill mb-0">
               <label class="form-label" for="form3Example4c">Password</label>
-              <input type="password" id="form3Example4c" [(ngModel)]="user.password" name="password" class="form-control" required/>
+              <input type="password" id="form3Example4c" [(ngModel)]="user.password" name="password"
+                class="form-control" required />
+                <small>password is required</small>
             </div>
           </div>
 
           <div class="d-flex flex-row align-items-center mb-4">
-
             <div class="form-outline flex-fill mb-0">
               <label class="form-label" for="form3Example4cd">Confirm password</label>
-              <input type="password" id="form3Example4cd" [(ngModel)]="user.confirmPassword" name="confirmPassword" class="form-control" required/>
+              <input type="password" id="form3Example4cd" [(ngModel)]="user.confirmPassword" name="confirmPassword"
+                class="form-control" required />
+                <small>Confirm password is required</small>
             </div>
           </div>
 
           <div class="form-check d-flex justify-content-center mb-5">
-            <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" required/>
+            <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" required />
             <label class="form-check-label" for="form2Example3">
               I agree all statements in <a href="#!">Terms of service</a>
             </label>

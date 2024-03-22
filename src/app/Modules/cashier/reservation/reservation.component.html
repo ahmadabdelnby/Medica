@@ -5,38 +5,57 @@
 
         <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Create Reservation</p>
 
-        <form class="mx-1 mx-md-4">
+        <form class="mx-1 mx-md-4" (ngSubmit)="saveReservation()">
 
           <div class="d-flex flex-row align-items-center mb-4">
             <div class="form-outline flex-fill mb-0">
-              <label class="form-label" for="form3Example1c">Your Name</label>
-              <input type="text" id="form3Example1c" class="form-control" />
+              <label class="form-label" for="form3Example1c">Patient Name</label>
+              <input type="text" [(ngModel)]="reservation.username" id="form3Example1c" class="form-control" />
             </div>
           </div>
 
           <div class="d-flex flex-row align-items-center mb-4">
-
             <div class="form-outline flex-fill mb-0">
-              <label class="form-label" for="form3Example1c">National ID</label>
-              <input type="number" id="form3Example1c" class="form-control" />
+              <label class="form-label" for="form3Example1c">Patient National ID</label>
+              <input type="text" [(ngModel)]="reservation.nationalId" id="form3Example1c" class="form-control" />
             </div>
           </div>
 
           <div class="col-md-6 mb-4">
-
+            
             <label class="mb-2 pb-1 d-block">Lab Or Clinic: </label>
-
             <div class="form-check form-check-inline">
-              <input class="form-check-input" [(ngModel)]="labOrClinic" type="radio" name="labOrClinic" id="Lab" value="option1" checked />
+              <input class="form-check-input" [(ngModel)]="labOrClinic" type="radio" name="labOrClinic" id="Lab"
+                value="Lab" checked />
               <label class="form-check-label" for="femaleGender">Lab</label>
             </div>
 
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="labOrClinic" id="Clinic" value="option2" />
+              <input class="form-check-input" [(ngModel)]="labOrClinic" type="radio" name="labOrClinic" id="Clinic"
+                value="Clinic" />
               <label class="form-check-label" for="maleGender">Clinic</label>
             </div>
 
           </div>
+
+          <div *ngIf="labOrClinic === 'Clinic'" class="d-flex flex-column m-4">
+            <select [(ngModel)]="reservation.specialty" class="rounded-2">
+              <option value="clinic">Select Specialty</option>
+              <option *ngFor="let department of departments">{{ department.name }}</option>
+            </select>
+          </div>
+
+          <!-- <select [(ngModel)]="reservation.clinicOrLab">
+              <option value="clinic">Clinic</option>
+              <option value="lab">Lab</option>
+            </select> -->
+
+          <!-- <select *ngIf="reservation.clinicOrLab === 'clinic'" [(ngModel)]="reservation.specialty">
+              <option value="">Select Specialty</option>
+              <option *ngFor="let specialty of specialties" [value]="specialty">{{ specialty }}</option>
+            </select> -->
+
+
 
           <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
             <button type="button" class="btn btn-primary btn-lg">Create</button>
