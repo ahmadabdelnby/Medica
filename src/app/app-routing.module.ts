@@ -9,6 +9,10 @@ import { WaitingListComponent } from './Modules/cashier/waiting-list/waiting-lis
 import { ClinicWaitingListComponent } from './Modules/cashier/clinic-waiting-list/clinic-waiting-list.component';
 import { NotFoundComponent } from './Shared-Components/not-found/not-found.component';
 import { LabWaitingListComponent } from './Modules/cashier/lab-waiting-list/lab-waiting-list.component';
+import { ClinicloginComponent } from './Modules/clinics/cliniclogin/cliniclogin.component';
+import { ReportComponent } from './Modules/clinics/report/report.component';
+import { UrprofileComponent } from './Modules/clinics/urprofile/urprofile.component';
+import { DoctorReservationComponent } from './Modules/clinics/doctor-reservation/doctor-reservation.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'/Home' , pathMatch:'full'},
@@ -20,7 +24,11 @@ const routes: Routes = [
   {path:'Login' , component:LoginComponent},
   {path:'Cashier' , component:CashierSystemComponent},
   {path:'Reservation', component:ReservationComponent},
-  // {path:'Login' , component:LoginComponent},
+  {path: 'cliniclogin' , component:ClinicloginComponent},
+  {path: 'report' , component:ReportComponent},
+  {path: 'urprofile', component:UrprofileComponent},
+  {path: 'doctorreservation', component:DoctorReservationComponent },
+  {path:'Login' , component:LoginComponent},
   {path:'**' , component:NotFoundComponent}
 ];
 
