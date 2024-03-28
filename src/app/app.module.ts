@@ -34,8 +34,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
     ClinicsModule,
     HttpClientModule,
     MatSnackBarModule,
-    FormsModule,
-
+    
   ],
   providers: [
     provideClientHydration(),
