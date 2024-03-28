@@ -1,3 +1,16 @@
 .register-sec{
     background-color: #eee;
 }
+
+.Reg-button {
+    font-size: large;
+    font-weight: bold;
+    color: black;
+    background-color: #fa930d;
+
+}
+
+.Reg-form label{
+    font-weight: bold;
+    
+}

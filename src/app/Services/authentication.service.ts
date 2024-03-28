@@ -35,8 +35,11 @@ export class AuthenticationService {
     // Check status code and perform actions
     if (error.status === 404) {
       // Handle 404 Not Found error
+      console.error(error.error);
+      
     } else if (error.status === 500) {
       // Handle 500 Internal Server Error
+      console.error(error.error);
     } else {
       // Handle other status codes
     }
@@ -65,8 +68,8 @@ export class AuthenticationService {
       )
   }
 
-  Logout() {
+  // Logout() {
 
-  }
+  // }
 
 }

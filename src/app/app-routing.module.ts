@@ -28,6 +28,7 @@ const routes: Routes = [
   {path: 'report' , component:ReportComponent},
   {path: 'urprofile', component:UrprofileComponent},
   {path: 'doctorreservation', component:DoctorReservationComponent },
+  {path:'Login' , component:LoginComponent},
   {path:'**' , component:NotFoundComponent}
 ];
 

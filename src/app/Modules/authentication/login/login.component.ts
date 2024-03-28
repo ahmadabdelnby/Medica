@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../../Services/authentication.service';
 import { LoginToken } from '../../../Models/login-token';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -8,21 +8,28 @@ import { Subscription } from 'rxjs';
 import { NgModel } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent implements OnDestroy {
+export class LoginComponent implements OnDestroy,OnInit {
 
   constructor(private authService: AuthenticationService,
     private _snackBar: MatSnackBar,
     private router: Router ,
-    private loginSubscreption :Subscription
+    // private loginSubscreption :Subscription
     ) { }
-  ngOnDestroy(): void {
+  ngOnInit(): void {
     // throw new Error('Method not implemented.');
-    
+
+    // this.loginSubscreption;
+  }
+
+    ngOnDestroy(): void {
+    // throw new Error('Method not implemented.');
+    // this.loginSubscreption.unsubscribe;
   }
 
   login(username: string, password: string): void {
@@ -41,6 +48,7 @@ export class LoginComponent implements OnDestroy {
   
     this.authService.Login(username, password).subscribe(observer);
   }
+
 
 
 }
