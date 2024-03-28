@@ -24,11 +24,11 @@ const routes: Routes = [
   {path:'Login' , component:LoginComponent},
   {path:'Cashier' , component:CashierSystemComponent},
   {path:'Reservation', component:ReservationComponent},
-  {path:'**' , component:NotFoundComponent},
   {path: 'cliniclogin' , component:ClinicloginComponent},
   {path: 'report' , component:ReportComponent},
   {path: 'urprofile', component:UrprofileComponent},
-  {path: 'doctorreservation', component:DoctorReservationComponent }
+  {path: 'doctorreservation', component:DoctorReservationComponent },
+  {path:'**' , component:NotFoundComponent}
 ];
 
 @NgModule({

@@ -16,6 +16,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar'
 import { FormGroupDirective, FormsModule , ReactiveFormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,12 @@ import { FormGroupDirective, FormsModule , ReactiveFormsModule } from '@angular/
     AppRoutingModule,
     AuthenticationModule,
     ProfileModule,
-    CashierModule
+    CashierModule,
+    ClinicsModule,
+    HttpClientModule,
+    MatSnackBarModule,
+    FormsModule,
+
   ],
   providers: [
     provideClientHydration(),
