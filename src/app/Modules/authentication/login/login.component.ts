@@ -14,22 +14,22 @@ import { NgForm } from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent implements OnDestroy,OnInit {
-
+export class LoginComponent implements OnDestroy, OnInit {
+  loginSubscription!: Subscription;
   constructor(private authService: AuthenticationService,
     private _snackBar: MatSnackBar,
-    private router: Router ,
-    // private loginSubscreption :Subscription
-    ) { }
+    private router: Router,
+    //  loginSubscription :Subscription
+  ) { }
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
 
-    // this.loginSubscreption;
+    this.loginSubscription;
   }
 
-    ngOnDestroy(): void {
+  ngOnDestroy(): void {
     // throw new Error('Method not implemented.');
-    // this.loginSubscreption.unsubscribe;
+    // this.loginSubscription.unsubscribe;
   }
 
   login(username: string, password: string): void {
@@ -45,7 +45,7 @@ export class LoginComponent implements OnDestroy,OnInit {
         console.error('Login failed:', error);
       }
     };
-  
+
     this.authService.Login(username, password).subscribe(observer);
   }
 

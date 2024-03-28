@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthenticationService } from '../../../Services/authentication.service';
 import { MatSnackBar } from '@angular/material/snack-bar'
 import { User } from '../../../Models/user';
-import { error } from 'console';
+// import { error } from 'console';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
 import { Subscription } from 'rxjs';
@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
 
   };
 
-  // registrationForm :FormGroup;
+  registrationForm!: FormGroup;
 
   noSpacesValidator(): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } | null => {
@@ -65,17 +65,16 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
-    // this.registrationForm = this.formBuilder.group({
-    //   username: ['', [Validators.required, this.noSpacesValidator()]],
-    //   email: ['', Validators.required, Validators.email],
-    //   nid: ['', [Validators.required, Validators.minLength(14)]],
-    //   password: ['', [Validators.required, this.passwordValidator()]],
-    //   confirmPassword:['', [Validators.required , this.confirmPasswordValidator('password')]],
-    //   firstName: ['', Validators.required],
-    //   lastName: ['', Validators.required],
-    //   gender: ['', Validators.required],
-    //   // lastName: ['', Validators.required],
-    // })
+    this.registrationForm = this.formBuilder.group({
+      username: ['', [Validators.required, this.noSpacesValidator()]],
+      email: ['', [Validators.required, Validators.email]],
+      nid: ['', [Validators.required, Validators.minLength(14)]],
+      password: ['', [Validators.required, this.passwordValidator()]],
+      confirmPassword: ['', [Validators.required, this.confirmPasswordValidator('password')]],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      gender: ['', Validators.required],
+    });
   }
 
 

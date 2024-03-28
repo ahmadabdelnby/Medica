@@ -1,5 +1,3 @@
-import { Time } from "@angular/common";
-
 export interface Ireservation {
     username: string;
     nationalId: string;
