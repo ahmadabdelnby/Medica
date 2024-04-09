@@ -13,6 +13,9 @@ import { ClinicloginComponent } from './Modules/clinics/cliniclogin/cliniclogin.
 import { ReportComponent } from './Modules/clinics/report/report.component';
 import { UrprofileComponent } from './Modules/clinics/urprofile/urprofile.component';
 import { DoctorReservationComponent } from './Modules/clinics/doctor-reservation/doctor-reservation.component';
+import { LabUrprofileComponent } from './Modules/cashier/lab-urprofile/lab-urprofile.component';
+
+
 
 const routes: Routes = [
   {path:'', redirectTo:'/Home' , pathMatch:'full'},
@@ -20,6 +23,7 @@ const routes: Routes = [
   {path:'WaitingList' , component:WaitingListComponent},
   {path:'ClinicWaitingList' , component:ClinicWaitingListComponent},
   {path:'LabWAitingList' , component:LabWaitingListComponent} ,
+  {path : 'laburprofile', component:LabUrprofileComponent },
   {path:'Register', component:RegisterComponent},
   {path:'Login' , component:LoginComponent},
   {path:'Cashier' , component:CashierSystemComponent},
@@ -31,6 +35,7 @@ const routes: Routes = [
   {path:'Login' , component:LoginComponent},
   {path:'**' , component:NotFoundComponent}
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

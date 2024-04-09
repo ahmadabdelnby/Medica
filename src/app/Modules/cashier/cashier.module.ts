@@ -6,6 +6,7 @@ import { CashierSystemComponent } from './cashier-system/cashier-system.componen
 import { LabWaitingListComponent } from './lab-waiting-list/lab-waiting-list.component';
 import { ClinicWaitingListComponent } from './clinic-waiting-list/clinic-waiting-list.component';
 import { FormsModule } from '@angular/forms';
+import { LabUrprofileComponent } from './lab-urprofile/lab-urprofile.component';
 
 
 
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
     WaitingListComponent,
     CashierSystemComponent,
     LabWaitingListComponent,
-    ClinicWaitingListComponent
+    ClinicWaitingListComponent,
+    LabUrprofileComponent
   ],
   imports: [
     CommonModule,
