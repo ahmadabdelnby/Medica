@@ -15,7 +15,7 @@ export class ReservationService {
     //   headers: new HttpHeaders(
     //     {
     //       'Content-Type': 'application/json',
-    //       // Authorization : ''
+    //       Authorization : 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmb3gzMDQ0IiwianRpIjoiNzkxN2Q0YzktZDk4Mi00NDQyLThjMzEtYzhiODc1YTg5OTk0IiwiZW1haWwiOiJhaG1hZGFsbmFqYXIxM0BnbWFpbC5jb20iLCJ1aWQiOiIxMjM0NTY3ODkxMDEyMyIsInJvbGVzIjoiVXNlciIsImV4cCI6MTcxNjA1Nzg1Nn0.hslwUiAz6H2OpenjeRqGjWOFGDSvRCDsIqvKD-3atVQ'
     //     }
     //   )
     // }
@@ -67,7 +67,7 @@ export class ReservationService {
       page: page.toString(),
       pageSize: pageSize.toString()
     };
-    return this.http.get<any>(`${environment.APIURL}/api/Reservation/All-Reservations`, { params });
+    return this.http.get<any>(`${environment.APIURL}/api/Reservation/All-Reservations`, {params});
   }
 
   getReservationById(Id:string):Observable<Ireservation>

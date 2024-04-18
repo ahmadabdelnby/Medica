@@ -34,17 +34,21 @@ export class LoginComponent implements OnDestroy, OnInit {
 
   login(username: string, password: string): void {
     const observer = {
-      next: (token: LoginToken) => {
+      next: (token:any) => {
         // Token generated, handle successful login
-        console.log('Login successful. Token:', token.loginToken);
-        // Save token to local storage or session storage
-        localStorage.setItem('token', token.loginToken);
+        console.log('Login successful. Token:', token.data.token);
+        // Save token to cookies with secure flag and HttpOnly flag
+        document.cookie = `token=${token.data.token}; expires=${new Date(Date.now() + 86400000).toUTCString()}; path=/; secure; HttpOnly`;
       },
       error: (error: any) => {
         // Handle login error
         console.error('Login failed:', error);
+        // Show error message to the user
+        this._snackBar.open('Login failed. Please try again.', 'Close', {
+          duration: 5000,
+        });
       }
-    };
+        };
 
     this.authService.Login(username, password).subscribe(observer);
   }
