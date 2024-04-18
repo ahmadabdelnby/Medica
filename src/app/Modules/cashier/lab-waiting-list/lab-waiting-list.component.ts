@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'app-lab-waiting-list',
   templateUrl: './lab-waiting-list.component.html',
