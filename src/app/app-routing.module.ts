@@ -17,9 +17,9 @@ import { ReportComponent } from './Modules/clinics/report/report.component';
 import { UrprofileComponent } from './Modules/clinics/urprofile/urprofile.component';
 import { DoctorReservationComponent } from './Modules/clinics/doctor-reservation/doctor-reservation.component';
 import { LabUrprofileComponent } from './Modules/cashier/lab-urprofile/lab-urprofile.component';
-import { MedicineComponent } from './pharmacy/medicine/medicine.component';
-import { MedicineDetailsComponent } from './pharmacy/medicine-details/medicine-details.component';
-import { AddMedicineComponent } from './pharmacy/add-medicine/add-medicine.component';
+import { MedicineComponent } from './Modules/pharmacy/medicine/medicine.component';
+import { MedicineDetailsComponent } from './Modules/pharmacy/medicine-details/medicine-details.component';
+import { AddMedicineComponent } from './Modules/pharmacy/add-medicine/add-medicine.component';
 
 
 
