@@ -29,12 +29,12 @@ export class RegisterComponent implements OnInit {
 
   registrationForm!: FormGroup;
 
-  noSpacesValidator(): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: any } | null => {
-      const hasSpaces = (control.value || '').trim().indexOf(' ') !== -1;
-      return hasSpaces ? { 'noSpaces': true } : null;
-    };
-  }
+  // noSpacesValidator(): ValidatorFn {
+  //   return (control: AbstractControl): { [key: string]: any } | null => {
+  //     const hasSpaces = (control.value || '').trim().indexOf(' ') !== -1;
+  //     return hasSpaces ? { 'noSpaces': true } : null;
+  //   };
+  // }
 
   passwordValidator(): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } | null => {
@@ -61,15 +61,15 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     // private registrationForm: FormGroup
     // private loginSubscription :Subscription
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
     this.registrationForm = this.formBuilder.group({
-      username: ['', [Validators.required, this.noSpacesValidator()]],
+      username: ['', [Validators.required, Validators.pattern(/^\S*$/)]],
       email: ['', [Validators.required, Validators.email]],
-      nid: ['', [Validators.required, Validators.minLength(14)]],
-      password: ['', [Validators.required, this.passwordValidator()]],
+      nid: ['', [Validators.required, Validators.pattern(/^\d{14}$/)]],
+      password: ['', [Validators.required, Validators.pattern(/^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/)]],
       confirmPassword: ['', [Validators.required, this.confirmPasswordValidator('password')]],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -80,28 +80,35 @@ export class RegisterComponent implements OnInit {
 
 
   submitForm() {
+    this.user = this.registrationForm.value;
     const observer = {
       next: (userReg: User) => {
-        this._snackBar.open(
-          'Registration Complete', 'Done', {
-          duration: 3000,
-        }
-        ),
-          this.router.navigateByUrl('/Home')
-      },
-      error: (err: Error) => {
-        console.log(err.message);
-        this._snackBar.open(
-          'Registration Field', 'Done', {
-          duration: 3000,
-        }
-        )
+      this._snackBar.open(
+        'Registration Complete', 'Done', {
+        duration: 3000,
       }
-
-
+      ),
+        this.router.navigateByUrl('/Home')
+      },
+      error: (err: any) => {
+        console.log('this is the error ', err);
+        let errorMessage = '';
+        for (const key in err.error.errors) {
+          if (err.error.errors.hasOwnProperty(key)) {
+            errorMessage += `${key}: ${err.error.errors[key]}\n`;
+          }
+        }
+        this._snackBar.open(errorMessage, 'Done', {
+          duration: 5000,
+        });
+      }
+    };
+    if(this.registrationForm.valid){
+      this.authService.Register(this.user).subscribe(observer)
+    } else{
+      this._snackBar.open('Please check the form fields', 'Close', { duration: 3000 });
     }
-
-    this.authService.Register(this.user).subscribe(observer)
+    // this.authService.Register(this.user).subscribe(observer)
   }
 
 }

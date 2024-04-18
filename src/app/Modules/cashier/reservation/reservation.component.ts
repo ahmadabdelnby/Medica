@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { Ireservation } from '../../../Models/ireservation';
 // import { Idepartment } from '../../../Models/idepartment';
 // import { ReservationService } from '../../../Services/reservation.service';
@@ -13,10 +13,10 @@ import { error } from 'console';
   templateUrl: './reservation.component.html',
   styleUrl: './reservation.component.css'
 })
-export class ReservationComponent {
+export class ReservationComponent implements OnInit{
   labOrClinic: string = '';
   departments: Idepartment[] = [];
-
+  
   reservation: Ireservation = {
     username: '',
     nationalId: '',
@@ -25,22 +25,49 @@ export class ReservationComponent {
   };
   specialties: string[] =[];
   constructor(private reservationservice: ReservationService,
-              private _snackbar: MatSnackBar,
-              private router : Router
+      private _snackbar: MatSnackBar,
+      private router : Router
   ) { 
     // this.reservationservice.getSpecialties().subscribe(specialties => {
     //   this.specialties = specialties;
     // });
   }
-
+  ngOnInit(): void {
+    this.reservationservice.getAllDepartments().subscribe((response) => {
+      this.departments = response.data.map((data: any) => ({
+        id: data.id,
+        name: data.name,
+        hospitalID: data.hospitalID
+      }));
+      console.log('Departments: ', this.departments);
+    });
+  }
   getAllDepartments(){
-    this.reservationservice.getAllDepartments().subscribe(
-      departments => {
+    const observer = {
+      next: (departments: Idepartment[]) => {
         this.departments = departments;
+        console.log('Departments:', this.departments);
+      },
+      error: (err: Error) => {
+        console.log(err.message);
+        this._snackbar.open(
+          'Registration Field', 'Done', {
+          duration: 3000,
+        }
+        )
       }
-      ,error => {
-        console.error('Failed to fetch departments:', error);
-      }
+    }
+    this.reservationservice.getAllDepartments().subscribe(
+      // (response) => {
+      //   this.departments = response;
+      //   console.log('Departments:', this.departments);
+      // }
+      // ,error => {
+      //   console.error('Error fetching departments:', error);
+      //   this._snackbar.open('Failed to fetch departments', 'Close', {
+      //     duration: 3000
+      //   });      }
+      observer
     )
   }
 

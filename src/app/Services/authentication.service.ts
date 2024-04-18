@@ -22,6 +22,7 @@ export class AuthenticationService {
     }
   }
   private handleError(error: HttpErrorResponse) {
+    console.log('Error:', error);
     let errorMessage = 'An error occurred';
     if (error.error instanceof ErrorEvent) {
       // Client-side error
@@ -46,17 +47,13 @@ export class AuthenticationService {
 
     // Throw the error to be caught by the subscriber
     return throwError(errorMessage);
-
   }
 
 
   Register(userRegData: User): Observable<any> {
-    //  return this.http.post<User>('http://medicalsystem-001-site1.ftempurl.com/swagger/v1/swagger.json/api/Auth/register',JSON.stringify(userRegData), this.httpOptions);
+    console.log(userRegData)
     return this.http
-      .post<any>(`${environment.APIURL}/api/Auth/register`, JSON.stringify(userRegData))
-      .pipe(
-        catchError(this.handleError)
-      )
+      .post<any>(`${environment.APIURL}/api/Auth/register`, JSON.stringify(userRegData), this.httpOptions);
   }
 
   Login(username: string, password: string): Observable<LoginToken> {

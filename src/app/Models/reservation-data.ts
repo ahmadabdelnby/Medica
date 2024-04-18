@@ -1,12 +1,9 @@
-import { Time } from "@angular/common";
-import { User } from "./user";
-
 export interface ReservationData {
     id : string ;
-    time : Time ;
-    serialNumber : number ;
-    state : boolean ;
-    placePriceId : number ;
-    userId : number ;
-    user  : User ;
+    time : string ;
+    serialNumber : string ;
+    state : string ;
+    placePriceId : string ;
+    userId : string ;
+    user  : string ;
 }

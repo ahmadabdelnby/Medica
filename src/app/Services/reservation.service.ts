@@ -3,22 +3,22 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Observable, catchError, map, retry, throwError ,of } from 'rxjs';
 import { environment } from '../../environments/environment.development';
 import { Ireservation } from '../Models/ireservation';
-import { Idepartment } from '../Models/idepartment';
+import {  Idepartment } from '../Models/idepartment';
 @Injectable({
   providedIn: 'root'
 })
 export class ReservationService {
-  httpOptions;
+  // httpOptions;
 
   constructor(private http:HttpClient) {
-    this.httpOptions = {
-      headers: new HttpHeaders(
-        {
-          'Content-Type': 'application/json',
-          Authorization : 'my-auth-token'
-        }
-      )
-    }
+    // this.httpOptions = {
+    //   headers: new HttpHeaders(
+    //     {
+    //       'Content-Type': 'application/json',
+    //       // Authorization : ''
+    //     }
+    //   )
+    // }
 
    }
 
@@ -49,10 +49,10 @@ export class ReservationService {
 
   }
 
-  getSpecialties(): Observable<string[]> {
-    // Simulated data for demonstration
-    return of(['Cardiology', 'Dermatology', 'Neurology', 'Orthopedics']);
-  }
+  // getSpecialties(): Observable<string[]> {
+  //   // Simulated data for demonstration
+  //   return of(['Cardiology', 'Dermatology', 'Neurology', 'Orthopedics']);
+  // }
 
   newReservation(userReservation:Ireservation):Observable<any>
   {
@@ -80,11 +80,10 @@ export class ReservationService {
     )
   }
 
-  getAllDepartments():Observable<Idepartment[]>{
-    return this.http.get<Idepartment[]>(`${environment.APIURL}/api/Department/All-Departments`)
-    .pipe( 
-      catchError(this.handleError)
-    )
+  getAllDepartments():Observable<any>{
+    console.log(`${environment.APIURL}/api/Department/All-Departments`);
+    const response = this.http.get(`${environment.APIURL}/api/Department/All-Departments`);
+    return response;
 
   }
 

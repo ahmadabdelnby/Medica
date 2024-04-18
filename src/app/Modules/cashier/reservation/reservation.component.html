@@ -39,10 +39,10 @@
           </div>
 
           <div *ngIf="labOrClinic === 'Clinic'" class="d-flex flex-column mb-1">
-            <label class="form-label" for="form3Example1c">Select Department</label>
-            <select [(ngModel)]="reservation.specialty" class="rounded-2"  [ngModelOptions]="{standalone : true}">
+            <label class="form-label" for="specialty">Select Department</label>
+            <select [(ngModel)]="reservation.specialty" id="specialty" class="rounded-2"  [ngModelOptions]="{standalone : true}">
               <option value="clinic">Select Specialty</option>
-              <option *ngFor="let department of departments">{{ department.name }}</option>
+              <option *ngFor="let department of departments" [value]="department.id">{{ department.name }}</option>
             </select>
           </div>
 
