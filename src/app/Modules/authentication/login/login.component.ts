@@ -7,6 +7,7 @@ import { error } from 'console';
 import { Subscription } from 'rxjs';
 import { NgModel } from '@angular/forms';
 import { NgForm } from '@angular/forms';
+import { StorageService } from '../../../Services/storage.service';
 
 
 @Component({
@@ -19,31 +20,25 @@ export class LoginComponent implements OnDestroy, OnInit {
   constructor(private authService: AuthenticationService,
     private _snackBar: MatSnackBar,
     private router: Router,
+    private storageService: StorageService
     //  loginSubscription :Subscription
   ) { }
   ngOnInit(): void {
-    // throw new Error('Method not implemented.');
 
     this.loginSubscription;
   }
 
   ngOnDestroy(): void {
-    // throw new Error('Method not implemented.');
-    // this.loginSubscription.unsubscribe;
   }
 
   login(username: string, password: string): void {
     const observer = {
       next: (token:any) => {
-        // Token generated, handle successful login
-        console.log('Login successful. Token:', token.data.token);
-        // Save token to cookies with secure flag and HttpOnly flag
-        document.cookie = `token=${token.data.token}; expires=${new Date(Date.now() + 86400000).toUTCString()}; path=/; secure; HttpOnly`;
+        this.storageService.saveUser(token.data.token);
+        console.log('Token saved to storage.' , this.storageService.getUser());
       },
       error: (error: any) => {
-        // Handle login error
         console.error('Login failed:', error);
-        // Show error message to the user
         this._snackBar.open('Login failed. Please try again.', 'Close', {
           duration: 5000,
         });

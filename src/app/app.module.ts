@@ -15,7 +15,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { PharmacyModule } from './Modules/pharmacy/pharmacy.module';
-import { TokenInterceptor } from './auth/token.interceptor';
+import { TokenInterceptor, httpInterceptorProviders } from './auth/token.interceptor';
 
 
 @NgModule({
@@ -36,16 +36,13 @@ import { TokenInterceptor } from './auth/token.interceptor';
    PharmacyModule,
     HttpClientModule,
     MatSnackBarModule,
+    HttpClientModule
     
   ],
   providers: [
     provideClientHydration(),
     provideAnimationsAsync(),
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true
-    }
+    httpInterceptorProviders,
   ],
   bootstrap: [AppComponent]
 })
