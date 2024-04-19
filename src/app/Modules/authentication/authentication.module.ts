@@ -1,5 +1,6 @@
-import { Injectable, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http'; // Add this line
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
@@ -20,9 +21,10 @@ import { NewPasswordComponent } from './new-password/new-password.component';
     NewPasswordComponent
   ],
   imports: [
-    CommonModule ,
+    CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule // Add this line
   ],
   exports:[
     LoginComponent,

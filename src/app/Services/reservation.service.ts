@@ -31,21 +31,19 @@ export class ReservationService {
       // Server-side error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    console.error(errorMessage);
-
     // Check status code and perform actions
-    if (error.status === 404) {
-      // Handle 404 Not Found error
-      console.error(error.error)
-    } else if (error.status === 500) {
-      // Handle 500 Internal Server Error
-      console.error(error.error)
-    } else {
-      // Handle other status codes
-    }
+    // if (error.status === 404) {
+    //   // Handle 404 Not Found error
+    //   console.error(error.error)
+    // } else if (error.status === 500) {
+    //   // Handle 500 Internal Server Error
+    //   console.error(error.error)
+    // } else {
+    //   // Handle other status codes
+    // }
 
     // Throw the error to be caught by the subscriber
-    return throwError(errorMessage);
+    return errorMessage;
 
   }
 
@@ -58,7 +56,8 @@ export class ReservationService {
   {
     return this.http.post<any>(`${environment.APIURL}/api/Reservation/ClinicReservation`, userReservation)
     .pipe(
-      catchError(this.handleError)
+      retry(2),
+      // catchError(this.handleError)
     )
   }
 
@@ -67,7 +66,7 @@ export class ReservationService {
       page: page.toString(),
       pageSize: pageSize.toString()
     };
-    return this.http.get<any>(`${environment.APIURL}/api/Reservation/All-Reservations`, {params});
+    return this.http.get<any>(`${environment.APIURL}/api/Reservation/TodaysReservations`, {params});
   }
 
   getReservationById(Id:string):Observable<Ireservation>
@@ -76,12 +75,12 @@ export class ReservationService {
     return this.http.get<Ireservation>(`${environment.APIURL}/api/Reservation/Get/${Id}`)
     .pipe(
       retry(2),
-      catchError(this.handleError)
+      // catchError(this.handleError)
     )
   }
 
   getAllDepartments():Observable<any>{
-    console.log(`${environment.APIURL}/api/Department/All-Departments`);
+    // console.log(`${environment.APIURL}/api/Department/All-Departments`);
     const response = this.http.get(`${environment.APIURL}/api/Department/All-Departments`);
     return response;
 
