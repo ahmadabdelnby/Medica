@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ReservationService } from '../../../Services/reservation.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-clinic-waiting-list',
@@ -15,6 +16,14 @@ export class ClinicWaitingListComponent implements OnInit{
         console.log(data.data);
       }
     );
+  }
+  
+  removeRow(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+    const row = target.closest('tr');
+    if (row) {
+      row.remove(); 
+    }
   }
 
 }

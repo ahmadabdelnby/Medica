@@ -40,4 +40,14 @@ export class AuthenticationService {
   // Logout() {
 
   // }
+
+  resetPassword(email: string): Observable<any> {
+  
+    return this.http.post<any>('/api/resetPassword', { email });
+  }
+  
+  verifyOTP(otp: string): Observable<any> {
+
+    return this.http.post<any>('/api/verifyOTP', { otp });
+  }
 }

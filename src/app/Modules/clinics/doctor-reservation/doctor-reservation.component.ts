@@ -14,7 +14,7 @@ export class DoctorReservationComponent {
     const target = event.target as HTMLElement;
     const row = target.closest('tr');
     if (row) {
-      row.remove(); // Remove the row from the DOM if it exists
+      row.remove(); 
     }
   }
 
