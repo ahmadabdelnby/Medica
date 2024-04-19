@@ -11,11 +11,11 @@ import { ProfileModule } from './Modules/profile/profile.module';
 import { CashierModule } from './Modules/cashier/cashier.module';
 import { ClinicsModule } from './Modules/clinics/clinics.module';
 import { NotFoundComponent } from './Shared-Components/not-found/not-found.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { PharmacyModule } from './Modules/pharmacy/pharmacy.module';
-
+import { TokenInterceptor } from './auth/token.interceptor';
 
 
 @NgModule({
@@ -40,7 +40,12 @@ import { PharmacyModule } from './Modules/pharmacy/pharmacy.module';
   ],
   providers: [
     provideClientHydration(),
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

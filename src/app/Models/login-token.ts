@@ -1,4 +1,4 @@
 export interface LoginToken {
-    loginToken: string;
+    token: string;
 
 }

@@ -18,8 +18,9 @@ import { UrprofileComponent } from './Modules/clinics/urprofile/urprofile.compon
 import { DoctorReservationComponent } from './Modules/clinics/doctor-reservation/doctor-reservation.component';
 import { LabUrprofileComponent } from './Modules/cashier/lab-urprofile/lab-urprofile.component';
 import { MedicineComponent } from './Modules/pharmacy/medicine/medicine.component';
-import { AddMedicineComponent } from './Modules/pharmacy/add-medicine/add-medicine.component';
 import { MedicineDetailsComponent } from './Modules/pharmacy/medicine-details/medicine-details.component';
+import { AddMedicineComponent } from './Modules/pharmacy/add-medicine/add-medicine.component';
+
 
 
 

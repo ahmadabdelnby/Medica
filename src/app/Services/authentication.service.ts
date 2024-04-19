@@ -10,16 +10,20 @@ import { LoginToken } from '../Models/login-token';
   providedIn: 'root'  
 })
 export class AuthenticationService {
-  httpOptions;
+  // httpOptions;
 
   constructor(private http: HttpClient) {
-    this.httpOptions = {
-      headers: new HttpHeaders(
-        {
-          'Content-Type': 'application/json'
-        }
-      )
-    }
+    // this.httpOptions = {
+    //   headers: new HttpHeaders(
+    //     {
+    //       'Content-Type': 'application/json'
+    //     }
+    //   )
+    // }
+  }
+  public getToken(): string |null{
+    console.log(localStorage.getItem('token'));
+    return localStorage.getItem('token');
   }
   private handleError(error: HttpErrorResponse) {
     console.log('Error:', error);
@@ -48,25 +52,30 @@ export class AuthenticationService {
     // Throw the error to be caught by the subscriber
     return throwError(errorMessage);
   }
-
+  public isAuthenticated(): boolean {
+    // get the token
+    const token = this.getToken();
+    // return a boolean reflecting 
+    // whether or not the token is expired
+    return this.tokenNotExpired(token);
+  }
 
   Register(userRegData: User): Observable<any> {
     console.log(userRegData)
     return this.http
-      .post<any>(`${environment.APIURL}/api/Auth/register`, JSON.stringify(userRegData), this.httpOptions);
+      .post<any>(`${environment.APIURL}/api/Auth/register`, JSON.stringify(userRegData));
   }
 
   Login(username: string, password: string): Observable<LoginToken> {
     return this.http
-      .post<any>(`${environment.APIURL}/api/Auth/token`, { username, password })
-      .pipe(
-        map(response => response.token as LoginToken),
-        catchError(this.handleError)
-      )
+      .post<any>(`${environment.APIURL}/api/Auth/LogIn`, { username, password });
   }
-
+  private tokenNotExpired(token: string | null): boolean {
+    return token !== null && token !== '';
+ }
   // Logout() {
 
   // }
 
 }
+
