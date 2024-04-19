@@ -33,7 +33,7 @@ import { PharmacyModule } from './Modules/pharmacy/pharmacy.module';
     ProfileModule,
     CashierModule,
     ClinicsModule,
-    PharmacyModule,
+   PharmacyModule,
     HttpClientModule,
     MatSnackBarModule,
     

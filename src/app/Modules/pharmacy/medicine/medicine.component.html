@@ -36,11 +36,13 @@
       <div class="d-flex justify-content-between align-items-center">
         
         <div class="container mt-3 mb-3">
-          <input type="search" class="form-control custom-search-bar" placeholder="Search" aria-label="Search">
+          <input type="text" class="form-control custom-search-bar" placeholder="Search" aria-label="Search">
         </div>
+        
 
         <div class="custom-button">
-        <button type="button" class="btn btn-primary">Add Medicine</button>
+          <button type="button" class="btn btn-primary" (click)="goToAddMedicinePage()">Add Medicine</button>
+
     </div>
       </div>
           
@@ -55,76 +57,78 @@
                   </tr>
               </thead>
               <tbody>
-                  <tr class="table-light">
-                      <td>said</td>
-                      <td ><a href="#" class="btn btn-warning">Enter</a></td>
-                      <td ><button type="button" class="btn btn-success">Plus 1</button></td>
-                      <td ><button type="button" class="btn btn-info">Minus 1</button></td>
-                      <td ><button type="button" class="btn btn-danger">Remove</button></td>
-  
-                  </tr>
-                  <tr class="table-light">
-                    <td>said</td>
-                    <td ><a href="#" class="btn btn-warning">Enter</a></td>
-                    <td ><button type="button" class="btn btn-success">Plus 1</button></td>
-                    <td ><button type="button" class="btn btn-info">Minus 1</button></td>
-                    <td ><button type="button" class="btn btn-danger">Remove</button></td>
+                <tr class="table-light" id="row1">
+                  <td>said</td>
+                  <td><a href="/medicinedetails" class="btn btn-warning">Enter</a></td>
+                  <td><button type="button" class="btn btn-success">Plus 1</button></td>
+                  <td><button type="button" class="btn btn-info">Minus 1</button></td>
+                  <td data-row="1"><button type="button" class="btn btn-danger" onclick="removeRow('row1')">Remove</button></td>
                 </tr>
-                <tr class="table-light">
-                    <td>said</td>
-                    <td ><a href="#" class="btn btn-warning">Enter</a></td>
+                
+
+                  <tr class="table-light" id="row2">
+                    <td>lol</td>
+                    <td ><a href="/medicinedetails" class="btn btn-warning">Enter</a></td>
                     <td ><button type="button" class="btn btn-success">Plus 1</button></td>
                     <td ><button type="button" class="btn btn-info">Minus 1</button></td>
-                    <td ><button type="button" class="btn btn-danger">Remove</button></td>
+                    <td data-row="1"><button type="button" class="btn btn-danger" onclick="removeRow('row2')">Remove</button></td>
                 </tr>
-                <tr class="table-light">
-                    <td>said</td>
-                    <td ><a href="#" class="btn btn-warning">Enter</a></td>
+                
+                <tr class="table-light" id="row3">
+                    <td>ahmed</td>
+                    <td ><a href="/medicinedetails" class="btn btn-warning">Enter</a></td>
                     <td ><button type="button" class="btn btn-success">Plus 1</button></td>
                     <td ><button type="button" class="btn btn-info">Minus 1</button></td>
-                    <td ><button type="button" class="btn btn-danger">Remove</button></td>
+                    <td data-row="3"><button type="button" class="btn btn-danger" onclick="removeRow('row3')">Remove</button></td>
                 </tr>
-                <tr class="table-light">
-                    <td>said</td>
-                    <td ><a href="#" class="btn btn-warning">Enter</a></td>
+                <tr class="table-light" id="row4">
+                    <td>ahssan</td>
+                    <td ><a href="/medicinedetails" class="btn btn-warning">Enter</a></td>
                     <td ><button type="button" class="btn btn-success">Plus 1</button></td>
                     <td ><button type="button" class="btn btn-info">Minus 1</button></td>
-                    <td ><button type="button" class="btn btn-danger">Remove</button></td>
+                    <td data-row="4"><button type="button" class="btn btn-danger" onclick="removeRow('row4')">Remove</button></td>
                 </tr>
-                <tr class="table-light">
-                    <td>said</td>
-                    <td ><a href="#" class="btn btn-warning">Enter</a></td>
+                <tr class="table-light" id="row5">
+                    <td>sdamklm</td>
+                    <td ><a href="/medicinedetails" class="btn btn-warning">Enter</a></td>
                     <td ><button type="button" class="btn btn-success">Plus 1</button></td>
                     <td ><button type="button" class="btn btn-info">Minus 1</button></td>
-                    <td ><button type="button" class="btn btn-danger">Remove</button></td>
+                    <td data-row="5"><button type="button" class="btn btn-danger" onclick="removeRow('row5')">Remove</button></td>
                 </tr>
-                <tr class="table-light">
-                    <td>said</td>
-                    <td ><a href="#" class="btn btn-warning">Enter</a></td>
+                <tr class="table-light" id="row6">
+                    <td>tmam</td>
+                    <td ><a href="/medicinedetails" class="btn btn-warning">Enter</a></td>
                     <td ><button type="button" class="btn btn-success">Plus 1</button></td>
                     <td ><button type="button" class="btn btn-info">Minus 1</button></td>
-                    <td ><button type="button" class="btn btn-danger">Remove</button></td>
+                    <td data-row="6"><button type="button" class="btn btn-danger" onclick="removeRow('row6')">Remove</button></td>
                 </tr>
-                <tr class="table-light">
-                    <td>said</td>
-                    <td ><a href="#" class="btn btn-warning">Enter</a></td>
+                <tr class="table-light" id="row7">
+                    <td>okok</td>
+                    <td ><a href="/medicinedetails" class="btn btn-warning">Enter</a></td>
                     <td ><button type="button" class="btn btn-success">Plus 1</button></td>
                     <td ><button type="button" class="btn btn-info">Minus 1</button></td>
-                    <td ><button type="button" class="btn btn-danger">Remove</button></td>
+                    <td data-row="7"><button type="button" class="btn btn-danger" onclick="removeRow('row7')">Remove</button></td>
                 </tr>
-                <tr class="table-light">
-                    <td>said</td>
-                    <td ><a href="#" class="btn btn-warning">Enter</a></td>
+                <tr class="table-light" id="row8">
+                    <td>mohamed</td>
+                    <td ><a href="/medicinedetails" class="btn btn-warning">Enter</a></td>
                     <td ><button type="button" class="btn btn-success">Plus 1</button></td>
                     <td ><button type="button" class="btn btn-info">Minus 1</button></td>
-                    <td ><button type="button" class="btn btn-danger">Remove</button></td>
+                    <td data-row="8"><button type="button" class="btn btn-danger" onclick="removeRow('row8')">Remove</button></td>
                 </tr>
-                <tr class="table-light">
-                    <td>said</td>
-                    <td ><a href="#" class="btn btn-warning">Enter</a></td>
+                <tr class="table-light" id="row9">
+                    <td>mostafa</td>
+                    <td ><a href="/medicinedetails" class="btn btn-warning">Enter</a></td>
                     <td ><button type="button" class="btn btn-success">Plus 1</button></td>
                     <td ><button type="button" class="btn btn-info">Minus 1</button></td>
-                    <td ><button type="button" class="btn btn-danger">Remove</button></td>
+                    <td data-row="9"><button type="button" class="btn btn-danger" onclick="removeRow('row9')">Remove</button></td>
+                </tr>
+                <tr class="table-light" id="row10">
+                    <td>ziad</td>
+                    <td ><a href="/medicinedetails" class="btn btn-warning">Enter</a></td>
+                    <td ><button type="button" class="btn btn-success">Plus 1</button></td>
+                    <td ><button type="button" class="btn btn-info">Minus 1</button></td>
+                    <td data-row="10"><button type="button" class="btn btn-danger" onclick="removeRow('row10')">Remove</button></td>
                     
                 </tr>
                 

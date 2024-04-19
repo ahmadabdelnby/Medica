@@ -7,7 +7,7 @@ import { LoginToken } from '../Models/login-token';
 
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root'  
 })
 export class AuthenticationService {
   httpOptions;
