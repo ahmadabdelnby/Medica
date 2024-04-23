@@ -4,8 +4,8 @@ import {
   HttpErrorResponse,
   HttpHeaders,
 } from '@angular/common/http';
-import { Observable, catchError, map, retry, throwError } from 'rxjs';
-import { User } from '../Models/user';
+import { Observable, catchError, map, retry, throwError , BehaviorSubject} from 'rxjs';
+import { User, UserRole } from '../Models/user';
 import { environment } from '../../environments/environment.development';
 import { LoginToken } from '../Models/login-token';
 import { StorageService, USER_KEY } from './storage.service';
@@ -14,9 +14,10 @@ import { StorageService, USER_KEY } from './storage.service';
   providedIn: 'root',
 })
 export class AuthenticationService {
-  
+  private currentUserSubject!: BehaviorSubject<User | null>;
 
   constructor(private http: HttpClient,private storageService: StorageService) {
+     this.currentUserSubject = new BehaviorSubject<User | null>(null);
   }
 
   Register(userRegData: User): Observable<any> {
@@ -37,9 +38,6 @@ export class AuthenticationService {
     });
   }
   
-  // Logout() {
-
-  // }
 
   resetPassword(email: string): Observable<any> {
   
@@ -50,4 +48,20 @@ export class AuthenticationService {
 
     return this.http.post<any>('/api/verifyOTP', { otp });
   }
+
+  // role functions
+
+  public getCurrentUser(): Observable<User | null> {
+    return this.currentUserSubject.asObservable();
+  }
+
+  public setUser(user: User): void {
+    this.currentUserSubject.next(user);
+  }
+
+  public getUserRole(): UserRole | null {
+    const currentUser = this.currentUserSubject.value;
+    return currentUser ? currentUser.role : null;
+  }
+
 }

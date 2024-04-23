@@ -1,4 +1,5 @@
 export interface User {
+    role: UserRole | null;
     nid: string;
     username: string;
     firstName : string;
@@ -8,3 +9,11 @@ export interface User {
     password: string;
     confirmPassword: string;
 }
+
+export enum UserRole {
+    Admin = 'admin',
+    Doctor = 'doctor',
+    Patient = 'patient',
+    Cashier = 'cashier'
+}
+

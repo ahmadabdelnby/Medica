@@ -21,6 +21,7 @@ import { Subscription } from 'rxjs';
 })
 export class RegisterComponent implements OnInit {
   user: User = {
+    role: null,
     nid: '',
     username: '',
     firstName: '',

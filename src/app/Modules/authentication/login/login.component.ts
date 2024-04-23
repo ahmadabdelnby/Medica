@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
 import { NgModel } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { StorageService } from '../../../Services/storage.service';
-
+import { UserRole } from '../../../Models/user';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +16,8 @@ import { StorageService } from '../../../Services/storage.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnDestroy, OnInit {
+  userRoles = Object.values(UserRole);
+  selectedUserRole!: UserRole;
   loginSubscription!: Subscription;
   constructor(private authService: AuthenticationService,
     private _snackBar: MatSnackBar,
@@ -29,9 +31,12 @@ export class LoginComponent implements OnDestroy, OnInit {
   }
 
   ngOnDestroy(): void {
+    // if (this.loginSubscription) {
+    //   this.loginSubscription.unsubscribe();
+    // }
   }
 
-  login(username: string, password: string): void {
+  login(username: string, password: string ): void {
     const observer = {
       next: (token:any) => {
         this.storageService.saveUser(token.data.token);
@@ -44,7 +49,7 @@ export class LoginComponent implements OnDestroy, OnInit {
         });
       }
         };
-
+        // this.loginSubscription =
     this.authService.Login(username, password).subscribe(observer);
   }
 

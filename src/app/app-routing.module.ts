@@ -20,8 +20,10 @@ import { LabUrprofileComponent } from './Modules/cashier/lab-urprofile/lab-urpro
 import { MedicineComponent } from './Modules/pharmacy/medicine/medicine.component';
 import { MedicineDetailsComponent } from './Modules/pharmacy/medicine-details/medicine-details.component';
 import { AddMedicineComponent } from './Modules/pharmacy/add-medicine/add-medicine.component';
+import { AuthGuard } from './Guards/auth.guard';
+import { UserRole } from './Models/user';
 
-
+user_Role: UserRole;
 
 
 
@@ -30,7 +32,7 @@ const routes: Routes = [
   {path:'', redirectTo:'/Home' , pathMatch:'full'},
   {path:'Home' , component:HomeComponent},
   {path:'WaitingList' , component:WaitingListComponent},
-  {path:'ClinicWaitingList' , component:ClinicWaitingListComponent},
+  {path:'ClinicWaitingList' , component:ClinicWaitingListComponent , canActivate:[AuthGuard] , data:{roles:[UserRole.Doctor]}},
   {path:'LabWAitingList' , component:LabWaitingListComponent} ,
   {path : 'laburprofile', component:LabUrprofileComponent },
   {path:'Register', component:RegisterComponent},
@@ -38,9 +40,9 @@ const routes: Routes = [
   {path: 'resetpassword' , component:ResetPasswordComponent},
   {path:'otp' , component:OTPComponent},
   {path:'newpassword', component:NewPasswordComponent},
-  {path:'Cashier' , component:CashierSystemComponent},
-  {path:'Reservation', component:ReservationComponent},
-  {path: 'cliniclogin' , component:ClinicloginComponent},
+  {path:'Cashier' , component:CashierSystemComponent , canActivate:[AuthGuard] , data:{roles:[UserRole.Cashier]}},
+  {path:'Reservation', component:ReservationComponent , canActivate:[AuthGuard] , data:{roles:[UserRole.Cashier]}},
+  {path: 'cliniclogin' , component:ClinicloginComponent , canActivate:[AuthGuard] , data:{roles:[UserRole.Doctor]}},
   {path: 'report' , component:ReportComponent},
   {path: 'urprofile', component:UrprofileComponent},
   {path: 'doctorreservation', component:DoctorReservationComponent },
