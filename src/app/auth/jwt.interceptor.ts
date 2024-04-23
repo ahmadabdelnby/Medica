@@ -7,7 +7,7 @@ import {
   HttpResponse,
 } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
-import { AuthenticationService } from '../Services/authentication.service';
+import { AuthenticationService } from '../Services/Auth Service/authentication.service';
 import { Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 export class JwtInterceptor implements HttpInterceptor {

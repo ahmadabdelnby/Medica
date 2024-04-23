@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AuthenticationService } from '../../../Services/authentication.service';
+import { AuthenticationService } from '../../../Services/Auth Service/authentication.service';
 import { LoginToken } from '../../../Models/login-token';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -7,7 +7,7 @@ import { error } from 'console';
 import { Subscription } from 'rxjs';
 import { NgModel } from '@angular/forms';
 import { NgForm } from '@angular/forms';
-import { StorageService } from '../../../Services/storage.service';
+import { StorageService } from '../../../Services/Storage Service/storage.service';
 import { UserRole } from '../../../Models/user';
 
 @Component({

@@ -20,7 +20,7 @@ import { LabUrprofileComponent } from './Modules/cashier/lab-urprofile/lab-urpro
 import { MedicineComponent } from './Modules/pharmacy/medicine/medicine.component';
 import { MedicineDetailsComponent } from './Modules/pharmacy/medicine-details/medicine-details.component';
 import { AddMedicineComponent } from './Modules/pharmacy/add-medicine/add-medicine.component';
-import { AuthGuard } from './Guards/auth.guard';
+import { AuthGuard } from './Guards/Auth Guard/auth.guard';
 import { UserRole } from './Models/user';
 
 UserRole;
