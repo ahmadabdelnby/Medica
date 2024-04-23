@@ -8,10 +8,9 @@ describe('OTPComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [OTPComponent]
-    })
-    .compileComponents();
-    
+      declarations: [OTPComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(OTPComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

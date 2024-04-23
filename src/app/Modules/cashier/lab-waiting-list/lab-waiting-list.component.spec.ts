@@ -8,10 +8,9 @@ describe('LabWaitingListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [LabWaitingListComponent]
-    })
-    .compileComponents();
-    
+      declarations: [LabWaitingListComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(LabWaitingListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

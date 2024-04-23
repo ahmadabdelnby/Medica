@@ -67,9 +67,10 @@ export class RegisterComponent implements OnInit {
     private _snackBar: MatSnackBar,
     private router: Router,
     private formBuilder: FormBuilder
-  ) // private registrationForm: FormGroup
-  // private loginSubscription :Subscription
-  {}
+  ) {
+    // private registrationForm: FormGroup
+    // private loginSubscription :Subscription
+  }
 
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
@@ -107,7 +108,7 @@ export class RegisterComponent implements OnInit {
       },
       error: (err: any) => {
         console.log('this is the error ', err);
-        let errorMessage = err.error.message || 'An error occurred';
+        const errorMessage = err.error.message || 'An error occurred';
         this._snackBar.open(errorMessage, 'Close', {
           duration: 5000,
         });

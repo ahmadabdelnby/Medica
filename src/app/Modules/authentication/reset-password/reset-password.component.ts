@@ -6,7 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-reset-password',
   templateUrl: './reset-password.component.html',
-  styleUrls: ['./reset-password.component.css']
+  styleUrls: ['./reset-password.component.css'],
 })
 export class ResetPasswordComponent {
   errorMessage: string = '';
@@ -15,7 +15,7 @@ export class ResetPasswordComponent {
     private authService: AuthenticationService,
     private _snackBar: MatSnackBar,
     private router: Router
-  ) { }
+  ) {}
 
   resetPassword(email: string): void {
     if (!email) {

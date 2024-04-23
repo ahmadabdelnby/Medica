@@ -4,16 +4,12 @@ import { MedicineComponent } from './medicine/medicine.component';
 import { MedicineDetailsComponent } from './medicine-details/medicine-details.component';
 import { AddMedicineComponent } from './add-medicine/add-medicine.component';
 
-
-
 @NgModule({
   declarations: [
     MedicineComponent,
     MedicineDetailsComponent,
-    AddMedicineComponent
+    AddMedicineComponent,
   ],
-  imports: [
-    CommonModule
-  ]
+  imports: [CommonModule],
 })
-export class PharmacyModule { }
+export class PharmacyModule {}

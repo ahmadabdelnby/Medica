@@ -8,10 +8,9 @@ describe('ClinicWaitingListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ClinicWaitingListComponent]
-    })
-    .compileComponents();
-    
+      declarations: [ClinicWaitingListComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(ClinicWaitingListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

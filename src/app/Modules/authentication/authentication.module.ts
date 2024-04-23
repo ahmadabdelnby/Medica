@@ -5,11 +5,9 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ErrorHandlingComponent } from './error-handling/error-handling.component';
-import { FormsModule , ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OTPComponent } from './otp/otp.component';
 import { NewPasswordComponent } from './new-password/new-password.component';
-
-
 
 @NgModule({
   declarations: [
@@ -18,22 +16,20 @@ import { NewPasswordComponent } from './new-password/new-password.component';
     ResetPasswordComponent,
     ErrorHandlingComponent,
     OTPComponent,
-    NewPasswordComponent
+    NewPasswordComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule // Add this line
+    HttpClientModule, // Add this line
   ],
-  exports:[
+  exports: [
     LoginComponent,
     RegisterComponent,
     ErrorHandlingComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
   ],
-  providers:[
-  
-  ]
+  providers: [],
 })
-export class AuthenticationModule { }
+export class AuthenticationModule {}

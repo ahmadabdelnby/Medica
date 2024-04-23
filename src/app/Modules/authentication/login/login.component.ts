@@ -13,20 +13,20 @@ import { UserRole } from '../../../Models/user';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
 })
 export class LoginComponent implements OnDestroy, OnInit {
   userRoles = Object.values(UserRole);
   selectedUserRole!: UserRole;
   loginSubscription!: Subscription;
-  constructor(private authService: AuthenticationService,
+  constructor(
+    private authService: AuthenticationService,
     private _snackBar: MatSnackBar,
     private router: Router,
     private storageService: StorageService
     //  loginSubscription :Subscription
-  ) { }
+  ) {}
   ngOnInit(): void {
-
     this.loginSubscription;
   }
 
@@ -36,23 +36,20 @@ export class LoginComponent implements OnDestroy, OnInit {
     // }
   }
 
-  login(username: string, password: string ): void {
+  login(username: string, password: string): void {
     const observer = {
-      next: (token:any) => {
+      next: (token: any) => {
         this.storageService.saveUser(token.data.token);
-        console.log('Token saved to storage.' , this.storageService.getUser());
+        console.log('Token saved to storage.', this.storageService.getUser());
       },
       error: (error: any) => {
         console.error('Login failed:', error);
         this._snackBar.open('Login failed. Please try again.', 'Close', {
           duration: 5000,
         });
-      }
-        };
-        // this.loginSubscription =
+      },
+    };
+    // this.loginSubscription =
     this.authService.Login(username, password).subscribe(observer);
   }
-
-
-
 }

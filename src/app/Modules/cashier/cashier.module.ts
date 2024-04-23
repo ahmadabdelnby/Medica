@@ -8,8 +8,6 @@ import { ClinicWaitingListComponent } from './clinic-waiting-list/clinic-waiting
 import { FormsModule } from '@angular/forms';
 import { LabUrprofileComponent } from './lab-urprofile/lab-urprofile.component';
 
-
-
 @NgModule({
   declarations: [
     ReservationComponent,
@@ -17,18 +15,15 @@ import { LabUrprofileComponent } from './lab-urprofile/lab-urprofile.component';
     CashierSystemComponent,
     LabWaitingListComponent,
     ClinicWaitingListComponent,
-    LabUrprofileComponent
+    LabUrprofileComponent,
   ],
-  imports: [
-    CommonModule,
-    FormsModule    
-  ],
+  imports: [CommonModule, FormsModule],
   exports: [
     ReservationComponent,
     WaitingListComponent,
     CashierSystemComponent,
     ClinicWaitingListComponent,
-    LabWaitingListComponent
-  ]
+    LabWaitingListComponent,
+  ],
 })
-export class CashierModule { }
+export class CashierModule {}

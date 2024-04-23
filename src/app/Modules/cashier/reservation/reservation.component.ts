@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Ireservation } from '../../../Models/ireservation';
 // import { Idepartment } from '../../../Models/idepartment';
 // import { ReservationService } from '../../../Services/reservation.service';
@@ -11,38 +11,39 @@ import { error } from 'console';
 @Component({
   selector: 'app-reservation',
   templateUrl: './reservation.component.html',
-  styleUrl: './reservation.component.css'
+  styleUrl: './reservation.component.css',
 })
-export class ReservationComponent implements OnInit{
+export class ReservationComponent implements OnInit {
   labOrClinic: string = '';
   departments: Idepartment[] = [];
-  
+
   reservation: Ireservation = {
     username: '',
     nationalId: '',
     clinicOrLab: '', // 'clinic' or 'lab'
-    specialty: '' // Only required if clinic is selected
+    specialty: '', // Only required if clinic is selected
   };
-  specialties: string[] =[];
-  constructor(private reservationservice: ReservationService,
-      private _snackbar: MatSnackBar,
-      private router : Router
-  ) { 
+  specialties: string[] = [];
+  constructor(
+    private reservationservice: ReservationService,
+    private _snackbar: MatSnackBar,
+    private router: Router
+  ) {
     // this.reservationservice.getSpecialties().subscribe(specialties => {
     //   this.specialties = specialties;
     // });
   }
   ngOnInit(): void {
-    this.reservationservice.getAllDepartments().subscribe((response) => {
+    this.reservationservice.getAllDepartments().subscribe(response => {
       this.departments = response.data.map((data: any) => ({
         id: data.id,
         name: data.name,
-        hospitalID: data.hospitalID
+        hospitalID: data.hospitalID,
       }));
       console.log('Departments: ', this.departments);
     });
   }
-  getAllDepartments(){
+  getAllDepartments() {
     const observer = {
       next: (departments: Idepartment[]) => {
         this.departments = departments;
@@ -50,13 +51,11 @@ export class ReservationComponent implements OnInit{
       },
       error: (err: Error) => {
         console.log(err.message);
-        this._snackbar.open(
-          'Registration Field', 'Done', {
+        this._snackbar.open('Registration Field', 'Done', {
           duration: 3000,
-        }
-        )
-      }
-    }
+        });
+      },
+    };
     this.reservationservice.getAllDepartments().subscribe(
       // (response) => {
       //   this.departments = response;
@@ -68,33 +67,27 @@ export class ReservationComponent implements OnInit{
       //     duration: 3000
       //   });      }
       observer
-    )
+    );
   }
 
   saveReservation(): void {
-    
-    const observer={
-      next : (usrReservation:Ireservation)=>{
-        this._snackbar.open(
-          'Reservation Added Successfully' , 'Done' ,{
-            duration:3000,
-          }
-        ),
-        this.router.navigateByUrl('/WaitingList')
+    const observer = {
+      next: (usrReservation: Ireservation) => {
+        this._snackbar.open('Reservation Added Successfully', 'Done', {
+          duration: 3000,
+        }),
+          this.router.navigateByUrl('/WaitingList');
       },
-      error: (err:Error)=>{
+      error: (err: Error) => {
         console.log(err.message);
-        this._snackbar.open(
-          'Reservation Field' , 'Done' ,{
-            duration:3000,
-          }
-        )
-      }
-      
+        this._snackbar.open('Reservation Field', 'Done', {
+          duration: 3000,
+        });
+      },
+    };
 
-      }
-
-    this.reservationservice.newReservation(this.reservation).subscribe(observer)
+    this.reservationservice
+      .newReservation(this.reservation)
+      .subscribe(observer);
   }
-
 }

@@ -8,10 +8,9 @@ describe('LabUrprofileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [LabUrprofileComponent]
-    })
-    .compileComponents();
-    
+      declarations: [LabUrprofileComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(LabUrprofileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

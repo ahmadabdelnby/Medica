@@ -8,10 +8,9 @@ describe('ClinicloginComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ClinicloginComponent]
-    })
-    .compileComponents();
-    
+      declarations: [ClinicloginComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(ClinicloginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

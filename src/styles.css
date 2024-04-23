@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
- /* header{
+/* header{
     background-color: #024d9a;
     width: 100%;
     display: flex;
@@ -101,20 +101,20 @@
     background-repeat: no-repeat;
   } */
 
-  .home-hero {
-    background-image: url(./assets/images/hosp.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 500px;
-    width: 100%;
-  }
+.home-hero {
+  background-image: url(./assets/images/hosp.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 500px;
+  width: 100%;
+}
 
-  .more-btn{
-    background-color: inherit;
-  }
+.more-btn {
+  background-color: inherit;
+}
 
-  .more-elements{
-    background-color:#024d9a;
-  }
+.more-elements {
+  background-color: #024d9a;
+}
 /* html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */

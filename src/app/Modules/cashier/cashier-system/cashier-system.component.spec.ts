@@ -8,10 +8,9 @@ describe('CashierSystemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CashierSystemComponent]
-    })
-    .compileComponents();
-    
+      declarations: [CashierSystemComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(CashierSystemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
