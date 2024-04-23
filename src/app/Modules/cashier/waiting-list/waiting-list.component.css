@@ -1,26 +1,24 @@
-.images{
-    width: 100%;
-    height: 350px;
-    border-radius: 20px;
-    
+.images {
+  width: 100%;
+  height: 350px;
+  border-radius: 20px;
 }
 
-.cashier-system{
-    background-image: url(../../.././../assets/images/okok.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+.cashier-system {
+  background-image: url(../../.././../assets/images/okok.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-.cashier-cards{
-    border-radius: 20px;
-    
-}
-
-.cashier-cards a{
-    background-color: #fa930d;
-    font-size: large;
-    font-weight: 500;
+.cashier-cards {
+  border-radius: 20px;
 }
 
-.cashier-cards a:hover{
-    background-color: #0d6efd;
+.cashier-cards a {
+  background-color: #fa930d;
+  font-size: large;
+  font-weight: 500;
+}
+
+.cashier-cards a:hover {
+  background-color: #0d6efd;
 }

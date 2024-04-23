@@ -8,10 +8,9 @@ describe('UrprofileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [UrprofileComponent]
-    })
-    .compileComponents();
-    
+      declarations: [UrprofileComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(UrprofileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

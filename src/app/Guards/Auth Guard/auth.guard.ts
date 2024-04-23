@@ -5,18 +5,24 @@ import { UserRole } from '../../Models/user';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
+  constructor(
+    private authService: AuthenticationService,
+    private router: Router,
+    private _snackBar: MatSnackBar
+  ) {}
 
-  constructor(private authService: AuthenticationService, private router: Router , private _snackBar : MatSnackBar ) {}
-
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): boolean {
     const userRole = this.authService.getUserRole();
-    
+
     if (!userRole) {
       this.router.navigate(['/Home']);
-      this._snackBar
+      this._snackBar;
       return false;
     }
 

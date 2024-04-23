@@ -16,8 +16,11 @@ import { StorageService, USER_KEY } from '../Storage Service/storage.service';
 export class AuthenticationService {
   private currentUserSubject!: BehaviorSubject<User | null>;
 
-  constructor(private http: HttpClient,private storageService: StorageService) {
-     this.currentUserSubject = new BehaviorSubject<User | null>(null);
+  constructor(
+    private http: HttpClient,
+    private storageService: StorageService
+  ) {
+    this.currentUserSubject = new BehaviorSubject<User | null>(null);
   }
 
   Register(userRegData: User): Observable<any> {
@@ -26,7 +29,7 @@ export class AuthenticationService {
       `${environment.APIURL}/api/Auth/register`,
       userRegData,
       {
-        headers: new HttpHeaders({ 'Content-Type': 'application/json'}),
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
       }
     );
   }
@@ -37,15 +40,12 @@ export class AuthenticationService {
       password,
     });
   }
-  
 
   resetPassword(email: string): Observable<any> {
-  
     return this.http.post<any>('/api/resetPassword', { email });
   }
-  
-  verifyOTP(otp: string): Observable<any> {
 
+  verifyOTP(otp: string): Observable<any> {
     return this.http.post<any>('/api/verifyOTP', { otp });
   }
 
@@ -63,5 +63,4 @@ export class AuthenticationService {
     const currentUser = this.currentUserSubject.value;
     return currentUser ? currentUser.role : null;
   }
-
 }

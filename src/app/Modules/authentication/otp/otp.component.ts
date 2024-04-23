@@ -6,7 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-otp',
   templateUrl: './otp.component.html',
-  styleUrls: ['./otp.component.css']
+  styleUrls: ['./otp.component.css'],
 })
 export class OTPComponent {
   errorMessage: string = '';
@@ -15,7 +15,7 @@ export class OTPComponent {
     private authService: AuthenticationService,
     private _snackBar: MatSnackBar,
     private router: Router
-  ) { }
+  ) {}
 
   verifyOTP(otp: string): void {
     if (!otp) {

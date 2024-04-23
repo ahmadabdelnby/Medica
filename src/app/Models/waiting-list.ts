@@ -1,2 +1,1 @@
-export interface WaitingList {
-}
+export interface WaitingList {}

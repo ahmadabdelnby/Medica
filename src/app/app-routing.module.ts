@@ -23,39 +23,55 @@ import { AddMedicineComponent } from './Modules/pharmacy/add-medicine/add-medici
 import { AuthGuard } from './Guards/Auth Guard/auth.guard';
 import { UserRole } from './Models/user';
 
-user_Role: UserRole;
-
-
-
+UserRole;
 
 const routes: Routes = [
-  {path:'', redirectTo:'/Home' , pathMatch:'full'},
-  {path:'Home' , component:HomeComponent},
-  {path:'WaitingList' , component:WaitingListComponent},
-  {path:'ClinicWaitingList' , component:ClinicWaitingListComponent , canActivate:[AuthGuard] , data:{roles:[UserRole.Doctor]}},
-  {path:'LabWAitingList' , component:LabWaitingListComponent} ,
-  {path : 'laburprofile', component:LabUrprofileComponent },
-  {path:'Register', component:RegisterComponent},
-  {path:'Login' , component:LoginComponent},
-  {path: 'resetpassword' , component:ResetPasswordComponent},
-  {path:'otp' , component:OTPComponent},
-  {path:'newpassword', component:NewPasswordComponent},
-  {path:'Cashier' , component:CashierSystemComponent , canActivate:[AuthGuard] , data:{roles:[UserRole.Cashier]}},
-  {path:'Reservation', component:ReservationComponent , canActivate:[AuthGuard] , data:{roles:[UserRole.Cashier]}},
-  {path: 'cliniclogin' , component:ClinicloginComponent , canActivate:[AuthGuard] , data:{roles:[UserRole.Doctor]}},
-  {path: 'report' , component:ReportComponent},
-  {path: 'urprofile', component:UrprofileComponent},
-  {path: 'doctorreservation', component:DoctorReservationComponent },
-  {path:'Login' , component:LoginComponent},
-  {path:'medicine' , component:MedicineComponent},
-  {path:'addmedicine',component:AddMedicineComponent},
-  {path:'medicinedetails',component:MedicineDetailsComponent},
-  {path:'**' , component:NotFoundComponent}
+  { path: '', redirectTo: '/Home', pathMatch: 'full' },
+  { path: 'Home', component: HomeComponent },
+  { path: 'WaitingList', component: WaitingListComponent },
+  {
+    path: 'ClinicWaitingList',
+    component: ClinicWaitingListComponent,
+    canActivate: [AuthGuard],
+    data: { roles: [UserRole.Doctor] },
+  },
+  { path: 'LabWAitingList', component: LabWaitingListComponent },
+  { path: 'laburprofile', component: LabUrprofileComponent },
+  { path: 'Register', component: RegisterComponent },
+  { path: 'Login', component: LoginComponent },
+  { path: 'resetpassword', component: ResetPasswordComponent },
+  { path: 'otp', component: OTPComponent },
+  { path: 'newpassword', component: NewPasswordComponent },
+  {
+    path: 'Cashier',
+    component: CashierSystemComponent,
+    canActivate: [AuthGuard],
+    data: { roles: [UserRole.Cashier] },
+  },
+  {
+    path: 'Reservation',
+    component: ReservationComponent,
+    canActivate: [AuthGuard],
+    data: { roles: [UserRole.Cashier] },
+  },
+  {
+    path: 'cliniclogin',
+    component: ClinicloginComponent,
+    canActivate: [AuthGuard],
+    data: { roles: [UserRole.Doctor] },
+  },
+  { path: 'report', component: ReportComponent },
+  { path: 'urprofile', component: UrprofileComponent },
+  { path: 'doctorreservation', component: DoctorReservationComponent },
+  { path: 'Login', component: LoginComponent },
+  { path: 'medicine', component: MedicineComponent },
+  { path: 'addmedicine', component: AddMedicineComponent },
+  { path: 'medicinedetails', component: MedicineDetailsComponent },
+  { path: '**', component: NotFoundComponent },
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

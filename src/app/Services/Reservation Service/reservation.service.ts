@@ -5,12 +5,12 @@ import { environment } from '../../../environments/environment';
 import { Ireservation } from '../../Models/ireservation';
 import {  Idepartment } from '../../Models/idepartment';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ReservationService {
   // httpOptions;
 
-  constructor(private http:HttpClient) {
+  constructor(private http: HttpClient) {
     // this.httpOptions = {
     //   headers: new HttpHeaders(
     //     {
@@ -19,10 +19,9 @@ export class ReservationService {
     //     }
     //   )
     // }
+  }
 
-   }
-
-   private handleError(error: HttpErrorResponse) {
+  private handleError(error: HttpErrorResponse) {
     let errorMessage = 'An error occurred';
     if (error.error instanceof ErrorEvent) {
       // Client-side error
@@ -44,7 +43,6 @@ export class ReservationService {
 
     // Throw the error to be caught by the subscriber
     return errorMessage;
-
   }
 
   // getSpecialties(): Observable<string[]> {
@@ -52,38 +50,47 @@ export class ReservationService {
   //   return of(['Cardiology', 'Dermatology', 'Neurology', 'Orthopedics']);
   // }
 
-  newReservation(userReservation:Ireservation):Observable<any>
-  {
-    return this.http.post<any>(`${environment.APIURL}/api/Reservation/ClinicReservation`, userReservation)
-    .pipe(
-      retry(2),
-      // catchError(this.handleError)
-    )
+  newReservation(userReservation: Ireservation): Observable<any> {
+    return this.http
+      .post<any>(
+        `${environment.APIURL}/api/Reservation/ClinicReservation`,
+        userReservation
+      )
+      .pipe(
+        retry(2)
+        // catchError(this.handleError)
+      );
   }
 
-  fetchReservations(page: number, pageSize: number, /*searchQuery: string, selectedCategory: string, selectedSpecialty: string*/): Observable<any> {
+  fetchReservations(
+    page: number,
+    pageSize: number /*searchQuery: string, selectedCategory: string, selectedSpecialty: string*/
+  ): Observable<any> {
     const params = {
       page: page.toString(),
-      pageSize: pageSize.toString()
+      pageSize: pageSize.toString(),
     };
-    return this.http.get<any>(`${environment.APIURL}/api/Reservation/TodaysReservations`, {params});
+    return this.http.get<any>(
+      `${environment.APIURL}/api/Reservation/TodaysReservations`,
+      { params }
+    );
   }
 
-  getReservationById(Id:string):Observable<Ireservation>
-  {
+  getReservationById(Id: string): Observable<Ireservation> {
     // userNationalId.toString;
-    return this.http.get<Ireservation>(`${environment.APIURL}/api/Reservation/Get/${Id}`)
-    .pipe(
-      retry(2),
-      // catchError(this.handleError)
-    )
+    return this.http
+      .get<Ireservation>(`${environment.APIURL}/api/Reservation/Get/${Id}`)
+      .pipe(
+        retry(2)
+        // catchError(this.handleError)
+      );
   }
 
-  getAllDepartments():Observable<any>{
+  getAllDepartments(): Observable<any> {
     // console.log(`${environment.APIURL}/api/Department/All-Departments`);
-    const response = this.http.get(`${environment.APIURL}/api/Department/All-Departments`);
+    const response = this.http.get(
+      `${environment.APIURL}/api/Department/All-Departments`
+    );
     return response;
-
   }
-
 }

@@ -14,7 +14,7 @@ export class StorageService {
 
   public saveUser(user: any): void {
     if (typeof document === 'undefined') {
-      return ;
+      return;
     }
     const expirationDate = new Date();
     expirationDate.setDate(expirationDate.getDate() + 30);

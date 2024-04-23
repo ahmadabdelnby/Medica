@@ -1,11 +1,9 @@
 .custom-search-bar {
-    height: 40px;  /* Adjust height as desired */
-    width: 40%;     /* Adjust width as desired */
-  }
+  height: 40px; /* Adjust height as desired */
+  width: 40%; /* Adjust width as desired */
+}
 
-  
-  .custom-button {
-    height: 45px;  /* Adjust height as desired */
-    width: 140px;   /* Adjust width as desired */
-  }
-  
+.custom-button {
+  height: 45px; /* Adjust height as desired */
+  width: 140px; /* Adjust width as desired */
+}
