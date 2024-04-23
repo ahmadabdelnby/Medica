@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ReservationService } from '../../../Services/reservation.service';
+import { ReservationService } from '../../../Services/Reservation Service/reservation.service';
 import { Ireservation } from '../../../Models/ireservation';
 import { log } from 'console';
 

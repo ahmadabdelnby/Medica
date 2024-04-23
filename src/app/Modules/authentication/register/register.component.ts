@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AuthenticationService } from '../../../Services/authentication.service';
+import { AuthenticationService } from '../../../Services/Auth Service/authentication.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from '../../../Models/user';
 // import { error } from 'console';

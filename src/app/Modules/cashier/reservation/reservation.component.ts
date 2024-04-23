@@ -3,7 +3,7 @@ import { Ireservation } from '../../../Models/ireservation';
 // import { Idepartment } from '../../../Models/idepartment';
 // import { ReservationService } from '../../../Services/reservation.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ReservationService } from '../../../Services/reservation.service';
+import { ReservationService } from '../../../Services/Reservation Service/reservation.service';
 import { Router } from '@angular/router';
 import { Idepartment } from '../../../Models/idepartment';
 import { error } from 'console';

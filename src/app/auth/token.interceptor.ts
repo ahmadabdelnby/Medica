@@ -8,8 +8,8 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AuthenticationService } from '../Services/authentication.service';
-import { StorageService } from '../Services/storage.service';
+import { AuthenticationService } from '../Services/Auth Service/authentication.service';
+import { StorageService } from '../Services/Storage Service/storage.service';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
