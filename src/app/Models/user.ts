@@ -1,5 +1,5 @@
 export interface User {
-  role: UserRole | null;
+  // role: UserRole | null;
   nid: string;
   username: string;
   firstName: string;
@@ -8,11 +8,12 @@ export interface User {
   gender: string;
   password: string;
   confirmPassword: string;
+  birthDate : string;
 }
 
-export enum UserRole {
-  Admin = 'admin',
-  Doctor = 'doctor',
-  Patient = 'patient',
-  Cashier = 'cashier',
-}
+// export enum UserRole {
+//   // Admin = 'admin',
+//   Doctor = 'doctor',
+//   Patient = 'patient',
+//   Cashier = 'cashier',
+// }

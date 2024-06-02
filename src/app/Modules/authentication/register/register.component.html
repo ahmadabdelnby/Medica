@@ -131,6 +131,22 @@
 
           <div class="d-flex flex-row align-items-center mb-4">
             <div class="form-outline flex-fill mb-0">
+              <label class="form-label" for="birthDate">Birth Date</label>
+              <input
+                type="date"
+                id="birthDate"
+                formControlName="birthDate"
+                class="form-control" />
+              <small
+                class="text-danger"
+                *ngIf="registrationForm.get('birthDate')?.hasError('required')"
+                >Birth is required</small
+              >
+            </div>
+          </div>
+
+          <div class="d-flex flex-row align-items-center mb-4">
+            <div class="form-outline flex-fill mb-0">
               <label class="form-label" for="password">Password</label>
               <input
                 type="password"

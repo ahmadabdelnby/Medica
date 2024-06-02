@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReservationService } from '../../../Services/Reservation Service/reservation.service';
 import { Router } from '@angular/router';
+import { ReservationData } from '../../../Models/reservation-data';
 
 @Component({
   selector: 'app-clinic-waiting-list',
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrl: './clinic-waiting-list.component.css',
 })
 export class ClinicWaitingListComponent implements OnInit {
+  reservations : ReservationData[]= [];
   constructor(private reservationService: ReservationService) {}
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
