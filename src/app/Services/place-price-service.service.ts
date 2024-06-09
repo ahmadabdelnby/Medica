@@ -15,7 +15,7 @@ export class PlacePriceServiceService {
   getAllPlacePrices(placeType : string , placeId :number): Observable<any> {
     const response = this.http.get
     (
-      `${environment.APIURL}/api/PlacePrice/All-Place-Prices${placeType}/${placeId}`
+      `${environment.APIURL}/api/PlacePrice/All-Place-Prices?placeType=${placeType}&placeId=${placeId}`
     )
     return response;
   }

@@ -1,5 +1,5 @@
 export interface PlacePrice {
-    id: string ;
+    id: number ;
     name: string ;
     price: string ;
     placeID: string ;

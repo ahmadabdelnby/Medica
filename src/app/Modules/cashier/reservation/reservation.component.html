@@ -126,11 +126,18 @@
             <label class="form-label" for="placePrice">Place Prices</label>
             <select
               [(ngModel)]="reservation.placePriceId"
-              [(ngModel)]="selectedPlacePrice"
+              [(ngModel)]="selectedPlacePriceId"
+              (change)="showPlacePrice($event)"
               id="placePrice"
               class="rounded-2"
               [ngModelOptions]="{ standalone: true }">
               <!-- <option value="clinic">Select Place Price</option> -->
+              <option
+              [value]="null"
+              [defaultSelected]="true"
+              >
+                select place Price
+              </option>
               <option 
               *ngFor="let placePrice of placePrices"
               [value]="placePrice.id">
@@ -139,11 +146,10 @@
             </select>
           </div>
 
-          <div *ngIf="selectedPlacePrice" class="d-flex flex-row align-items-center justify-content-between"> 
+          <div *ngIf="selectedPlacePricePrice" class="d-flex flex-row align-items-center justify-content-between"> 
             <p>
-              Total Price: {{ selectedPlacePrice?.price }}
+              Total Price: {{ selectedPlacePricePrice }}
             </p>
-
           </div>
 
           <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">

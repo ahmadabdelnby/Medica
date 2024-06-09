@@ -25,7 +25,8 @@ export class ReservationComponent implements OnInit , OnChanges {
   clinics : Clinics[] = [];
   labs : Labs[] = [];
   placePrices : PlacePrice[] = [];  
-  selectedPlacePrice: any;
+  selectedPlacePriceId :any;
+  selectedPlacePricePrice :any;
   reservation: Ireservation = {
     // username: '',
     // nationalId: '',
@@ -47,7 +48,7 @@ export class ReservationComponent implements OnInit , OnChanges {
     private placePriceService: PlacePriceServiceService
   ) {}
   ngOnInit(): void {
-    this.reservationservice.getAllDepartments().subscribe(response => {
+      this.reservationservice.getAllDepartments().subscribe(response => {
       this.departments = response.data.map((data: any) => ({
         id: data.id,
         name: data.name,
@@ -89,13 +90,9 @@ export class ReservationComponent implements OnInit , OnChanges {
   }
 
   ngOnChanges(changes : any): void {
-     // Check if the changes object has the properties you're interested in
   if (changes['placeType'] && changes['event']) {
-    // Extract the current values
     const placeType = changes['placeType'].currentValue;
     const event = changes['event'].currentValue;
-
-    // Call the getAllPlacePrices method
     this.getAllPlacePrices(placeType, event);
   }    
 }
@@ -134,8 +131,32 @@ console.log(this.reservation);
         placeID: data.placeID,
         placeType: data.placeType,
       }));
-      this.selectedPlacePrice = this.placePrices.find(placePrice => placePrice.id === placeId.toString());
+      console.log('Place Prices: ', this.placePrices);
+      this.selectedPlacePricePrice = null;
+      this.selectedPlacePriceId = null;
+
+      // if (this.placePrices.length > 0) {
+      //   this.selectedPlacePrice = this.placePrices[0].id;
+      // }
+      // this.selectedPlacePrice = this.placePrices.find(placePrice => placePrice.id === placeId);
+      // console.log(placeId , this.selectedPlacePrice.id);
       // console.log('Place Prices: ', this.placePrices);
+      // console.log('Selected Place Price: ', this.selectedPlacePrice);
     });
+  }
+
+  showPlacePrice(event: Event): void {
+    const target = event.target as HTMLSelectElement;
+    const value = target ? target.value : '';
+    const placeId = parseInt(value);
+  
+    this.selectedPlacePriceId = this.placePrices.find(placePrice => placePrice.id === placeId);
+    console.log('Selected Place Price: ', this.selectedPlacePriceId);
+    console.log('Place Prices: ', this.selectedPlacePricePrice);
+
+    if (this.placePrices.length > 0) {
+      this.selectedPlacePriceId = this.placePrices[0].id;
+      this.selectedPlacePricePrice = this.placePrices[0].price;
+    }
   }
 }
