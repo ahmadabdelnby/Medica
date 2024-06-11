@@ -2,7 +2,9 @@
   class="container-fluid w-100 d-flex flex-column d-flex justify-content-center min-vh-100 login-page align-items-center">
   <div class="login-card co l-8 w-25 h-100">
     <h1 class="text-center mt-5">User Login</h1>
-    <form class="mt-4" (ngSubmit)="login(username.value, password.value)">
+    <form
+      class="mt-4"
+      (ngSubmit)="login(username.value, password.value, role.value)">
       <!-- <form class="mt-4"> -->
       <div class="form-group">
         <label for="username">Username</label>
@@ -15,7 +17,7 @@
           placeholder="Enter username" />
       </div>
       <!--  -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="password">Password</label>
         <input
           type="password"
@@ -23,32 +25,69 @@
           #password
           id="password"
           name="password"
-          placeholder="Enter password" />
-      </div>
-      <!-- <div class="col-md-6 mb-4 d-inline mt-2">
-                <label class="mb-2 pb-1 d-block">Gender:</label>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="role" #role id="admin" value="Admin"  />
-                  <label class="form-check-label" for="admin">Admin</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="role" #role id="doctor" value="Doctor"/>
-                  <label class="form-check-label" for="doctor">Doctor</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="role" #role id="cashier" value="Cashier"/>
-                    <label class="form-check-label" for="cashier">Cashier</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="role" #role id="patient" value="Patient"/>
-                    <label class="form-check-label" for="patient">Patient</label>
-                </div> -->
+          placeholder="Enter password" /> -->
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-group">
+            <input
+              [type]="hide ? 'password' : 'text'"
+              class="form-control"
+              #password
+              id="password"
+              name="password"
+              placeholder="Enter password" />
+              <i class="fa fa-eye-slash password-toggle-icon" id="togglePassword" (click)="togglePassword()"></i>
+            <div class="input-group-append">
+              <!-- <span class="input-group-text" (click)="togglePassword()">
+                <i class="fa fa-eye-slash" id="togglePassword" (click)="togglePassword()"></i>
+              </span> -->
+            </div>
+          </div>
+        </div>
       <!-- </div> -->
+
+      <div class="d-flex justify-content-center m-2">
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            #role
+            name="role"
+            id="doctor"
+            value="doctor"
+            required />
+          <label class="form-check-label" for="Doctor">Doctor</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            #role
+            name="role"
+            id="cashier"
+            value="cashier"
+            required />
+          <label class="form-check-label" for="Cashier">Cashier</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            #role
+            name="role"
+            id="patient"
+            value="patient"
+            required />
+          <label class="form-check-label" for="Patient">Patient</label>
+        </div>
+      </div>
+
       <div class="form-group d-flex justify-content-center">
         <button type="submit" class="btn btn-primary btn-block mt-2">
           Login
         </button>
       </div>
+
       <div class="text-center mt-3">
         <a href="/resetpassword">Forgot Password?</a>
       </div>

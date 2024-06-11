@@ -21,7 +21,7 @@ import { Subscription } from 'rxjs';
 })
 export class RegisterComponent implements OnInit {
   user: User = {
-    role: null,
+    // role: null,
     nid: '',
     username: '',
     firstName: '',
@@ -30,6 +30,7 @@ export class RegisterComponent implements OnInit {
     gender: '',
     password: '',
     confirmPassword: '',
+    birthDate: '',
   };
 
   registrationForm!: FormGroup;
@@ -94,6 +95,7 @@ export class RegisterComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       gender: ['', Validators.required],
+      birthDate: ['', Validators.required /*, Validators.pattern(/^\d{4}-\d{2}-\d{2}$/)*/],
     });
   }
 

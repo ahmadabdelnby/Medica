@@ -5,7 +5,7 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { Observable, catchError, map, retry, throwError , BehaviorSubject} from 'rxjs';
-import { User, UserRole } from '../../Models/user';
+import { User } from '../../Models/user';
 import { environment } from '../../../environments/environment';
 import { LoginToken } from '../../Models/login-token';
 import { StorageService, USER_KEY } from '../Storage Service/storage.service';
@@ -15,7 +15,6 @@ import { StorageService, USER_KEY } from '../Storage Service/storage.service';
 })
 export class AuthenticationService {
   private currentUserSubject!: BehaviorSubject<User | null>;
-
   constructor(
     private http: HttpClient,
     private storageService: StorageService
@@ -23,7 +22,10 @@ export class AuthenticationService {
     this.currentUserSubject = new BehaviorSubject<User | null>(null);
   }
 
+  
+
   Register(userRegData: User): Observable<any> {
+
     console.log(userRegData);
     return this.http.post<any>(
       `${environment.APIURL}/api/Auth/register`,
@@ -34,7 +36,7 @@ export class AuthenticationService {
     );
   }
 
-  Login(username: string, password: string): Observable<LoginToken> {
+  Login(username: string, password: string ): Observable<LoginToken> {
     return this.http.post<any>(`${environment.APIURL}/api/Auth/LogIn`, {
       username,
       password,
@@ -59,8 +61,8 @@ export class AuthenticationService {
     this.currentUserSubject.next(user);
   }
 
-  public getUserRole(): UserRole | null {
-    const currentUser = this.currentUserSubject.value;
-    return currentUser ? currentUser.role : null;
-  }
+  // public getUserRole(): UserRole | null {
+  //   const currentUser = this.currentUserSubject.value;
+  //   return currentUser ? currentUser.role : null;
+  // }
 }

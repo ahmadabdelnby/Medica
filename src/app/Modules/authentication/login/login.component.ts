@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
 import { NgModel } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { StorageService } from '../../../Services/Storage Service/storage.service';
-import { UserRole } from '../../../Models/user';
+// import { UserRole } from '../../../Models/user';
 
 @Component({
   selector: 'app-login',
@@ -16,16 +16,17 @@ import { UserRole } from '../../../Models/user';
   styleUrl: './login.component.css',
 })
 export class LoginComponent implements OnDestroy, OnInit {
-  userRoles = Object.values(UserRole);
-  selectedUserRole!: UserRole;
+  static userRole :string
+  static _SnackBar: MatSnackBar;
   loginSubscription!: Subscription;
+  hide : boolean = true;
   constructor(
     private authService: AuthenticationService,
     private _snackBar: MatSnackBar,
     private router: Router,
     private storageService: StorageService
     //  loginSubscription :Subscription
-  ) {}
+  ) {  }
   ngOnInit(): void {
     this.loginSubscription;
   }
@@ -34,13 +35,21 @@ export class LoginComponent implements OnDestroy, OnInit {
     // if (this.loginSubscription) {
     //   this.loginSubscription.unsubscribe();
     // }
+    
   }
 
-  login(username: string, password: string): void {
+  togglePassword() {
+    this.hide = !this.hide;
+  }
+
+  login(username: string, password: string , role: string): void {
     const observer = {
       next: (token: any) => {
         this.storageService.saveUser(token.data.token);
         console.log('Token saved to storage.', this.storageService.getUser());
+        this._snackBar.open('Login Success.', 'Done', {
+          duration: 5000,
+        });
       },
       error: (error: any) => {
         console.error('Login failed:', error);
@@ -51,5 +60,12 @@ export class LoginComponent implements OnDestroy, OnInit {
     };
     // this.loginSubscription =
     this.authService.Login(username, password).subscribe(observer);
+    LoginComponent.userRole = role;
   }
+
+  // saveUserRole(role: string): void {
+  //   this.userRole = role;
+  // }
+
+
 }

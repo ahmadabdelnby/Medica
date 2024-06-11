@@ -10,11 +10,10 @@
           <div class="d-flex flex-row align-items-center mb-4">
             <div class="form-outline flex-fill mb-0">
               <label class="form-label" for="form3Example1c"
-                >Patient Name</label
-              >
+                >Patient Id</label>
               <input
                 type="text"
-                [(ngModel)]="reservation.username"
+                [(ngModel)]="reservation.patientId"
                 id="form3Example1c"
                 class="form-control"
                 [ngModelOptions]="{ standalone: true }" />
@@ -24,11 +23,25 @@
           <div class="d-flex flex-row align-items-center mb-4">
             <div class="form-outline flex-fill mb-0">
               <label class="form-label" for="form3Example1c"
-                >Patient National ID</label
+                >First name</label
               >
               <input
                 type="text"
-                [(ngModel)]="reservation.nationalId"
+                [(ngModel)]="reservation.firstName"
+                id="form3Example1c"
+                class="form-control"
+                [ngModelOptions]="{ standalone: true }" />
+            </div>
+          </div>
+
+          <div class="d-flex flex-row align-items-center mb-4">
+            <div class="form-outline flex-fill mb-0">
+              <label class="form-label" for="form3Example1c"
+                >Last name</label
+              >
+              <input
+                type="text"
+                [(ngModel)]="reservation.lastName"
                 id="form3Example1c"
                 class="form-control"
                 [ngModelOptions]="{ standalone: true }" />
@@ -37,8 +50,15 @@
 
           <!-- <div class="d-flex flex-row align-items-center mb-4">
             <div class="form-outline flex-fill mb-0">
-              <label class="form-label" for="form3Example1c">Patient Age</label>
-              <input type="number" id="form3Example1c" class="form-control">
+              <label class="form-label" for="form3Example1c"
+                >Place Price Id</label
+              >
+              <input
+                type="Number"
+                [(ngModel)]="reservation.placePriceId"
+                id="form3Example1c"
+                class="form-control"
+                [ngModelOptions]="{ standalone: true }" />
             </div>
           </div> -->
 
@@ -51,9 +71,9 @@
                 type="radio"
                 name="labOrClinic"
                 id="Lab"
-                value="Lab"
+                value="lab"
                 checked />
-              <label class="form-check-label" for="femaleGender">Lab</label>
+              <label class="form-check-label" for="Lab">Lab</label>
             </div>
 
             <div class="form-check form-check-inline">
@@ -62,40 +82,78 @@
                 [(ngModel)]="labOrClinic"
                 type="radio"
                 name="labOrClinic"
-                id="Clinic"
-                value="Clinic" />
-              <label class="form-check-label" for="maleGender">Clinic</label>
+                id="clinic"
+                value="clinic" />
+              <label class="form-check-label" for="clinic">Clinic</label>
             </div>
           </div>
 
-          <div *ngIf="labOrClinic === 'Clinic'" class="d-flex flex-column mb-1">
-            <label class="form-label" for="specialty">Select Department</label>
+          <div *ngIf="labOrClinic === 'lab'" class="d-flex flex-column mb-1">
+            <label class="form-label" for="lab">Select Lab</label>
             <select
               [(ngModel)]="reservation.specialty"
+              (change)="getAllPlacePrices(labOrClinic , $event)"
               id="specialty"
               class="rounded-2"
               [ngModelOptions]="{ standalone: true }">
-              <option value="clinic">Select Specialty</option>
-              <option
-                *ngFor="let department of departments"
-                [value]="department.id">
-                {{ department.name }}
+              <!-- <option value="lab">Select Lab</option> -->
+              <option 
+              *ngFor="let lab of labs"
+              [value]="lab.id">
+                {{ lab.name }}
               </option>
             </select>
           </div>
 
-          <!-- <select [(ngModel)]="reservation.clinicOrLab">
-              <option value="clinic">Clinic</option>
-              <option value="lab">Lab</option>
-            </select> -->
+          <div *ngIf="labOrClinic === 'clinic'" class="d-flex flex-column mb-1">
+            <label class="form-label" for="clinic">Select Clinic</label>
+            <select
+              [(ngModel)]="reservation.specialty"
+              (change)="getAllPlacePrices(labOrClinic , $event)"
+              id="specialty"
+              class="rounded-2"
+              [ngModelOptions]="{ standalone: true }">
+              <!-- <option value="clinic">Select Clinic</option> -->
+              <option 
+              *ngFor="let clinic of clinics"
+              [value]="clinic.id">
+              {{ clinic.name }}
+              </option>
+            </select>
+          </div>
 
-          <!-- <select *ngIf="reservation.clinicOrLab === 'clinic'" [(ngModel)]="reservation.specialty">
-              <option value="">Select Specialty</option>
-              <option *ngFor="let specialty of specialties" [value]="specialty">{{ specialty }}</option>
-            </select> -->
+          <div *ngIf="reservation.specialty" class="d-flex flex-column mb-1">
+            <label class="form-label" for="placePrice">Place Prices</label>
+            <select
+              [(ngModel)]="reservation.placePriceId"
+              [(ngModel)]="selectedPlacePriceId"
+              (change)="showPlacePrice($event)"
+              id="placePrice"
+              class="rounded-2"
+              [ngModelOptions]="{ standalone: true }">
+              <!-- <option value="clinic">Select Place Price</option> -->
+              <option
+              [value]="null"
+              [defaultSelected]="true"
+              >
+                select place Price
+              </option>
+              <option 
+              *ngFor="let placePrice of placePrices"
+              [value]="placePrice.id">
+              {{ placePrice.name }}
+              </option>
+            </select>
+          </div>
+
+          <div *ngIf="selectedPlacePricePrice" class="d-flex flex-row align-items-center justify-content-between"> 
+            <p>
+              Total Price: {{ selectedPlacePricePrice }}
+            </p>
+          </div>
 
           <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-            <button type="button" class="btn btn-primary btn-lg">Create</button>
+            <button type="submit" class="btn btn-primary btn-lg">Create</button>
           </div>
         </form>
       </div>

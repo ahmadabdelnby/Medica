@@ -20,10 +20,11 @@ import { LabUrprofileComponent } from './Modules/cashier/lab-urprofile/lab-urpro
 import { MedicineComponent } from './Modules/pharmacy/medicine/medicine.component';
 import { MedicineDetailsComponent } from './Modules/pharmacy/medicine-details/medicine-details.component';
 import { AddMedicineComponent } from './Modules/pharmacy/add-medicine/add-medicine.component';
-import { AuthGuard } from './Guards/Auth Guard/auth.guard';
-import { UserRole } from './Models/user';
+import { patientGuard } from './Guards/patient.guard';
+// import { UserRole } from './Models/user';
 
-UserRole;
+
+// UserRole;
 
 const routes: Routes = [
   { path: '', redirectTo: '/Home', pathMatch: 'full' },
@@ -32,8 +33,6 @@ const routes: Routes = [
   {
     path: 'ClinicWaitingList',
     component: ClinicWaitingListComponent,
-    canActivate: [AuthGuard],
-    data: { roles: [UserRole.Doctor] },
   },
   { path: 'LabWAitingList', component: LabWaitingListComponent },
   { path: 'laburprofile', component: LabUrprofileComponent },
@@ -45,20 +44,20 @@ const routes: Routes = [
   {
     path: 'Cashier',
     component: CashierSystemComponent,
-    canActivate: [AuthGuard],
-    data: { roles: [UserRole.Cashier] },
+    // canActivate: [AuthGuard],
+    // data: { roles: [UserRole.Cashier] },
   },
   {
     path: 'Reservation',
     component: ReservationComponent,
-    canActivate: [AuthGuard],
-    data: { roles: [UserRole.Cashier] },
+    // canActivate: [AuthGuard],
+    // data: { roles: [UserRole.Cashier] },
   },
   {
     path: 'cliniclogin',
     component: ClinicloginComponent,
-    canActivate: [AuthGuard],
-    data: { roles: [UserRole.Doctor] },
+    // canActivate: [AuthGuard],
+    // data: { roles: [UserRole.Doctor] },
   },
   { path: 'report', component: ReportComponent },
   { path: 'urprofile', component: UrprofileComponent },

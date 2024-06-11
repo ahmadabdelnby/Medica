@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Observable, catchError, map, retry, throwError ,of } from 'rxjs';
+import { Observable, catchError, map, retry, throwError ,of} from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { Ireservation } from '../../Models/ireservation';
 import {  Idepartment } from '../../Models/idepartment';
@@ -10,7 +10,9 @@ import {  Idepartment } from '../../Models/idepartment';
 export class ReservationService {
   // httpOptions;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient , 
+    
+  ) {
     // this.httpOptions = {
     //   headers: new HttpHeaders(
     //     {
@@ -45,20 +47,21 @@ export class ReservationService {
     return errorMessage;
   }
 
-  // getSpecialties(): Observable<string[]> {
-  //   // Simulated data for demonstration
-  //   return of(['Cardiology', 'Dermatology', 'Neurology', 'Orthopedics']);
-  // }
-
   newReservation(userReservation: Ireservation): Observable<any> {
     return this.http
       .post<any>(
-        `${environment.APIURL}/api/Reservation/ClinicReservation`,
-        userReservation
+        `${environment.APIURL}/api/Reservation/ClinicReservation`,JSON.stringify(userReservation),
+        {
+          headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+        }
       )
       .pipe(
-        retry(2)
-        // catchError(this.handleError)
+        retry(2),
+        catchError((error: HttpErrorResponse) => {
+          // console.error(error.error); // Log the error message
+          console.error(error.error); // Log the error message
+          return throwError(error); // Rethrow the error to be caught by the subscriber
+        })
       );
   }
 
