@@ -29,7 +29,7 @@ export class NewPasswordComponent {
       return;
     }
 
-    // Passwords are valid, navigate to login page
+   
     this.router.navigate(['/login']);
   }
 
