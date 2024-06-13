@@ -1,0 +1,21 @@
+<div class="firstaid-system w-100 min-vh-100 d-flex flex-column align-items-center justify-content-start py-5">
+    <div class="container text-center mt-3 mb-3">
+        <input
+            type="text"
+            id="search-bar"
+            class="form-control custom-search-bar mx-auto"
+            placeholder="Search"
+            aria-label="Search"
+            (input)="onSearch($event)" />
+    </div>
+
+    <div id="cards-container" class="container d-flex flex-column align-items-center">
+        <div class="card w-100 mb-3 firstaid-cards" *ngFor="let card of uniqueCards">
+            <img [src]="card.img" class="card-img-top image" alt="..." />
+            <div class="card-body">
+                <h1 class="card-title text-center">{{ card.title }}</h1>
+                <p class="card-text text-center">{{ card.text }}</p>
+            </div>
+        </div>
+    </div>
+</div>
