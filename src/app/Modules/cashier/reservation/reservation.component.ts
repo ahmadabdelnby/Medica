@@ -12,7 +12,7 @@ import { ClinicServiceService } from '../../../Services/Clinic Service/clinic-se
 import { Labs } from '../../../Models/labs';
 import { LabServiceService } from '../../../Services/Lab Service/lab-service.service';
 import { PlacePrice } from '../../../Models/place-price';
-import { PlacePriceServiceService } from '../../../Services/place-price-service.service';
+import { PlacePriceServiceService } from '../../../Services/Place Price Service/place-price-service.service';
 
 @Component({
   selector: 'app-reservation',

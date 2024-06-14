@@ -31,7 +31,9 @@ export class AuthenticationService {
       `${environment.APIURL}/api/Auth/register`,
       userRegData,
       {
-        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' ,
+        Authorization: `Bearer ${this.storageService.getUser()}`
+        }),
       }
     );
   }
@@ -40,7 +42,13 @@ export class AuthenticationService {
     return this.http.post<any>(`${environment.APIURL}/api/Auth/LogIn`, {
       username,
       password,
-    });
+    },
+    {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' ,
+        'Authorization': `Bearer ${this.storageService.getUser()}`
+      }),
+    }
+  );
   }
 
   resetPassword(email: string): Observable<any> {
@@ -51,7 +59,6 @@ export class AuthenticationService {
     return this.http.post<any>('/api/verifyOTP', { otp });
   }
 
-  // role functions
 
   public getCurrentUser(): Observable<User | null> {
     return this.currentUserSubject.asObservable();
@@ -61,8 +68,4 @@ export class AuthenticationService {
     this.currentUserSubject.next(user);
   }
 
-  // public getUserRole(): UserRole | null {
-  //   const currentUser = this.currentUserSubject.value;
-  //   return currentUser ? currentUser.role : null;
-  // }
 }

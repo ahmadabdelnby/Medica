@@ -22,12 +22,11 @@ import { MedicineDetailsComponent } from './Modules/pharmacy/medicine-details/me
 import { AddMedicineComponent } from './Modules/pharmacy/add-medicine/add-medicine.component';
 import { patientGuard } from './Guards/patient.guard';
 // import { UserRole } from './Models/user';
-
-
 // UserRole;
 
 const routes: Routes = [
   { path: '', redirectTo: '/Home', pathMatch: 'full' },
+  { path: 'Login', component: LoginComponent},
   { path: 'Home', component: HomeComponent },
   { path: 'WaitingList', component: WaitingListComponent },
   {

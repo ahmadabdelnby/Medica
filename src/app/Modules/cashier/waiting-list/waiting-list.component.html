@@ -1,32 +1,4 @@
-<!-- <div class="d-flex flex-column justify-content-center align-items-center">
-    <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-        </div>
-    </nav>
-
-    <div>
-        <section class="home-cards d-flex flex-sm-row align-content-center justify-content-around mt-3 position-static">
-            <div *ngFor="let reservation of reservations" class="card position-static" style="width: 20%;">
-                <img src="../../../assets/images/logo.png" class="card-img-top" alt="medica">
-                <div class="card-body">
-                    <h5 class="card-title">{{patientName}}</h5>
-                    <h5 class="card-title">{{patientNID}}</h5>
-                    <div>
-                        <p class="d-inline-flex btn-primary rounded-4">Clinic : {{clinicName}}</p>
-                        <span class="btn btn-dark">number : {{queueNumber}}</span>
-                    </div>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </section>
-    </div>
-</div> -->
-
-<div
+<!-- <div
   class="cashier-system w-100 min-vh-100 d-flex align-items-center justify-content-around col-sm-12">
   <div
     class="card w-25 d-flex flex-column justify-content-center position-static cashier-cards">
@@ -36,8 +8,6 @@
       alt="..." />
     <div class="card-body d-flex flex-column justify-content-center">
       <h3 class="card-title text-center">Clinic Waiting List</h3>
-      <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p> -->
       <a (click)="goToClinicWaitingList()" class="btn btn-primary">Enter</a>
     </div>
   </div>
@@ -50,9 +20,138 @@
       alt="..." />
     <div class="card-body d-flex flex-column justify-content-center">
       <h3 class="card-title text-center">Lab Waiting List</h3>
-      <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p> -->
       <a (click)="goToLabWaitingList()" class="btn btn-primary">Enter</a>
     </div>
+  </div>
+</div> -->
+
+
+<div
+  class="row p-0 m-0"
+  style="
+    background-image: url(../../../../assets/images/waiting.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+  ">
+  <div
+    class="col-sm-1 d-flex flex-column align-items-center justify-content-center">
+  </div>
+  <div class="pt-4 col-sm-10">
+    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Waiting List</p>
+    <table class="table">
+      <thead class="table-info">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Id</th>
+          <th scope="col">Age</th>
+          <th scope="col">Number</th>
+          <th scope="col">Clinic or Lab</th>
+          <th scope="col">Confirm</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-secondary">
+          <td>said</td>
+          <td>12150365465</td>
+          <td>25</td>
+          <td>12345</td>
+          <td><a href="/laburprofile" class="btn btn-warning">Enter</a></td>
+          <td>
+            <a class="btn btn-primary" (click)="removeRow($event)">Next</a>
+          </td>
+        </tr>
+        <tr class="table-secondary">
+          <td>mohamed</td>
+          <td>45654245</td>
+          <td>30</td>
+          <td>67890</td>
+          <td><a href="/laburprofile" class="btn btn-warning">Enter</a></td>
+          <td>
+            <a class="btn btn-primary" (click)="removeRow($event)">Next</a>
+          </td>
+        </tr>
+        <tr class="table-secondary">
+          <td>john</td>
+          <td>78965412</td>
+          <td>35</td>
+          <td>24680</td>
+          <td><a href="/laburprofile" class="btn btn-warning">Enter</a></td>
+          <td>
+            <a class="btn btn-primary" (click)="removeRow($event)">Next</a>
+          </td>
+        </tr>
+        <tr class="table-secondary">
+          <td>john</td>
+          <td>78965412</td>
+          <td>35</td>
+          <td>24680</td>
+          <td><a href="/laburprofile" class="btn btn-warning">Enter</a></td>
+          <td>
+            <a class="btn btn-primary" (click)="removeRow($event)">Next</a>
+          </td>
+        </tr>
+        <tr class="table-secondary">
+          <td>mohamed</td>
+          <td>45654245</td>
+          <td>30</td>
+          <td>67890</td>
+          <td><a href="/laburprofile" class="btn btn-warning">Enter</a></td>
+          <td>
+            <a class="btn btn-primary" (click)="removeRow($event)">Next</a>
+          </td>
+        </tr>
+        <tr class="table-secondary">
+          <td>mohamed</td>
+          <td>45654245</td>
+          <td>30</td>
+          <td>67890</td>
+          <td><a href="/laburprofile" class="btn btn-warning">Enter</a></td>
+          <td>
+            <a class="btn btn-primary" (click)="removeRow($event)">Next</a>
+          </td>
+        </tr>
+        <tr class="table-secondary">
+          <td>mohamed</td>
+          <td>45654245</td>
+          <td>30</td>
+          <td>67890</td>
+          <td><a href="/laburprofile" class="btn btn-warning">Enter</a></td>
+          <td>
+            <a class="btn btn-primary" (click)="removeRow($event)">Next</a>
+          </td>
+        </tr>
+        <tr class="table-secondary">
+          <td>mohamed</td>
+          <td>45654245</td>
+          <td>30</td>
+          <td>67890</td>
+          <td><a href="/laburprofile" class="btn btn-warning">Enter</a></td>
+          <td>
+            <a class="btn btn-primary" (click)="removeRow($event)">Next</a>
+          </td>
+        </tr>
+        <tr class="table-secondary">
+          <td>mohamed</td>
+          <td>45654245</td>
+          <td>30</td>
+          <td>67890</td>
+          <td><a href="/laburprofile" class="btn btn-warning">Enter</a></td>
+          <td>
+            <a class="btn btn-primary" (click)="removeRow($event)">Next</a>
+          </td>
+        </tr>
+        <tr class="table-secondary">
+          <td>mohamed</td>
+          <td>45654245</td>
+          <td>30</td>
+          <td>67890</td>
+          <td><a href="/laburprofile" class="btn btn-warning">Enter</a></td>
+          <td>
+            <a class="btn btn-primary" (click)="removeRow($event)">Next</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

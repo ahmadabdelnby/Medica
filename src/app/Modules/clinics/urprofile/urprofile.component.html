@@ -1,4 +1,4 @@
-<div
+<!-- <div
   class="row p-0 m-0"
   style="
     background-image: url(../../../../assets/images/profilee.webp);
@@ -11,27 +11,35 @@
   <div class="pt-4 col-sm-10">
     <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Details</p>
 
-    <table class="table table-striped-columns">
+    <table class="table table-striped-columns" >
       <tbody>
         <tr>
-          <td class="fw-bold">Name:</td>
-          <td>mostafa mahmoud ahmed</td>
+          <td class="fw-bold">First Name:</td>
+          <td>{{userData.firstName}}</td>
+        </tr>
+        <tr>
+          <td class="fw-bold">Last Name:</td>
+          <td>{{userData.lastName}}</td>
         </tr>
         <tr>
           <td class="fw-bold">ID:</td>
-          <td>565154151112</td>
+          <td>{{userData.nid}}</td>
         </tr>
         <tr>
           <td class="fw-bold">age:</td>
-          <td>4152</td>
+          <td>{{userData.age}}</td>
         </tr>
         <tr>
           <td class="fw-bold">phone nuumber:</td>
-          <td>0164231523</td>
+          <td>{{userData.phoneNumber}}</td>
         </tr>
         <tr>
           <td class="fw-bold">E-mail:</td>
-          <td>sakddskjgmail.com</td>
+          <td>{{userData.email}}</td>
+        </tr>
+        <tr>
+          <td class="fw-bold">Blood type:</td>
+          <td>{{userData.bloodType}}</td>
         </tr>
       </tbody>
     </table>
@@ -64,84 +72,160 @@
       </tbody>
     </table>
     <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Add Illness</p>
+    <form [formGroup]="formData" (ngSubmit)="addUserDiseaseToProfile()" class="form-group"></form>
+      <div class="form-group">
+        <label for="type">Type</label>
+        <input type="text" id="type" formControlName="type" placeholder="Type" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="valueResult">Value Result</label>
+        <input type="text" id="valueResult" formControlName="valueResult" placeholder="Value Result" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="Description">Description</label>
+        <input type="text" id="Description" formControlName="Description" placeholder="Description" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="height">Height</label>
+        <input type="number" id="height" formControlName="height" placeholder="Height" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="weight">Weight</label>
+        <input type="number" id="weight" formControlName="weight" placeholder="Weight" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="userId">User ID</label>
+        <input type="text" id="userId" formControlName="userId" placeholder="User ID" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="DiseaseId">Disease ID</label>
+        <input type="text" id="DiseaseId" formControlName="DiseaseId" placeholder="Disease ID" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="Diagnosis">Diagnosis</label>
+        <input type="text" id="Diagnosis" formControlName="Diagnosis" placeholder="Diagnosis" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="DiagnosisDate">Diagnosis Date</label>
+        <input type="date" id="DiagnosisDate" formControlName="DiagnosisDate" placeholder="Diagnosis Date" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="photo">Photo</label>
+        <input type="file" id="photo" formControlName="photo" placeholder="Photo" class="form-control">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div> -->
+
+<div class="row p-0 m-0" style="background-image: url(../../../../assets/images/profilee.webp); background-size: cover; background-repeat: no-repeat; height: 100%;">
+  <div class="col-sm-1 d-flex flex-column align-items-center justify-content-center"></div>
+  <div class="pt-4 col-sm-10">
+    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Details</p>
+    <table class="table table-striped-columns">
+      <tbody>
+        <tr>
+          <td class="fw-bold">First Name:</td>
+          <td>{{userData.firstName}}</td>
+        </tr>
+        <tr>
+          <td class="fw-bold">Last Name:</td>
+          <td>{{userData.lastName}}</td>
+        </tr>
+        <tr>
+          <td class="fw-bold">ID:</td>
+          <td>{{userData.nid}}</td>
+        </tr>
+        <tr>
+          <td class="fw-bold">age:</td>
+          <td>{{userData.age}}</td>
+        </tr>
+        <tr>
+          <td class="fw-bold">phone nuumber:</td>
+          <td>{{userData.phoneNumber}}</td>
+        </tr>
+        <tr>
+          <td class="fw-bold">E-mail:</td>
+          <td>{{userData.email}}</td>
+        </tr>
+        <tr>
+          <td class="fw-bold">Blood type:</td>
+          <td>{{userData.bloodType}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Medical History</p>
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>illness</th>
+          <th>Illness Name</th>
           <th>prescription</th>
-          <th>Save</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>
-            <input
-              type="text"
-              placeholder="illness name"
-              class="form-control" />
-          </td>
-          <td>
-            <input
-              type="file"
-              class="form-control-file"
-              id="formFileDisabled" />
-          </td>
-          <td>
-            <input class="btn btn-primary" type="submit" value="Submit" />
-          </td>
+          <td>sdaksad</td>
+          <td><a href="#" class="btn btn-warning">Show</a></td>
         </tr>
         <tr>
-          <td>
-            <input
-              type="text"
-              placeholder="illness name"
-              class="form-control" />
-          </td>
-          <td>
-            <input
-              type="file"
-              class="form-control-file"
-              id="formFileDisabled" />
-          </td>
-          <td>
-            <input class="btn btn-primary" type="submit" value="Submit" />
-          </td>
+          <td>sdasadsad</td>
+          <td><a href="#" class="btn btn-warning">Show</a></td>
         </tr>
         <tr>
-          <td>
-            <input
-              type="text"
-              placeholder="illness name"
-              class="form-control" />
-          </td>
-          <td>
-            <input
-              type="file"
-              class="form-control-file"
-              id="formFileDisabled" />
-          </td>
-          <td>
-            <input class="btn btn-primary" type="submit" value="Submit" />
-          </td>
+          <td>dsasad</td>
+          <td><a href="#" class="btn btn-warning">Show</a></td>
         </tr>
         <tr>
-          <td>
-            <input
-              type="text"
-              placeholder="illness name"
-              class="form-control" />
-          </td>
-          <td>
-            <input
-              type="file"
-              class="form-control-file"
-              id="formFileDisabled" />
-          </td>
-          <td>
-            <input class="btn btn-primary" type="submit" value="Submit" />
-          </td>
+          <td>sadads</td>
+          <td><a href="#" class="btn btn-warning">Show</a></td>
         </tr>
       </tbody>
     </table>
+    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Add Illness</p>
+    <!-- <form [formGroup]="formData" (ngSubmit)="addUserDiseaseToProfile()" class="form-group">
+      <div class="form-group m-2">
+        <label for="type" class="label-style">Type</label>
+        <input type="text" id="type" formControlName="type" placeholder="Type" class="form-control">
+      </div>
+      <div class="form-group m-2">
+        <label for="valueResult" class="label-style">Value Result</label>
+        <input type="number" id="valueResult" formControlName="valueResult" placeholder="Value Result" class="form-control">
+      </div>
+      <div class="form-group m-2">
+        <label for="Description" class="label-style">Description</label>
+        <input type="text" id="Description" formControlName="Description" placeholder="Description" class="form-control">
+      </div>
+      <div class="form-group m-2">
+        <label for="height" class="label-style">Height</label>
+        <input type="number" id="height" formControlName="height" placeholder="Height" class="form-control">
+      </div>
+      <div class="form-group m-2">
+        <label for="weight" class="label-style">Weight</label>
+        <input type="number" id="weight" formControlName="weight" placeholder="Weight" class="form-control">
+      </div>
+      <div class="form-group m-2">
+        <label for="userId" class="label-style">User ID</label>
+        <input type="number" id="userId" formControlName="userId" placeholder="User ID" class="form-control">
+      </div>
+      <div class="form-group m-2">
+        <label for="DiseaseId" class="label-style">Disease ID</label>
+        <input type="number" id="DiseaseId" formControlName="DiseaseId" placeholder="Disease ID" class="form-control">
+      </div>
+      <div class="form-group m-2">
+        <label for="Diagnosis" class="label-style">Diagnosis</label>
+        <input type="text" id="Diagnosis" formControlName="Diagnosis" placeholder="Diagnosis" class="form-control">
+      </div>
+      <div class="form-group m-2">
+        <label for="DiagnosisDate" class="label-style">Diagnosis Date</label>
+        <input type="date" id="DiagnosisDate" formControlName="DiagnosisDate" placeholder="Diagnosis Date" class="form-control">
+      </div>
+      <div class="form-group m-2">
+        <label for="photo" class="label-style">Photo</label>
+        <input type="file" id="photo" formControlName="photo" placeholder="Photo" class="form-control">
+      </div>
+      <div class="d-flex justify-content-center m-4">
+      <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form> -->
   </div>
 </div>

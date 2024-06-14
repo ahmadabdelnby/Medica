@@ -4,23 +4,25 @@ import { Observable, catchError, map, retry, throwError ,of} from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { Ireservation } from '../../Models/ireservation';
 import {  Idepartment } from '../../Models/idepartment';
+import { StorageService } from '../Storage Service/storage.service';
 @Injectable({
   providedIn: 'root',
 })
 export class ReservationService {
-  // httpOptions;
+  httpOptions;
 
   constructor(private http: HttpClient , 
+    private storageService: StorageService
     
   ) {
-    // this.httpOptions = {
-    //   headers: new HttpHeaders(
-    //     {
-    //       'Content-Type': 'application/json',
-    //       Authorization : 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmb3gzMDQ0IiwianRpIjoiNzkxN2Q0YzktZDk4Mi00NDQyLThjMzEtYzhiODc1YTg5OTk0IiwiZW1haWwiOiJhaG1hZGFsbmFqYXIxM0BnbWFpbC5jb20iLCJ1aWQiOiIxMjM0NTY3ODkxMDEyMyIsInJvbGVzIjoiVXNlciIsImV4cCI6MTcxNjA1Nzg1Nn0.hslwUiAz6H2OpenjeRqGjWOFGDSvRCDsIqvKD-3atVQ'
-    //     }
-    //   )
-    // }
+    this.httpOptions = {
+      headers: new HttpHeaders(
+        {
+          'Content-Type': 'application/json',
+          Authorization : 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZG1pbiIsImp0aSI6ImY3YzQ5ZjA1LTczN2QtNDI4NC05OGNkLTg3ZmEwMzViNzQyYyIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwidWlkIjoiMTIzMTIzMTIzMTIzMTIiLCJyb2xlcyI6WyJVc2VyIiwiQWRtaW4iXSwiZXhwIjoxNzIwNDQ0MjQ0fQ.ki9Qbh6h8jMXVgUDeFNq8s8w6Oxpr6Xissl9UpDYyOA'
+        }
+      )
+    }
   }
 
   private handleError(error: HttpErrorResponse) {
@@ -52,7 +54,9 @@ export class ReservationService {
       .post<any>(
         `${environment.APIURL}/api/Reservation/ClinicReservation`,JSON.stringify(userReservation),
         {
-          headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+          headers: new HttpHeaders({ 'Content-Type': 'application/json' ,
+          Authorization: `Bearer ${this.storageService.getUser()}`
+          }),
         }
       )
       .pipe(
@@ -67,15 +71,18 @@ export class ReservationService {
 
   fetchReservations(
     page: number,
-    pageSize: number /*searchQuery: string, selectedCategory: string, selectedSpecialty: string*/
+    pageSize: number 
   ): Observable<any> {
     const params = {
       page: page.toString(),
       pageSize: pageSize.toString(),
     };
-    return this.http.get<any>(
-      `${environment.APIURL}/api/Reservation/TodaysReservations`,
-      { params }
+    return this.http.get<any>(`${environment.APIURL}/api/Reservation/TodaysReservations`,
+      {params: params, 
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' ,
+        Authorization: `Bearer ${this.storageService.getUser()}`
+        }),
+      }
     );
   }
 

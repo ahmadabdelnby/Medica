@@ -50,6 +50,7 @@ export class LoginComponent implements OnDestroy, OnInit {
         this._snackBar.open('Login Success.', 'Done', {
           duration: 5000,
         });
+        this.router.navigate(['/Home']);
       },
       error: (error: any) => {
         console.error('Login failed:', error);
