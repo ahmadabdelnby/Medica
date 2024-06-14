@@ -10,6 +10,7 @@ import { environment } from '../../../environments/environment';
 import { LoginToken } from '../../Models/login-token';
 import { StorageService, USER_KEY } from '../Storage Service/storage.service';
 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -31,7 +32,9 @@ export class AuthenticationService {
       `${environment.APIURL}/api/Auth/register`,
       userRegData,
       {
-        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' ,
+          Authorization : `Bearer ${this.storageService.getUser()}`
+        }),
       }
     );
   }
@@ -40,7 +43,15 @@ export class AuthenticationService {
     return this.http.post<any>(`${environment.APIURL}/api/Auth/LogIn`, {
       username,
       password,
-    });
+      
+    },
+    {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' ,
+        Authorization : `Bearer ${this.storageService.getUser()}`
+      }),
+    }
+
+  );
   }
 
   resetPassword(email: string): Observable<any> {

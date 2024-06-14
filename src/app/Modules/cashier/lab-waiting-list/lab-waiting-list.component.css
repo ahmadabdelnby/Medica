@@ -1,8 +1,9 @@
 /* Add this CSS to your labwaitinglist page */
 
-/* .lab-waiting-list {
-    background-image: url(../../../../assets/images/waiting.jpg);
+.page-style{
+    background-image: url(../../../../assets/images/wait.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
-} */
+    height: 100%;
+    min-height: 100vh;
+}
