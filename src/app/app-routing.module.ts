@@ -13,7 +13,6 @@ import { ClinicWaitingListComponent } from './Modules/cashier/clinic-waiting-lis
 import { NotFoundComponent } from './Shared-Components/not-found/not-found.component';
 import { LabWaitingListComponent } from './Modules/cashier/lab-waiting-list/lab-waiting-list.component';
 import { ClinicloginComponent } from './Modules/clinics/cliniclogin/cliniclogin.component';
-import { ReportComponent } from './Modules/clinics/report/report.component';
 import { UrprofileComponent } from './Modules/clinics/urprofile/urprofile.component';
 import { DoctorReservationComponent } from './Modules/clinics/doctor-reservation/doctor-reservation.component';
 import { LabUrprofileComponent } from './Modules/cashier/lab-urprofile/lab-urprofile.component';
@@ -21,6 +20,10 @@ import { MedicineComponent } from './Modules/pharmacy/medicine/medicine.componen
 import { MedicineDetailsComponent } from './Modules/pharmacy/medicine-details/medicine-details.component';
 import { AddMedicineComponent } from './Modules/pharmacy/add-medicine/add-medicine.component';
 import { patientGuard } from './Guards/patient.guard';
+import { FirstaidComponent } from './Modules/more/firstaid/firstaid.component';
+import { AboutusComponent } from './Modules/more/aboutus/aboutus.component';
+import { ContactusComponent } from './Modules/more/contactus/contactus.component';
+
 // import { UserRole } from './Models/user';
 // UserRole;
 
@@ -58,14 +61,18 @@ const routes: Routes = [
     // canActivate: [AuthGuard],
     // data: { roles: [UserRole.Doctor] },
   },
-  { path: 'report', component: ReportComponent },
+
   { path: 'urprofile', component: UrprofileComponent },
   { path: 'doctorreservation', component: DoctorReservationComponent },
   { path: 'Login', component: LoginComponent },
   { path: 'medicine', component: MedicineComponent },
   { path: 'addmedicine', component: AddMedicineComponent },
   { path: 'medicinedetails', component: MedicineDetailsComponent },
+  {path:'firstaid', component:FirstaidComponent},
+  {path:'aboutus',component:AboutusComponent},
+  {path:'contactus',component:ContactusComponent},
   { path: '**', component: NotFoundComponent },
+  
 ];
 
 @NgModule({

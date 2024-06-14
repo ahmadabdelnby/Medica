@@ -18,10 +18,12 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { PharmacyModule } from './Modules/pharmacy/pharmacy.module';
+import { MoreModule } from './Modules/more/more.module';
 import {
   TokenInterceptor,
   httpInterceptorProviders,
 } from './auth/token.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import {
     CashierModule,
     ClinicsModule,
     PharmacyModule,
+    MoreModule,
     HttpClientModule,
     MatSnackBarModule,
     HttpClientModule,
