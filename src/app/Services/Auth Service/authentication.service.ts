@@ -62,7 +62,6 @@ export class AuthenticationService {
     return this.http.post<any>('/api/verifyOTP', { otp });
   }
 
-  // role functions
 
   public getCurrentUser(): Observable<User | null> {
     return this.currentUserSubject.asObservable();
@@ -72,8 +71,4 @@ export class AuthenticationService {
     this.currentUserSubject.next(user);
   }
 
-  // public getUserRole(): UserRole | null {
-  //   const currentUser = this.currentUserSubject.value;
-  //   return currentUser ? currentUser.role : null;
-  // }
 }

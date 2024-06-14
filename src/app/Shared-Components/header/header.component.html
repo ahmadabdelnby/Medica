@@ -1,38 +1,3 @@
-<!-- <header class="position-fixed w-100 m-0">
-  <div class="col-2">
-    <a routerLink="/Home" class="logo"><img src="../../../assets/images/logo2.png" alt="logo"></a>
-  </div>
-  <div class="col-8">
-    <nav class="navigation">
-      <a routerLink="/Home" routerLinkActive="active">Home</a>
-      <a routerLink="/Home" routerLinkActive="active">Clinics</a>
-      <a routerLink="/Home" routerLinkActive="active">Pharmacies</a>
-      <a routerLink="/Home" routerLinkActive="active">Labs</a>
-      <a routerLink="/Cashier" routerLinkActive="active">Cashier</a>
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle more-btn" type="button" data-bs-toggle="dropdown"
-          aria-expanded="false">
-          More
-        </button>
-        <ul class="dropdown-menu more-elements">
-          <li><a class="dropdown-item" routerLink="/Home" routerLinkActive="active">First-Aid</a></li>
-          <li><a class="dropdown-item" routerLink="/Home" routerLinkActive="active">Contact Us</a></li>
-          <li><a class="dropdown-item" routerLink="/Home" routerLinkActive="active">About Us</a></li>
-        </ul>
-      </div>
-    </nav>
-  </div>
-
-  <div class="col-2">
-    <div class="d-flex justify-content-end">
-      <a class="btn btn-primary me-1" routerLink="/Login">Login</a>
-      <a class="btn btn-primary me-1" routerLink="/Register">Register</a>
-    </div>
-  </div>
-</header> -->
-
-<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-
 <div class="container-fluid m-0 p-0 position-fixed">
   <header
     class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
@@ -97,7 +62,7 @@
         </ul>
       </div>
     </ul>
-    <div class="col-md-3 text-end">
+    <div class="col-md-3 text-end" id="login&sign-up" *ngIf="!isLoggedIn">
       <!-- <button routerLink="/Login" type="button" class="btn btn-primary me-2">Login</button> -->
       <button routerLink="/Register" type="button" class="btn btn-warning me-2">
         Sign-up
@@ -105,6 +70,20 @@
       <button routerLink="/Login" type="button" class="btn btn-warning">
         Login
       </button>
+      <!-- <a routerLink="/Login" class="btn btn-warning">Login</a> -->
+    </div>
+
+  
+    <div class="col-md-3 text-end" *ngIf="isLoggedIn">
+      <button class="btn btn-warning me-2" (click)="logout()">
+         Logout
+      </button>
+      <button routerLink="/urprofile" type="button" class="btn btn-warning">
+        Profile
+      </button>
+      <!-- <button>
+
+      </button> -->
     </div>
   </header>
 </div>

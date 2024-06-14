@@ -25,12 +25,11 @@ import { AboutusComponent } from './Modules/more/aboutus/aboutus.component';
 import { ContactusComponent } from './Modules/more/contactus/contactus.component';
 
 // import { UserRole } from './Models/user';
-
-
 // UserRole;
 
 const routes: Routes = [
   { path: '', redirectTo: '/Home', pathMatch: 'full' },
+  { path: 'Login', component: LoginComponent},
   { path: 'Home', component: HomeComponent },
   { path: 'WaitingList', component: WaitingListComponent },
   {

@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { ReservationService } from '../../../Services/Reservation Service/reservation.service';
 import { Ireservation } from '../../../Models/ireservation';
 import { log } from 'console';
+import { ReservationData } from '../../../Models/reservation-data';
+import { response } from 'express';
 
 @Component({
   selector: 'app-waiting-list',
@@ -10,16 +12,10 @@ import { log } from 'console';
   styleUrl: './waiting-list.component.css',
 })
 export class WaitingListComponent implements OnInit {
-  reservations: any[] = [];
+  reservations: ReservationData[] = [];
   currentPage: number = 1;
   pageSize: number = 20;
-  searchQuery: string = '';
-  selectedCategory: string = '';
-  selectedSpecialty: string = '';
-  patientName: string = '';
-  patientNID: string = '';
-  clinicName: string = '';
-  queueNumber: string = '';
+  
 
   constructor(
     private router: Router,
@@ -32,33 +28,30 @@ export class WaitingListComponent implements OnInit {
     // console.log(this.fetchReservations());
   }
 
+  removeRow(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+    const row = target.closest('tr');
+    if (row) {
+      row.remove();
+    }
+  }
+
   fetchReservations(): void {
     this.reservationService
       .fetchReservations(
         this.currentPage,
         this.pageSize
-        // this.searchQuery,
-        // this.selectedCategory,
-        // this.selectedSpecialty
       )
-      .subscribe(reservations => {
-        this.reservations = reservations;
+      .subscribe(response => {
+        this.reservations = response.data.map((data: any) => ({
+          id: data.id,
+          reservationTime: data.reservationTime,
+          reservationStatus: data.state,
+          placePrice: data.placePriceId,
+          patientId: data.userID,
+        }));
       });
   }
-
-  applyFiltersAndSearch(): void {
-    // Apply filters and search query
-    this.reservations = this.reservations.filter(
-      reservation =>
-        reservation.category === this.selectedCategory &&
-        (this.selectedCategory !== 'clinic' ||
-          reservation.specialty === this.selectedSpecialty) &&
-        reservation.patientName
-          .toLowerCase()
-          .includes(this.searchQuery.toLowerCase())
-    );
-  }
-
   onNextPage(): void {
     this.currentPage++;
     this.fetchReservations();
@@ -69,25 +62,5 @@ export class WaitingListComponent implements OnInit {
       this.currentPage--;
       this.fetchReservations();
     }
-  }
-
-  onSearch(): void {
-    this.fetchReservations();
-  }
-
-  onCategoryChange(): void {
-    this.fetchReservations();
-  }
-
-  onSpecialtyChange(): void {
-    this.fetchReservations();
-  }
-
-  goToClinicWaitingList() {
-    this.router.navigate(['/ClinicWaitingList']);
-  }
-
-  goToLabWaitingList() {
-    this.router.navigate(['/LabWAitingList']);
   }
 }

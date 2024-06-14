@@ -1,3 +1,5 @@
 export const environment = {
   APIURL: 'http://medicalsystem.runasp.net',
+  AdminToken:
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZG1pbiIsImp0aSI6ImY3YzQ5ZjA1LTczN2QtNDI4NC05OGNkLTg3ZmEwMzViNzQyYyIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwidWlkIjoiMTIzMTIzMTIzMTIzMTIiLCJyb2xlcyI6WyJVc2VyIiwiQWRtaW4iXSwiZXhwIjoxNzIwNDQ0MjQ0fQ.ki9Qbh6h8jMXVgUDeFNq8s8w6Oxpr6Xissl9UpDYyOA',
 };
