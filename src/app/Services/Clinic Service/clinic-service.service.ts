@@ -20,11 +20,24 @@ export class ClinicServiceService {
     `${environment.APIURL}/api/Clinic/All-Clinics`
     ,{
       headers: new HttpHeaders({ 'Content-Type': 'application/json' ,
-        'Authorization': `Bearer ${this.storageService.getUser()}`
+        Authorization: `Bearer ${this.storageService.getUser()}`
       })
     }
    )
    return response;
+  }
+
+  getClinic(id: number): Observable<any> {
+    const response = this.http.get
+    (
+      `${environment.APIURL}/api/Clinic/${id}`,
+      {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' ,
+          Authorization: `Bearer ${this.storageService.getUser()}`
+        })
+      }
+    )
+    return response;
   }
 
   

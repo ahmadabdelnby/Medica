@@ -14,7 +14,8 @@ import { response } from 'express';
 export class WaitingListComponent implements OnInit {
   reservations: ReservationData[] = [];
   currentPage: number = 1;
-  pageSize: number = 20;
+  pageSize: number = 10;
+  totalPages : number = 0;
   
 
   constructor(
@@ -24,8 +25,21 @@ export class WaitingListComponent implements OnInit {
 
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
-    this.fetchReservations();
+    // this.fetchReservations();
     // console.log(this.fetchReservations());
+    this.reservationService.fetchReservations(this.currentPage, this.pageSize).subscribe(response => {
+      this.reservations = response.data.map((data: any) => ({
+        id: data.id,
+        Time : data.time,
+        serialNumber: data.serialNumber,
+        state: data.state,
+        placePriceId: data.placePriceId,
+        userID: data.userID,
+        placePrice: data.placePrice,
+        user: data.user,
+      }));
+      console.log('Reservations: ', this.reservations);
+    });
   }
 
   removeRow(event: MouseEvent) {
@@ -49,7 +63,10 @@ export class WaitingListComponent implements OnInit {
           reservationStatus: data.state,
           placePrice: data.placePriceId,
           patientId: data.userID,
-        }));
+          // console.log('Reservations: ', this.reservations);
+        }
+      ));
+      console.log('Reservations: ', this.reservations);
       });
   }
   onNextPage(): void {

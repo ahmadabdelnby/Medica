@@ -52,3 +52,7 @@ header {
 .navigation-items:hover {
   color: #fa930d;
 }
+
+.nav-bar{
+  z-index: 1000;
+}

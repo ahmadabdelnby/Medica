@@ -1,0 +1,12 @@
+<div class="container-fluid w-100  min-vh-100 login-page pt-5">
+    <div class="card-content m-5 ">
+      <div class="card m-3 " style="width: 18rem;" *ngFor="let lab of labs">
+        <div class="card-body">
+          <h2 class="card-title">{{lab.name}}</h2>
+          <h6 class="card-subtitle mb-2 text-body-secondary">{{lab.type}}</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <button type="button" class="btn btn-warning me-2" (click)="goToLabDetails(lab.id)">Open</button>
+        </div>
+      </div>
+    </div>
+</div>

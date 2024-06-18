@@ -23,6 +23,8 @@ import { patientGuard } from './Guards/patient.guard';
 import { FirstaidComponent } from './Modules/more/firstaid/firstaid.component';
 import { AboutusComponent } from './Modules/more/aboutus/aboutus.component';
 import { ContactusComponent } from './Modules/more/contactus/contactus.component';
+import { AllLabsComponent } from './Modules/labs/all-labs/all-labs.component';
+import { LabReservationsComponent } from './Modules/labs/lab-reservations/lab-reservations.component';
 
 // import { UserRole } from './Models/user';
 // UserRole;
@@ -63,7 +65,7 @@ const routes: Routes = [
   },
 
   { path: 'urprofile', component: UrprofileComponent },
-  { path: 'doctorreservation', component: DoctorReservationComponent },
+  { path: 'doctorreservation/:id', component: DoctorReservationComponent },
   { path: 'Login', component: LoginComponent },
   { path: 'medicine', component: MedicineComponent },
   { path: 'addmedicine', component: AddMedicineComponent },
@@ -71,6 +73,8 @@ const routes: Routes = [
   {path:'firstaid', component:FirstaidComponent},
   {path:'aboutus',component:AboutusComponent},
   {path:'contactus',component:ContactusComponent},
+  {path : 'Labs' , component: AllLabsComponent },
+  {path : 'labreservation/:id' , component: LabReservationsComponent},
   { path: '**', component: NotFoundComponent },
   
 ];

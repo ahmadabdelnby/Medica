@@ -64,12 +64,12 @@ export class UrprofileComponent implements OnInit{
     });
   }
   ngOnInit(): void {
-    // this.userDataService.getUserBasicData().subscribe(
-    //   data => {
-    //     this.userData = data.data;
-    //     console.log('User Data: ', data.data);
-    //   }
-    // )
+    this.userDataService.getUserBasicData().subscribe(
+      data => {
+        this.userData = data.data;
+        console.log('User Data: ', data.data);
+      }
+    )
 
     // this.userDataService.GetAllDiseaseOfUser().subscribe(
     //   data => {

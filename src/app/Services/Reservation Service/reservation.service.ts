@@ -49,13 +49,21 @@ export class ReservationService {
     return errorMessage;
   }
 
-  newReservation(userReservation: Ireservation): Observable<any> {
+  newReservation(userId:string,placePriceId:number, firstName:string, lastName:string, ): Observable<any> {
+    const requestBody = {
+      userId: userId,
+      firstName: firstName,
+      lastName: lastName,
+      placePriceId: placePriceId
+    };
     return this.http
       .post<any>(
-        `${environment.APIURL}/api/Reservation/ClinicReservation`,JSON.stringify(userReservation),
+        `${environment.APIURL}/api/Reservation/UserReservation`,
+        JSON.stringify(requestBody),
         {
-          headers: new HttpHeaders({ 'Content-Type': 'application/json' ,
-          Authorization: `Bearer ${this.storageService.getUser()}`
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${environment.AdminToken}`
           }),
         }
       )
@@ -102,5 +110,22 @@ export class ReservationService {
       `${environment.APIURL}/api/Department/All-Departments`
     );
     return response;
+  }
+
+  getPlaceReservation(placeId : number , placeType:string): Observable<any> {
+    return this.http.get<any>(
+      `${environment.APIURL}/api/Reservation/PlaceReservation/`,
+      {
+        params : {
+          placeID : placeId ,
+          placeType : placeType
+        },
+        headers : new HttpHeaders({
+          'Content-Type': 'application/json' ,
+        Authorization: `Bearer ${this.storageService.getUser()}`
+        })
+      }
+    )
+
   }
 }

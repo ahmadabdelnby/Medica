@@ -5,4 +5,6 @@ export interface ReservationData {
   state: string
   placePriceId: number
   userID: string
+  placePrice: any
+  user: any
 }
