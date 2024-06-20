@@ -1,9 +1,26 @@
 .footer-custom {
-    background-color: #12151a;
-    padding: 10px 20px;
-  }
-  
-  .text-custom {
-    color: #00ffef;
-  }
-  
+  background-color: rgb(242, 242, 242);
+  padding: 10px 20px;
+}
+
+.text-custom {
+  color: black;
+}
+
+.link-body-emphasis {
+  color: #000;
+}
+
+.link-body-emphasis:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+.nav-link {
+  color: #000;
+}
+
+.nav-link:hover {
+  color: #007bff;
+  text-decoration: none;
+}

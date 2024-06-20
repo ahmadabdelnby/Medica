@@ -8,19 +8,14 @@ import { Component } from '@angular/core';
 export class FirstaidComponent {
   cards = [
     {
-      img: '../../../../assets/images/cata.jpg',
-      title: 'catastrophic bleeding',
-      text: 'Apply pressure – The first rule of bleed management is applying direct pressure to the wound. Use your hand, finger or knee if required to put enough pressure on the wound area to limit the bleeding. The leak is coming from an artery which is smaller in diameter than your finger, so focus on the area and get your (gloved) fingers in there, LOTS of pressure will be required to stem the flow. There is a lot of blood pressure to fight against, so press hard!'
+      img: '../../../../assets/images/burn.jpg',
+      title: 'Burns',
+      text: 'Protect the burned person from further harm. If you can do so safely, make sure the person youre helping is not in contact with the source of the burn. For electrical burns, make sure the power source is off before you approach the burned person Make certain that burned person is breathing. If needed, begin rescue breathing if you know how. Remove jewelry, belts and other tight items, especially from the burned area and the neck. Burned areas swell quickly.  Cover the burn. Loosely cover the area with gauze or a clean cloth.  Raise the burned area. Lift the wound above heart level if possible.Watch for symptoms of shock. Symptoms include cool, clammy skin, weak pulse and shallow breathing.'
     },
     {
       img: '../../../../assets/images/bre.webp',
       title: 'breathing',
       text: 'it is possible to determine the respiratory rate, inspect movements of the thoracic wall for symmetry and use of auxiliary respiratory muscles, and percuss the chest for unilateral dullness or resonance. Cyanosis, distended neck veins, and lateralization of the trachea can be identified. If a stethoscope is available, lung auscultation should be performed and, if possible, a pulse oximeter should be applied. Tension pneumothorax must be relieved immediately by inserting a cannula where the second intercostal space crosses the midclavicular line (needle thoracocentesis). Bronchospasm should be treated with inhalations. If breathing is insufficient, assisted ventilation must be performed by giving rescue breaths with or without a barrier device. Trained personnel should use a bag mask if available.'
-    },
-    {
-      img: '../../../../assets/images/burn.jpg',
-      title: 'Burns',
-      text: 'Protect the burned person from further harm. If you can do so safely, make sure the person youre helping is not in contact with the source of the burn. For electrical burns, make sure the power source is off before you approach the burned person Make certain that burned person is breathing. If needed, begin rescue breathing if you know how. Remove jewelry, belts and other tight items, especially from the burned area and the neck. Burned areas swell quickly.  Cover the burn. Loosely cover the area with gauze or a clean cloth.  Raise the burned area. Lift the wound above heart level if possible.Watch for symptoms of shock. Symptoms include cool, clammy skin, weak pulse and shallow breathing.'
     },
     {
       img: '../../../../assets/images/pois.jpg',
@@ -41,7 +36,12 @@ export class FirstaidComponent {
       img: '../../../../assets/images/eye.webp',
       title: 'removing debris from the eyes',
       text: 'Wash your hands with soap and water. Try to flush the object out of your eye with a gentle stream of clean, warm water. Use an eyecup or a small, clean drinking glass positioned with its rim resting on the bone at the base of your eye socket. Another way to flush a foreign object from your eye is to get into a shower and aim a gentle stream of lukewarm water on your forehead over the affected eye while holding your eyelid open. If youre wearing contact lenses, its best to remove the lens before or while youre irrigating the surface of the eye with water. Sometimes a foreign body can be stuck to the undersurface of the lens.'
-    }
+    },
+    {
+      img: '../../../../assets/images/cata.jpg',
+      title: 'catastrophic bleeding',
+      text: 'Apply pressure – The first rule of bleed management is applying direct pressure to the wound. Use your hand, finger or knee if required to put enough pressure on the wound area to limit the bleeding. The leak is coming from an artery which is smaller in diameter than your finger, so focus on the area and get your (gloved) fingers in there, LOTS of pressure will be required to stem the flow. There is a lot of blood pressure to fight against, so press hard!'
+    },
     ];
 
 
