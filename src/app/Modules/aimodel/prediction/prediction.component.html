@@ -1,0 +1,48 @@
+<div class="d-flex flex-column align-items-center justify-content-center page">
+    <div class="container-fluid w-100 pt-5">
+      <p class="text-center h1 fw-bold mb-3 mx-1 mx-md-4 mt-4">Diabetes Prediction</p>
+      <div class="container text-center">
+        <div class="sub-header">Easy Application For Diabetes Prediction Disease</div>
+        <form [formGroup]="diabetesForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="pregnancies">Pregnancies</label>
+            <input type="number" class="form-control" id="pregnancies" formControlName="pregnancies" placeholder="0">
+          </div>
+          <div class="form-group">
+            <label for="skinThickness">Skin Thickness</label>
+            <input type="number" class="form-control" id="skinThickness" formControlName="skinThickness" placeholder="0">
+          </div>
+          <div class="form-group">
+            <label for="diabetesPedigreeFunction">Diabetes Pedigree Function</label>
+            <input type="number" class="form-control" id="diabetesPedigreeFunction" formControlName="diabetesPedigreeFunction" placeholder="0" step="0.001">
+          </div>
+          <div class="form-group">
+            <label for="glucose">Glucose</label>
+            <input type="number" class="form-control" id="glucose" formControlName="glucose" placeholder="0">
+          </div>
+          <div class="form-group">
+            <label for="insulin">Insulin</label>
+            <input type="number" class="form-control" id="insulin" formControlName="insulin" placeholder="0">
+          </div>
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" class="form-control" id="age" formControlName="age" placeholder="0">
+          </div>
+          <div class="form-group">
+            <label for="bloodPressure">Blood Pressure</label>
+            <input type="number" class="form-control" id="bloodPressure" formControlName="bloodPressure" placeholder="0">
+          </div>
+          <div class="form-group">
+            <label for="bmi">BMI</label>
+            <input type="number" class="form-control" id="bmi" formControlName="bmi" placeholder="0" step="0.1">
+          </div>
+          <button type="submit" class="btn btn-confirm btn-block" [disabled]="!diabetesForm.valid">Confirm</button>
+        </form>
+        <div class="prediction-result mt-3">
+          <p>The prediction is Abnormal</p> </div>
+        <div class="prediction-result mt-3">
+            <p>The prediction is normal</p></div>
+      </div>
+    </div>
+  </div>
+  
