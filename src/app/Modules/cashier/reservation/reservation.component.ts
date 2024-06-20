@@ -115,7 +115,7 @@ export class ReservationComponent implements OnInit , OnChanges {
     };
 console.log(this.reservation);
     this.reservationservice
-      .newReservation(this.reservation)
+      .newReservation(this.reservation.patientId, this.selectedPlacePriceId, this.reservation.firstName, this.reservation.lastName)
       .subscribe(observer);
   }
 

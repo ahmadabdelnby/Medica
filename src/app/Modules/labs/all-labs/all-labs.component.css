@@ -1,0 +1,46 @@
+.login-card {
+    background-color: white;
+    /* width: 15em; */
+    box-shadow: 0 5px 25px rgba(1 1 1 /15%);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 15px;
+    transition: 0.7s ease;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .login-card h1 {
+    color: #024d9a;
+  }
+  
+  .login-card label {
+    font-weight: bold;
+  }
+  
+  .login-card button {
+    background-color: #fa930d;
+    font-size: large;
+    font-weight: 500;
+  }
+  
+  .login-page {
+    background-image: url(../../../../assets/images/prook.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .card-content{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap; 
+  }
+  
+  .card-title{
+    color: #024d9a;
+  }
+  

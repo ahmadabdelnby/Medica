@@ -23,6 +23,7 @@ import {
   TokenInterceptor,
   httpInterceptorProviders,
 } from './auth/token.interceptor';
+import { LabsModule } from './Modules/labs/labs.module';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import {
     HttpClientModule,
     MatSnackBarModule,
     HttpClientModule,
+    LabsModule,
   ],
   providers: [
     provideClientHydration(),

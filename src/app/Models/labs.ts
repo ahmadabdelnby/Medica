@@ -1,5 +1,5 @@
 export interface Labs {
-    id: string ; 
+    id: number ; 
     name: string ;
     type: string ;
     hospitalID: string ;

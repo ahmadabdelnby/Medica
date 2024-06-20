@@ -1,32 +1,12 @@
-<div
-  class="container-fluid w-100 d-flex flex-column d-flex justify-content-center min-vh-100 login-page align-items-center">
-  <div class="login-card co l-8 w-25 h-100">
-    <h1 class="text-center mt-5">Login</h1>
-    <form class="mt-4">
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input
-          type="text"
-          class="form-control"
-          id="username"
-          placeholder="Enter your name" />
+<div class="container-fluid w-100  min-vh-100 login-page pt-5">
+    <div class="card-content m-5 ">
+      <div class="card m-3 " style="width: 18rem;" *ngFor="let clinic of clinics">
+        <div class="card-body">
+          <h2 class="card-title">{{clinic.name}}</h2>
+          <h6 class="card-subtitle mb-2 text-body-secondary">{{clinic.department}}</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <button type="button" class="btn btn-warning me-2" (click)="goToClinicDetails(clinic.id)">Open</button>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input
-          type="password"
-          class="form-control"
-          id="password"
-          placeholder="Enter your password" />
-      </div>
-      <div class="form-group d-flex justify-content-center">
-        <button type="submit" class="btn btn-primary btn-block mt-2">
-          Enter
-        </button>
-      </div>
-      <!-- <div class="text-center mt-3">
-               <a href="#">Forgot Password?</a>
-            </div> -->
-    </form>
-  </div>
+    </div>
 </div>
