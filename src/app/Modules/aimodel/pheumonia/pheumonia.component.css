@@ -1,0 +1,44 @@
+.pagee {
+  background-image: url('../../../../assets/images/phe.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-weight: bold;
+  color: white;
+}
+
+.alert-warning {
+  background-color: #ffcc00;
+  color: #000;
+}
+
+.card {
+  border-radius: 10px;
+}
+
+.prediction-result {
+  font-size: 1.5rem;
+  margin-top: 20px;
+}
+
+.alert-info {
+  background-color: #d63384;
+  color: #fff;
+}
+
+#fileInput {
+  display: none;
+}
+
+.input-group-text {
+  background-color: #ffcc00;
+  color: #000;
+  cursor: pointer;
+}

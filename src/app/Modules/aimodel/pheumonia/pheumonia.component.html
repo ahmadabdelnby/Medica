@@ -1,0 +1,30 @@
+<div class="d-flex flex-column align-items-center justify-content-center pagee">
+  <div class="container-fluid w-100 pt-5">
+    <p class="text-center h1 fw-bold mb-3 mx-1 mx-md-4 mt-4 title">Pneumonia Prediction</p>
+    <div class="text-center container">
+      <div class="alert alert-warning">
+        Easy Application For Pneumonia Prediction
+      </div>
+
+      <div class="card mx-auto" style="max-width: 600px;">
+        <div class="card-body">
+          <h5 class="card-title">Choose an X-ray image:</h5>
+          <div class="input-group mb-3">
+            <input type="file" class="form-control" accept="image/*" id="fileInput" (change)="onFileSelected($event)">
+            <label class="input-group-text" for="fileInput">Browse files</label>
+          </div>
+          <div class="text-center">
+            <img id="preview-image" class="img-fluid" *ngIf="imageSrc" [src]="imageSrc" alt="X-ray Image">
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <h2 class="title">Prediction Result:</h2>
+        <div *ngIf="prediction" class="alert alert-info prediction-result">
+          {{ prediction }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

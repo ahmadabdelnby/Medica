@@ -26,6 +26,7 @@ import { ContactusComponent } from './Modules/more/contactus/contactus.component
 import { AllLabsComponent } from './Modules/labs/all-labs/all-labs.component';
 import { LabReservationsComponent } from './Modules/labs/lab-reservations/lab-reservations.component';
 import { PredictionComponent } from './Modules/aimodel/prediction/prediction.component';
+import { PheumoniaComponent } from './Modules/aimodel/pheumonia/pheumonia.component';
 
 // import { UserRole } from './Models/user';
 // UserRole;
@@ -77,6 +78,7 @@ const routes: Routes = [
   {path : 'Labs' , component: AllLabsComponent },
   {path : 'labreservation/:id' , component: LabReservationsComponent},
   {path: 'prediction' , component: PredictionComponent},
+  {path: 'pheumonia' , component:PheumoniaComponent},
   { path: '**', component: NotFoundComponent },
   
 ];
