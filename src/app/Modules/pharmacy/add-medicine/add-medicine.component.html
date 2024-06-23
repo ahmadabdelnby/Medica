@@ -1,7 +1,7 @@
 <div
   class="row m-0 p-0"
   style="
-    background-image: url(../../../assets/images/medicine\ 3.jpg);
+   
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
@@ -9,20 +9,23 @@
   <div class="p-md-5">
     <div class="d-flex flex-column align-items-center justify-content-center">
       <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-        <!-- validating register form /////////////////////////////////////////////////////////////////////////////////////// -->
         <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
           Add medicine
         </p>
 
-        <form class="mx-1 mx-md-4">
+        <form class="mx-1 mx-md-4"
+        (ngSubmit)="addMedicine(name.value)"
+        (ngSubmit)="addMedicineType()">
           <div class="d-flex flex-row align-items-center mb-4">
             <div class="form-outline flex-fill mb-0">
-              <label class="form-label" for="form3Example3c"
-                >Medicine name</label
+              <label class="form-label medecine" for="form3Example3c"
+                >Name</label
               >
               <input
                 type="text"
                 id="name"
+                #name
+                formControlName="name"
                 name="name"
                 class="form-control"
                 required />
@@ -31,11 +34,33 @@
 
           <div class="d-flex flex-row align-items-center mb-4">
             <div class="form-outline flex-fill mb-0">
-              <label class="form-label" for="form3Example3c">Quantity</label>
+              <label class="form-label medecine" for="form3Example3c">Medicine id </label>
+              <select [ngModelOptions]="{ standalone: true }" class="form-control" id="medicineSelect" [(ngModel)]="medicine.medicineID">
+                <option *ngFor="let medicine of medicineList" [value]="medicine.id">{{ medicine.id }}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="d-flex flex-row align-items-center mb-4">
+            <div class="form-outline flex-fill mb-0">
+              <label class="form-label medecine" for="form3Example3c">Type id</label>
+              <select [ngModelOptions]="{ standalone: true }" class="form-control" id="typeSelect"  [(ngModel)]="medicine.typeID">
+                <option *ngFor="let type of typesArray" [value]="type.id">{{ type.id }}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="d-flex flex-row align-items-center mb-4">
+            <div class="form-outline flex-fill mb-0">
+              <label class="form-label medecine" for="form3Example3c"
+                >Description</label
+              >
               <input
-                type="number"
-                id="number"
-                name="number"
+                type="text"
+                id="text"
+                [(ngModel)]="medicine.description"
+                [ngModelOptions]="{ standalone: true }"
+                name="text"
                 class="form-control"
                 required />
             </div>
@@ -43,13 +68,47 @@
 
           <div class="d-flex flex-row align-items-center mb-4">
             <div class="form-outline flex-fill mb-0">
-              <label class="form-label" for="form3Example1c"
-                >Expired Date</label
+              <label class="form-label medecine" for="form3Example3c"
+                >Side effects</label
+              >
+              <input
+                type="text"
+                id="text"
+                [(ngModel)]="medicine.sideEffects"
+                [ngModelOptions]="{ standalone: true }"
+                name="text"
+                class="form-control"
+                required />
+            </div>
+          </div>
+
+          <div class="d-flex flex-row align-items-center mb-4">
+            <div class="form-outline flex-fill mb-0">
+              <label class="form-label medecine" for="form3Example3c"
+                >Warning</label
+              >
+              <input
+                type="text"
+                id="text"
+                [(ngModel)]="medicine.warning"
+                [ngModelOptions]="{ standalone: true }"
+                name="text"
+                class="form-control"
+                required />
+            </div>
+          </div>
+
+          <div class="d-flex flex-row align-items-center mb-4">
+            <div class="form-outline flex-fill mb-0">
+              <label class="form-label medecine" for="form3Example1c"
+                >Expire Date</label
               >
               <input
                 type="date"
                 id="date"
                 name="date"
+                [(ngModel)]="medicine.expireDate"
+                [ngModelOptions]="{ standalone: true }"
                 class="form-control"
                 required />
             </div>
@@ -57,55 +116,21 @@
 
           <div class="d-flex flex-row align-items-center mb-4">
             <div class="form-outline flex-fill mb-0">
-              <label class="form-label" for="form3Example3c"
-                >Active matrial</label
-              >
-              <input
-                type="text"
-                id="text"
-                name="text"
-                class="form-control"
-                required />
+              <label class="form-label medecine" for="form3Example3c">Medicine Name</label>
+              <select [ngModelOptions]="{ standalone: true }" class="form-control" id="medicineSelect" [(ngModel)]="medicine.medicineName">
+                <option *ngFor="let medicine of medicineList" [value]="medicine.name">{{ medicine.name }}</option>
+              </select>
             </div>
           </div>
 
           <div class="d-flex flex-row align-items-center mb-4">
             <div class="form-outline flex-fill mb-0">
-              <label class="form-label" for="form3Example3c"
-                >Dosage amount</label
-              >
-              <input
-                type="text"
-                id="form3Example3c"
-                name="text"
-                class="form-control"
-                required />
+              <label class="form-label medecine" for="form3Example3c">Type Name</label>
+              <select [ngModelOptions]="{ standalone: true }" class="form-control" id="typeSelect"  [(ngModel)]="medicine.typeName">
+                <option *ngFor="let type of typesArray" [value]="type.name">{{ type.name }}</option>
+              </select>
             </div>
           </div>
-          <div class="d-flex flex-row align-items-center mb-4">
-            <div class="form-outline flex-fill mb-0">
-              <label class="form-label" for="form3Example3c">Warning</label>
-              <input
-                type="text"
-                id="form3Example3c"
-                name="email"
-                class="form-control"
-                required />
-            </div>
-          </div>
-
-          <div class="d-flex flex-row align-items-center mb-4">
-            <div class="form-outline flex-fill mb-0">
-              <label class="form-label" for="form3Example3c">Side effect</label>
-              <input
-                type="text"
-                id="form3Example3c"
-                name="email"
-                class="form-control"
-                required />
-            </div>
-          </div>
-
           <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
             <button type="submit" class="btn btn-primary btn-lg">Save</button>
           </div>

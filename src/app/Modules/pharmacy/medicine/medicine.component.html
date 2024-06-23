@@ -4,7 +4,7 @@
     background-image: url('../../../assets/images/medicine 2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
+    min-height: 100vh;
   "
 >
   <div
@@ -22,7 +22,6 @@
           (input)="filterTable()"
         />
       </div>
-
       <div class="custom-button">
         <button
           type="button"
@@ -37,26 +36,67 @@
     <table class="table">
       <thead class="table-danger">
         <tr>
+          <th scope="col">Medicine Id</th>
           <th scope="col">Medicine Name</th>
-          <th scope="col">Medicine Details</th>
+          <th scope="col">sideEffects</th>
+          <th scope="col">warning</th>
+          <th scope="col">description</th>
+          <th scope="col">expirationDate</th>
+          <!-- <th scope="col">Quantity Plus</th>
+          <th scope="col">Quantity Minus</th>
+          <th scope="col">Medicine Remove</th> -->
+        </tr>
+      </thead>
+      <tbody id="medicineTable">
+        <tr class="table-light" *ngFor="let medicine of medicineArray">
+          <td>{{ medicine.medicine.id }}</td>
+          <td>{{ medicine.medicine.name }}</td>
+          <td>{{medicine.sideEffects}}</td>
+          <td>{{medicine.warning}}</td>
+          <td>{{medicine.description}}</td>
+          <td>{{medicine.expirationDate}}</td>
+          <!-- <td><button type="button" class="btn btn-success">Plus 1</button></td>
+          <td><button type="button" class="btn btn-info">Minus 1</button></td>
+          <td>
+            <button type="button" class="btn btn-danger" (click)="removeRow(medicine.id)">
+              Remove
+            </button>
+          </td> -->
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Side Effects</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Description</th>
+          <th scope="col">Expiration Date</th>
           <th scope="col">Quantity Plus</th>
           <th scope="col">Quantity Minus</th>
           <th scope="col">Medicine Remove</th>
         </tr>
       </thead>
       <tbody id="medicineTable">
-        <tr class="table-light" *ngFor="let row of medicineRows" [id]="'row' + row.id">
-          <td>{{ row.name }}</td>
-          <td><a href="/medicinedetails" class="btn btn-warning">Enter</a></td>
-          <td><button type="button" class="btn btn-success">Plus 1</button></td>
-          <td><button type="button" class="btn btn-info">Minus 1</button></td>
+        <tr class="table-light" *ngFor="let medicine of MedicineArray">
+          <td>{{ medicine.id }}</td>
+          <td>{{ medicine.name }}</td>
+          <td>{{ medicine.sideEffects }}</td>
+          <td>{{ medicine.quantity }}</td>
+          <td>{{ medicine.description }}</td> 
+          <td>{{ medicine.expirationDate }}</td>
+          <td><button type="button" class="btn btn-success" (click)="increaseQuantity(medicine.id)">Plus 1</button></td>
+          <td><button type="button" class="btn btn-info" (click)="decreaseQuantity(medicine.id)">Minus 1</button></td>
           <td>
-            <button type="button" class="btn btn-danger" (click)="removeRow(row.id)">
+            <button type="button" class="btn btn-danger" (click)="removeRow(medicine.id)">
               Remove
             </button>
           </td>
         </tr>
       </tbody>
-    </table>
+    </table> -->
   </div>
 </div>

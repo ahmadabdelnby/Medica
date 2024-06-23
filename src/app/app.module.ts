@@ -12,7 +12,7 @@ import { FooterComponent } from './Shared-Components/footer/footer.component';
 import { HomeComponent } from './Shared-Components/home/home.component';
 import { ProfileModule } from './Modules/profile/profile.module';
 import { CashierModule } from './Modules/cashier/cashier.module';
-import { ClinicsModule } from './Modules/clinics/clinics.module';
+// import { ClinicsModule } from './Modules/clinics/clinics.module';
 import { NotFoundComponent } from './Shared-Components/not-found/not-found.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -24,6 +24,7 @@ import {
   httpInterceptorProviders,
 } from './auth/token.interceptor';
 import { LabsModule } from './Modules/labs/labs.module';
+import { ClinicsModule } from './Modules/clinics/clinics.module';
 
 
 @NgModule({
@@ -40,13 +41,14 @@ import { LabsModule } from './Modules/labs/labs.module';
     AuthenticationModule,
     ProfileModule,
     CashierModule,
-    ClinicsModule,
+    // ClinicsModule,
     PharmacyModule,
     MoreModule,
     HttpClientModule,
     MatSnackBarModule,
     HttpClientModule,
     LabsModule,
+    ClinicsModule
   ],
   providers: [
     provideClientHydration(),

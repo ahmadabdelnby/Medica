@@ -28,4 +28,34 @@ export class PharmacyServiceService {
 
   }
 
+  getAllPharmacies(pageNumber: number = 1, pageSize: number = 200, searchQuery?: string): Observable<any> {
+      if(searchQuery && pageNumber && pageSize){
+        return this.http.get(`${environment.APIURL}/api/Pharmacy/paginated`, {
+          params : {
+            pageNumber : pageNumber.toString(),
+            pageSize : pageSize.toString(),
+            searchQuery : searchQuery
+          },
+          headers : new HttpHeaders({
+            'Content-Type': 'application/json' ,
+            Authorization: `Bearer ${this.storageService.getUser()}`
+          })
+        });
+      }
+      
+      return this.http.get(`${environment.APIURL}/api/Pharmacy/paginated`, {
+        params : {
+          pageNumber : pageNumber.toString(),
+          pageSize : pageSize.toString(),
+        },
+        headers : new HttpHeaders({
+          'Content-Type': 'application/json' ,
+          Authorization: `Bearer ${this.storageService.getUser()}`
+        })
+      });
+  
+    }
+
+  
+
 }

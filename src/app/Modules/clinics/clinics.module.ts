@@ -15,5 +15,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
          FormsModule ,
          ReactiveFormsModule
   ],
+  exports: [
+    ClinicloginComponent,
+    UrprofileComponent,
+    DoctorReservationComponent,
+  ],
 })
 export class ClinicsModule {}

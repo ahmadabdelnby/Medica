@@ -4,9 +4,13 @@ import { UserBasicData } from '../../../Models/user-basic-data';
 import { Observable } from 'rxjs';
 import { response } from 'express';
 import { AllDiseaseOfUser } from '../../../Models/all-disease-of-user';
-// import { UserDiseaseService } from '../../../Services/User Disease/user-disease.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserDiseaseServiceService } from '../../../Services/User Disease Service/user-disease-service.service';
+import { Disease } from '../../../Models/disease';
+import { AddUserDisease } from '../../../Models/add-user-disease';
+import { Router , ActivatedRoute } from '@angular/router';
+import { UserDataById } from '../../../Models/user-data-by-id';
 
 @Component({
   selector: 'app-urprofile',
@@ -14,7 +18,37 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrl: './urprofile.component.css',
 })
 export class UrprofileComponent implements OnInit{
+  newUserDisease: AddUserDisease = {
+    type: '',
+    valueResult: '',
+    Description: '',
+    height: '',
+    weight: '',
+    userId: '',
+    DiseaseId: '',
+    Diagnosis: '',
+    DiagnosisDate: '',
+    photo: ''
+  }
+  newDisease: Disease[] =[] ;
+  selectedDisease: any;
   formData! : FormGroup;
+  patientData : UserDataById = {
+    id: '',
+    firstName: '',
+    lastName: '',
+    userName: '',
+    email: '',
+    phone: undefined,
+    nid: '',
+    birthDate: '',
+    gender: '',
+    isRegister: false,
+    bloodType: undefined,
+    maritalStatus: undefined,
+    roles: []
+  } ;
+
   userData: UserBasicData = {
     firstName: '',
     lastName: '',
@@ -34,8 +68,8 @@ export class UrprofileComponent implements OnInit{
     type: '',
     valueResult: 0,
     description: '',
-    height: 0,
-    weight: 0,
+    height: '',
+    weight: '',
     diseaseName: '',
     diseaseDescription: '',
     diseaseSymptoms: '',
@@ -46,9 +80,11 @@ export class UrprofileComponent implements OnInit{
     }
 
   constructor(private userDataService: UserDataService ,
-              // private userDiseaseService: UserDiseaseService ,
+              private userDiseaseService: UserDiseaseServiceService ,
               private _snackBar: MatSnackBar ,
-              private fb: FormBuilder
+              private fb: FormBuilder ,
+              private router: Router ,
+              private activatedRoute: ActivatedRoute
   ) { 
     this.formData = this.fb.group({
       type: ['', Validators.required],
@@ -60,7 +96,6 @@ export class UrprofileComponent implements OnInit{
       DiseaseId: ['', Validators.required],
       Diagnosis: ['', Validators.required],
       DiagnosisDate: ['', Validators.required],
-      photo: ['']
     });
   }
   ngOnInit(): void {
@@ -69,34 +104,45 @@ export class UrprofileComponent implements OnInit{
         this.userData = data.data;
         console.log('User Data: ', data.data);
       }
-    )
+    );
+    
+    this.activatedRoute.params.subscribe(params => {
+      const id = params['id'];
+      this.userDataService.getUserById(id).subscribe(data => {
+        this.patientData = data.data;
+      }
+      );
+      console.log('User Data: ', this.patientData);
+    });
 
-    // this.userDataService.GetAllDiseaseOfUser().subscribe(
-    //   data => {
-    //     this.userDisease = data.data;
-    //     console.log('User Disease: ', data.data);
-    //   }
-    // )
-
+    this.userDiseaseService.getAllDisease().subscribe(response => {
+      this.newDisease = response.data.map((data: any) => ({
+        id: data.id,
+        name: data.name,
+        description: data.description,
+        symptoms: data.symptoms,
+        causes: data.causes,
+      }));
+      console.log('Diseases: ', this.newDisease);
+    });
   }
 
-  // addUserDiseaseToProfile() {
-  //   if (this.formData.valid) {
-  //     this.userDiseaseService.addUserDisease(this.formData.value).subscribe(
-  //       response => {
-  //         console.log(response);
-  //         this._snackBar.open('Operation completed successfully', 'Close', {
-  //           duration: 4000,
-  //         });
-  //       },
-  //       error => {
-  //         console.error(error);
-  //         console.log(response)
-  //         this._snackBar.open('Operation failed', 'Close', {
-  //           duration: 4000,
-  //         });
-  //       }
-  //     );
-  //   }
-  // }
+  addUserDiseaseToProfile() {
+    this.newUserDisease = this.formData.value;
+      const observer = {
+        next: (response: any) => {
+          this._snackBar.open('Disease Added Successfully', 'Done', {
+            duration: 3000,
+          });
+        },
+        error: (err: any) => {
+          console.log('this is the error ', err);
+          const errorMessage = err.error.message || 'An error occurred';
+          this._snackBar.open(`Disease Added Successfully : ${errorMessage}`, 'Close', {
+            duration: 5000,
+          });
+        },
+      };
+      this.userDiseaseService.addUserDisease(this.newUserDisease).subscribe(observer);
+  }
 }

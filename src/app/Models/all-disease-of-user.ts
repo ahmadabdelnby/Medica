@@ -6,13 +6,13 @@ export interface AllDiseaseOfUser {
   type: string ;
   valueResult: number ;
   description: string ;
-  height: number ;
-  weight: number ;
+  height: string ;
+  weight: string ;
   diseaseName: string ;
   diseaseDescription: string ;
   diseaseSymptoms: string ;
   diseaseCauses: string ;
   diagnosis: string ;
   diagnosisDate: string ;
-  docViewUrl: string[] ;
+  docViewUrl: File[] ;
 }

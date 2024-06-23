@@ -123,6 +123,6 @@ export class RegisterComponent implements OnInit {
         duration: 3000,
       });
     }
-    // this.authService.Register(this.user).subscribe(observer)
+    this.authService.Register(this.user).subscribe(observer)
   }
 }

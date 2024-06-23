@@ -36,4 +36,18 @@ export class UserDataService {
       }
     );
   }
+
+  getUserById(id: string): Observable<any> {
+    return this.http.get<any>(`${environment.APIURL}api/ApplicationUser/` , 
+      {
+        params:{
+          id : id  
+        },
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' ,
+        Authorization: `Bearer ${this.storageService.getUser()}`,
+        
+        }),
+      }
+    );
+  }
 }

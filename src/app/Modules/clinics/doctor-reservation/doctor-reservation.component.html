@@ -1,7 +1,7 @@
 <div
   class="row w-100 pt-5 mx-0"
   style="
-    background-image: url(../../../../assets/images/waiting.jpg);
+    background-image: url(../../../../assets/images/wait.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
@@ -9,6 +9,7 @@
   ">
   <div class="col-sm-1 d-flex flex-column align-items-center justify-content-center"></div>
   <div class="pt-4 col-sm-10">
+    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Clinic Data</p>
     <table class="table table-striped-columns">
       <tbody>
         <tr>
@@ -56,36 +57,26 @@
         </ul>
       </div>
     </div>
-    <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    
     <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Waiting List</p>
     <table class="table">
       <thead class="table-info">
         <tr>
           <th scope="col">Name</th>
-          <th scope="col">Id</th>
-          <th scope="col">Age</th>
-          <th scope="col">Number</th>
+          <th scope="col">National Id</th>
+          <th scope="col">Birth Date</th>
+          <th scope="col">Serial Number</th>
           <th scope="col">Check profile</th>
           <th scope="col">Confirm</th>
         </tr>
       </thead>
       <tbody>
-        <tr class="table-secondary">
-          <td>said</td>
-          <td>12150365465</td>
-          <td>25</td>
-          <td>12345</td>
-          <td><a href="/urprofile" class="btn btn-warning">Enter</a></td>
-          <td>
-            <a class="btn btn-primary" (click)="removeRow($event)">Next</a>
-          </td>
-        </tr>
-        <tr class="table-secondary">
-          <td>mohamed</td>
-          <td>45654245</td>
-          <td>30</td>
-          <td>67890</td>
-          <td><a href="/urprofile" class="btn btn-warning">Enter</a></td>
+        <tr class="table-secondary" *ngFor="let reservation of placeReservations">
+          <td>{{reservation.firstname}} - {{reservation.lastname}}</td>
+          <td>{{reservation.nid}}</td>
+          <td>{{reservation.birthDate}}</td>
+          <td>{{reservation.serialNumber}}</td>
+          <td><button class="btn btn-warning" (click)="goToPatientDetails(reservation.nid)">Enter</button></td>
           <td>
             <a class="btn btn-primary" (click)="removeRow($event)">Next</a>
           </td>

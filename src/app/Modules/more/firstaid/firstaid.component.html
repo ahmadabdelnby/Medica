@@ -9,8 +9,9 @@
             (input)="onSearch($event)" />
     </div>
 
-    <div id="cards-container" class="container d-flex flex-column align-items-center">
-        <div class="card w-100 mb-3 firstaid-cards" *ngFor="let card of uniqueCards">
+    <!-- <div id="cards-container" class="container d-flex flex-column align-items-center"> -->
+    <div id="cards-container" class="container-fluid d-flex flex-row align-items-center flex-wrap justify-content-around my-1">
+        <div class="card firstaid-cards my-1" *ngFor="let card of uniqueCards">
             <img [src]="card.img" class="card-img-top image" alt="..." />
             <div class="card-body">
                 <h1 class="card-title text-center">{{ card.title }}</h1>

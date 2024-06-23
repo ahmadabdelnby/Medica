@@ -25,6 +25,8 @@ import { AboutusComponent } from './Modules/more/aboutus/aboutus.component';
 import { ContactusComponent } from './Modules/more/contactus/contactus.component';
 import { AllLabsComponent } from './Modules/labs/all-labs/all-labs.component';
 import { LabReservationsComponent } from './Modules/labs/lab-reservations/lab-reservations.component';
+import { isLoggedGuard } from './Guards/is-logged.guard';
+import { PatientProfileComponent } from './Modules/labs/patient-profile/patient-profile.component';
 
 // import { UserRole } from './Models/user';
 // UserRole;
@@ -50,31 +52,33 @@ const routes: Routes = [
     component: CashierSystemComponent,
     // canActivate: [AuthGuard],
     // data: { roles: [UserRole.Cashier] },
+    canActivate: [isLoggedGuard]
   },
   {
     path: 'Reservation',
     component: ReservationComponent,
     // canActivate: [AuthGuard],
     // data: { roles: [UserRole.Cashier] },
+    canActivate: [isLoggedGuard]
   },
   {
     path: 'cliniclogin',
     component: ClinicloginComponent,
-    // canActivate: [AuthGuard],
-    // data: { roles: [UserRole.Doctor] },
+    canActivate: [isLoggedGuard]
   },
 
-  { path: 'urprofile', component: UrprofileComponent },
+  { path: 'urprofile/:id', component: UrprofileComponent },
   { path: 'doctorreservation/:id', component: DoctorReservationComponent },
   { path: 'Login', component: LoginComponent },
   { path: 'medicine', component: MedicineComponent },
   { path: 'addmedicine', component: AddMedicineComponent },
-  { path: 'medicinedetails', component: MedicineDetailsComponent },
+  { path: 'medicinedetails/:id', component: MedicineDetailsComponent },
   {path:'firstaid', component:FirstaidComponent},
   {path:'aboutus',component:AboutusComponent},
   {path:'contactus',component:ContactusComponent},
   {path : 'Labs' , component: AllLabsComponent },
   {path : 'labreservation/:id' , component: LabReservationsComponent},
+  {path : 'PatientDetails/:id' , component: PatientProfileComponent},
   { path: '**', component: NotFoundComponent },
   
 ];

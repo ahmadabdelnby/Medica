@@ -1,36 +1,80 @@
 <div class="row p-0 m-0" style="background-image: url(../../../../assets/images/profilee.webp); background-size: cover; background-repeat: no-repeat; height: 100%;">
   <div class="col-sm-1 d-flex flex-column align-items-center justify-content-center"></div>
-  <div class="pt-4 col-sm-10">
-    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Details</p>
+  <div class="pt-5 col-sm-10">
+    <!-- <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Patient Details</p>
     <table class="table table-striped-columns">
       <tbody>
         <tr>
           <td class="fw-bold">First Name:</td>
-          <!-- <td>{{userData.firstName}}</td> -->
+          <td>{{userData.firstName}}</td>
+          
         </tr>
         <tr>
           <td class="fw-bold">Last Name:</td>
-          <!-- <td>{{userData.lastName}}</td> -->
+          <td>{{userData.lastName}}</td>
+          
         </tr>
         <tr>
           <td class="fw-bold">ID:</td>
-          <!-- <td>{{userData.nid}}</td> -->
+          <td>{{userData.nid}}</td>
+          
         </tr>
         <tr>
           <td class="fw-bold">age:</td>
-          <!-- <td>{{userData.age}}</td> -->
+          <td>{{userData.age}}</td>
+          
         </tr>
         <tr>
           <td class="fw-bold">phone number:</td>
-          <!-- <td>{{userData.phoneNumber}}</td> -->
+          <td>{{userData.phoneNumber}}</td>
+         
         </tr>
         <tr>
           <td class="fw-bold">E-mail:</td>
-          <!-- <td>{{userData.email}}</td> -->
+          <td>{{userData.email}}</td>
+         
         </tr>
         <tr>
           <td class="fw-bold">Blood type:</td>
-          <!-- <td>{{userData.bloodType}}</td> -->
+          <td>{{userData.bloodType}}</td>
+        
+        </tr>
+      </tbody>
+    </table> -->
+    <!-- /////////////////////////////////////////////////////////////////////////////////////////// -->
+     <br>
+     <br>
+     <br>
+    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Patient Details</p>
+    <table class="table table-striped-columns">
+      <tbody>
+        <tr>
+          <td class="fw-bold">First Name:</td>
+          <td>{{patientData.firstName}}</td>
+        </tr>
+        <tr>
+          <td class="fw-bold">Last Name:</td>
+          <td>{{patientData.lastName}}</td>
+        </tr>
+        <tr>
+          <td class="fw-bold">ID:</td>
+          <td>{{patientData.nid}}</td>
+        </tr>
+        <tr>
+          <td class="fw-bold">gender:</td>
+          <td>{{patientData.gender}}</td>
+        </tr>
+        <tr>
+          <td class="fw-bold">phone number:</td>
+          <td>{{patientData.phone}}</td>
+        </tr>
+        <tr>
+          <td class="fw-bold">E-mail:</td>
+          <td>{{patientData.email}}</td>
+        </tr>
+        <tr>
+          <td class="fw-bold">Blood type:</td>
+          <td>{{patientData.bloodType}}</td>
         </tr>
       </tbody>
     </table>
@@ -38,74 +82,119 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Illness Name</th>
-          <th>prescription</th>
+          <th>Test Name</th>
+          <th>Test Result</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>sdaksad</td>
+          <td>Liver Panel</td>
           <td><a href="#" class="btn btn-warning">Show</a></td>
         </tr>
         <tr>
-          <td>sdasadsad</td>
+          <td>Lipid Panel</td>
           <td><a href="#" class="btn btn-warning">Show</a></td>
         </tr>
         <tr>
-          <td>dsasad</td>
+          <td>Metabolic Panel</td>
           <td><a href="#" class="btn btn-warning">Show</a></td>
         </tr>
         <tr>
-          <td>sadads</td>
+          <td>Complete Blood Count (CBC)</td>
           <td><a href="#" class="btn btn-warning">Show</a></td>
         </tr>
       </tbody>
     </table>
+    <div></div>
+    
     <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Add Illness</p>
-    <!-- <form [formGroup]="formData" (ngSubmit)="addUserDiseaseToProfile()" class="form-group">
-      <div class="form-group m-2">
-        <label for="type" class="label-style">Type</label>
-        <input type="text" id="type" formControlName="type" placeholder="Type" class="form-control">
+    <form [formGroup]="formData" (ngSubmit)="addUserDiseaseToProfile()" class="form-group">
+      <div class="form-group m-2 row">
+        <div class="col-5">
+          <label for="type" class="label-style col-5">Type</label>
+        </div>
+        <div class="col-5">
+          <input type="text" id="type" #type formControlName="type" placeholder="Type" class="form-control col-5">
+        </div>
       </div>
-      <div class="form-group m-2">
-        <label for="valueResult" class="label-style">Value Result</label>
-        <input type="number" id="valueResult" formControlName="valueResult" placeholder="Value Result" class="form-control">
+      <div class="form-group m-2 row">
+        <div class="col-5">
+          <label for="valueResult" class="label-style">Value Result</label>
+        </div>
+        <div class="col-5">
+          <input type="number" #valueResult id="valueResult" formControlName="valueResult" placeholder="Value Result" class="form-control">
+        </div>
       </div>
-      <div class="form-group m-2">
-        <label for="Description" class="label-style">Description</label>
-        <input type="text" id="Description" formControlName="Description" placeholder="Description" class="form-control">
+      <div class="form-group m-2 row">
+        <div class="col-5">
+          <label for="Description" class="label-style">Description</label>
+        </div>
+        <div class="col-5">
+          <input type="text" #Description id="Description" formControlName="Description" placeholder="Description" class="form-control">
+        </div>
       </div>
-      <div class="form-group m-2">
-        <label for="height" class="label-style">Height</label>
-        <input type="number" id="height" formControlName="height" placeholder="Height" class="form-control">
+      <div class="form-group m-2 row">
+        <div class="col-5">
+          <label for="height" class="label-style">Height</label>
+        </div>
+        <div class="col-5">
+          <input type="number" #height id="height" formControlName="height" placeholder="Height" class="form-control">
+        </div>
       </div>
-      <div class="form-group m-2">
-        <label for="weight" class="label-style">Weight</label>
-        <input type="number" id="weight" formControlName="weight" placeholder="Weight" class="form-control">
+      <div class="form-group m-2 row">
+        <div class="col-5">
+          <label for="weight" class="label-style">Weight</label>
+        </div>
+        <div class="col-5">
+          <input type="number" #weight id="weight" formControlName="weight" placeholder="Weight" class="form-control">
+        </div>
       </div>
-      <div class="form-group m-2">
-        <label for="userId" class="label-style">User ID</label>
-        <input type="number" id="userId" formControlName="userId" placeholder="User ID" class="form-control">
+      <div class="form-group m-2 row">
+        <div class="col-5">
+          <label for="userId" class="label-style">User ID</label>
+        </div>
+        <div class="col-5">
+          <input type="number" #userId id="userId" formControlName="userId" placeholder="User ID" class="form-control">
+        </div>
       </div>
-      <div class="form-group m-2">
-        <label for="DiseaseId" class="label-style">Disease ID</label>
-        <input type="number" id="DiseaseId" formControlName="DiseaseId" placeholder="Disease ID" class="form-control">
+      <div class="form-group m-2 row">
+        <div class="col-5">
+          <label for="DiseaseId" class="label-style">Disease</label>
+        </div>
+        <div class="col-5">
+          <select id="DiseaseId" #DiseaseId [(ngModel)]="selectedDisease" class="form-select">
+            <option selected disabled value="" >Select Disease</option>
+            <option #DiseaseId *ngFor="let disease of newDisease" [value]="disease.id">{{disease.name}}</option>
+          </select>
+        </div>
       </div>
-      <div class="form-group m-2">
-        <label for="Diagnosis" class="label-style">Diagnosis</label>
-        <input type="text" id="Diagnosis" formControlName="Diagnosis" placeholder="Diagnosis" class="form-control">
+      <div class="form-group m-2 row">
+        <div class="col-5">
+          <label for="Diagnosis" class="label-style">Diagnosis</label>
+        </div>
+        <div class="col-5">
+          <input type="text" #Diagnosis id="Diagnosis" formControlName="Diagnosis" placeholder="Diagnosis" class="form-control">
+        </div>
       </div>
-      <div class="form-group m-2">
-        <label for="DiagnosisDate" class="label-style">Diagnosis Date</label>
-        <input type="date" id="DiagnosisDate" formControlName="DiagnosisDate" placeholder="Diagnosis Date" class="form-control">
+      <div class="form-group m-2 row">
+        <div class="col-5">
+          <label for="DiagnosisDate" class="label-style">Diagnosis Date</label>
+        </div>
+        <div class="col-5">
+          <input type="datetime-local" #DiagnosisDate id="DiagnosisDate" formControlName="DiagnosisDate" placeholder="Diagnosis Date" class="form-control">
+        </div>
       </div>
-      <div class="form-group m-2">
-        <label for="photo" class="label-style">Photo</label>
-        <input type="file" id="photo" formControlName="photo" placeholder="Photo" class="form-control">
+      <div class="form-group m-2 row">
+        <div class="col-5">
+          <label for="photo" class="label-style">Photo</label>
+        </div>
+        <div class="col-5">
+          <input type="file" #photo id="photo" formControlName="photo" placeholder="Photo" class="form-control">
+        </div>
       </div>
       <div class="d-flex justify-content-center m-4">
       <button type="submit" class="btn btn-primary">Submit</button>
       </div>
-    </form> -->
+    </form>
   </div>
 </div>

@@ -68,4 +68,9 @@ export class LabReservationsComponent implements OnInit {
     }
   }
 
+  showPatientDetails(id: number) {
+    this.router.navigate(['/PatientDetails', id]);
+    console.log('Lab ID: ', id);
+  }
+
 }
