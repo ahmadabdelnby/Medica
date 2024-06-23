@@ -5,6 +5,7 @@ import { UrprofileComponent } from './urprofile/urprofile.component';
 import { DoctorReservationComponent } from './doctor-reservation/doctor-reservation.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     ClinicloginComponent,

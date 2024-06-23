@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
-import {
-  BrowserModule,
-  provideClientHydration,
-} from '@angular/platform-browser';
-
+import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthenticationModule } from './Modules/authentication/authentication.module';
@@ -14,15 +11,11 @@ import { ProfileModule } from './Modules/profile/profile.module';
 import { CashierModule } from './Modules/cashier/cashier.module';
 // import { ClinicsModule } from './Modules/clinics/clinics.module';
 import { NotFoundComponent } from './Shared-Components/not-found/not-found.component';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { PharmacyModule } from './Modules/pharmacy/pharmacy.module';
 import { MoreModule } from './Modules/more/more.module';
-import {
-  TokenInterceptor,
-  httpInterceptorProviders,
-} from './auth/token.interceptor';
+import { AimodelModule } from './Modules/aimodel/aimodel.module';
 import { LabsModule } from './Modules/labs/labs.module';
 import { ClinicsModule } from './Modules/clinics/clinics.module';
 
@@ -44,17 +37,13 @@ import { ClinicsModule } from './Modules/clinics/clinics.module';
     // ClinicsModule,
     PharmacyModule,
     MoreModule,
+    AimodelModule,
     HttpClientModule,
     MatSnackBarModule,
-    HttpClientModule,
     LabsModule,
     ClinicsModule
   ],
-  providers: [
-    provideClientHydration(),
-    provideAnimationsAsync(),
-    httpInterceptorProviders,
-  ],
-  bootstrap: [AppComponent],
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
