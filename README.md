@@ -1,4 +1,23 @@
-# MedicalSystem
+# Healthcare Management System
+Overview
+The Healthcare Management System is a comprehensive web application designed to streamline the management of various healthcare services, including clinics, pharmacies, medical analysis labs, and hospitals. The primary objective is to collect and manage patients' medical histories efficiently, providing a unified platform for healthcare professionals and patients alike.
+
+Features
+Clinic Management
+View Clinic Details: Users can view detailed information about clinics.
+Make Reservations: Patients can make reservations at clinics.
+Dynamic Department Display: Departments are displayed dynamically based on user selections.
+Reservation System
+Pagination Support: Allows users to view their reservations efficiently with support for page numbers and page sizes.
+User Authentication
+Role-Based Access Control: Secure login system with different functionalities based on user roles (e.g., patient, doctor, admin).
+Data Integration
+Comprehensive Medical History: Consolidates patient data from various healthcare services to maintain a complete medical history.
+
+Technologies Used
+Frontend: Angular
+Styling: Bootstrap, Angular Material
+Data Handling: Observables, RxJS
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
 
